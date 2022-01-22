@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-sm-1">
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8"> 
             <div class="row">
                 <div class="d-grid gap-2 col-12 mx-auto">
                     <hr class="separator"><h6 class="text-success " align="center"><b>Today's Feedback Statistics</b></h6><hr class="separator">
@@ -155,6 +155,15 @@ export default {
             console.log(response);
         })
         .catch();
+    },
+    watch: {
+      getFromDB(){
+          http.get("/total-today")
+            .then(response =>{
+                this.total_today = '<b style="color: #50c878">'+ response.data +'</b>';
+            })
+            .catch();
+      }
     }
 }
 </script>

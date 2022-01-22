@@ -79,9 +79,10 @@
 </template>
 
 <script>
-import http from "./../http-common.js";
-import router from './../router';
-import './../app.js';
+//import http from "./../http-common.js";
+//import router from './../router';
+import axios from 'axios'
+//import './../app.js';
     export default {
     name: 'app',
         data() {
@@ -94,7 +95,8 @@ import './../app.js';
                 freeze: false,
                 status: null,
                 rotor: '&nbsp;<i class="fas fa-sign-in-alt"></i>',
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                user: {}
             }
         },
 
@@ -126,11 +128,11 @@ import './../app.js';
                     "password": this.password
                 }
                 try{
-                    http.post("/login", postData)
+                    axios.post("http://127.0.0.1:8000/api/login", postData)
                     .then(response =>{
                         if(response.data == "Successful"){
                             this.status='<div class="alert alert-success text-justify"><center>Success!</center></label>';
-                            router.replace({ name: 'Dashboard' });
+                            this.$router.push({ name: 'Dashboard' });
                         }
                         else{
                             this.status='<div class="alert alert-danger text-danger"><center>Login attempt failed.</center></label>';
@@ -141,6 +143,11 @@ import './../app.js';
                 }catch(err){    
                     console.log(err)
                 }
+            }
+        },
+        watch: {
+            $route(to, from) {
+                this.login();
             }
         }
     }

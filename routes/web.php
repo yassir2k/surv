@@ -33,4 +33,6 @@ Route::get('/admin/absolute-total', function () {
     return view('admin/absolute-total');
 });
 
+Route::get('/admin/load-feedback/{id}', [FeedbackController::class, 'LoadFeedback']);
+
 Route::post('/submit-feedback', [FeedbackController::class, 'SaveFeedback']);

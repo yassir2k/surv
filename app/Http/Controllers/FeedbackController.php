@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Questions;
+use Session, DB;
 
 class FeedbackController extends Controller
 {
@@ -26,5 +28,13 @@ class FeedbackController extends Controller
         $challenges = $request->input('challenges');
         $changes = $request->input('changes');
         dd($quality);
+    }
+
+    public function LoadFeedback(Request $request)
+    {
+        $id = request()->route('id');
+        $Feedback = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))->where(['id'=> $id])->first();
+        return view('/admin/load-feedback')
+        ->with('_feedback',$Feedback);
     }
 }
