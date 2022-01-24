@@ -1,17 +1,16 @@
 
 <template><div>
 <NavBar />
-  <form action="/submit-feedback" method="post">
+  <form @submit.prevent="SaveFeedback">
   <input type="hidden" name="_token" :value="csrf"> 
     <div class="row">
         <div class="col-1">
             
         </div>
-        <div class="col-9">
+        <div class="col-10">
             <br />
             <h2 style="border-bottom: 1px solid #DDDDDD">{{header}}</h2>
             <br />
-
             <div class="row"> <!-- Main Row -->
 
                 <!-- Info -->
@@ -40,7 +39,7 @@
                                             <div class="input-group-text">
                                                 <i class="fas fa-user-edit" style="color: #8FBC8F"></i>
                                             </div>                    
-                                        <input type="text" class="form-control" placeholder="Your full name..." ref="respondent" name="respondent" required >
+                                        <input type="text" class="form-control" placeholder="Your full name..." ref="respondent" required >
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +59,7 @@
                                             <span class="input-group-text">
                                                 <i class="fas fa-user-tie" style="color: #8FBC8F"></i>
                                             </span>                    
-                                        <input type="text" class="form-control" placeholder="What do you do for a living?" ref="profession" name="profession" required >
+                                        <input type="text" class="form-control" placeholder="What do you do for a living?" ref="profession" required >
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +81,7 @@
                                             <div class="input-group-text"> 
                                                 <i class="fas fa-user-edit" style="color: #8FBC8F"></i>
                                             </div>                    
-                                        <input type="text" class="form-control" placeholder="Accreditation Number e.g. NBA/IND/1234" ref="accreditation"  name="accreditation" >
+                                        <input type="text" class="form-control" placeholder="Accreditation Number e.g. NBA/IND/1234" ref="accreditation" >
                                     </div>
                                 </div>
                             </div>
@@ -103,36 +102,38 @@
                 <dl class="row">
                     <dt class="col-sm-1">1.</dt>
                     <dd class="col-sm-11">Are you satisfied with the conduct of the Name Availability for your registration?
+                        <div class="form-group">
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd1_1" type="radio" v-model="sd1" value="Very Satisfied">
+                                    <input id="sd1_1" name="sd1" type="radio" v-model="sd1" value="Very Satisfied" required>
                                     <label for="sd1_1">Very Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
-                                <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd1_2" type="radio" v-model="sd1" value="Satisfied">
+                                <div class="chiller_cb align-items-center"><br />
+                                    <input id="sd1_2" name="sd1" type="radio" v-model="sd1" value="Satisfied" required>
                                     <label for="sd1_2">Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
-                                <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd1_3" type="radio" v-model="sd1" value="Dissatisfied">
+                                <div class="chiller_cb align-items-center"><br />
+                                    <input id="sd1_3" type="radio" name="sd1" v-model="sd1" value="Dissatisfied" required>
                                     <label for="sd1_3">Dissatisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd1_4" type="radio" v-model="sd1" value="Very Dissatisfied">
+                                    <input id="sd1_4" type="radio" name="sd1" v-model="sd1" value="Very Dissatisfied" required>
                                     <label for="sd1_4">Very Dissatisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                         </ul>
+                        </div>
                     </dd>
                 </dl>
                 <dl class="row">
@@ -141,35 +142,35 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd2_1" type="radio" v-model="sd2" value="Company (LLC)">
+                                    <input id="sd2_1" type="radio" required v-model="sd2" value="Company (LLC)">
                                     <label for="sd2_1">Company (LLC)</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd2_2" type="radio" v-model="sd2" value="Business Names">
+                                    <input id="sd2_2" type="radio" required v-model="sd2" value="Business Names">
                                     <label for="sd2_2">Business Names</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd2_3" type="radio" v-model="sd2" value="Incorporated Trustees">
+                                    <input id="sd2_3" type="radio" required v-model="sd2" value="Incorporated Trustees">
                                     <label for="sd2_3">Incorporated Trustees</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd2_4" type="radio" v-model="sd2" value="Limited Liability Partnership (LLP)">
+                                    <input id="sd2_4" type="radio" required v-model="sd2" value="Limited Liability Partnership (LLP)">
                                     <label for="sd2_4">Limited Liability Partnership (LLP)</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="sd2_5" type="radio" v-model="sd2" value="Limited Partnership (LP)">
+                                    <input id="sd2_5" type="radio" required v-model="sd2" value="Limited Partnership (LP)">
                                     <label for="sd2_5">Limited Partnership (LP)</label>
                                     <span></span>
                                 </div>
@@ -192,28 +193,28 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="q1" type="radio" v-model="q" name="q" value="Very Satisfied">
+                                    <input id="q1" type="radio" required v-model="q" value="Very Satisfied">
                                     <label for="q1">Very Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="q2" type="radio" v-model="q" value="Satisfied">
+                                    <input id="q2" type="radio" required v-model="q" value="Satisfied">
                                     <label for="q2">Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="q3" type="radio" v-model="q" value="Dissatisfied">
+                                    <input id="q3" type="radio" required v-model="q" value="Dissatisfied">
                                     <label for="q3">Dissatisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="q4" type="radio" v-model="q" value="Very Dissatisfied">
+                                    <input id="q4" type="radio" required v-model="q" value="Very Dissatisfied">
                                     <label for="q4">Very Dissatisfied</label>
                                     <span></span>
                                 </div>
@@ -236,28 +237,35 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t1_1" type="radio" v-model="t1" value="24 Hrs">
+                                    <input id="t1_0" type="radio" required v-model="t1" value="Less than 24 Hrs">
+                                    <label for="t1_0">Less than 24 Hrs</label>
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <div class="chiller_cb form-check-inline align-items-center"><br />
+                                    <input id="t1_1" type="radio" required v-model="t1" value="24 Hrs">
                                     <label for="t1_1">24 Hrs</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t1_2" type="radio" v-model="t1" value="48 Hrs">
+                                    <input id="t1_2" type="radio" required v-model="t1" value="48 Hrs">
                                     <label for="t1_2">48 Hrs</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t1_3" type="radio" v-model="t1" value="3 Days">
+                                    <input id="t1_3" type="radio" required v-model="t1" value="3 Days">
                                     <label for="t1_3">3 Days</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t1_4" type="radio" v-model="t1" value="Over 3 Days">
+                                    <input id="t1_4" type="radio" required v-model="t1" value="Over 3 Days">
                                     <label for="t1_4">Over 3 Days</label>
                                     <span></span>
                                 </div>
@@ -271,22 +279,29 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t2_1" type="radio" v-model="t2" value="Email">
+                                    <input id="t2_1" type="radio" required v-model="t2" value="Email">
                                     <label for="t2_1">Email</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t2_2" type="radio" v-model="t2" value="Telephone">
+                                    <input id="t2_2" type="radio" required v-model="t2" value="Telephone">
                                     <label for="t2_2">Telephone</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t2_3" type="radio" v-model="t2" value="Face to Face">
+                                    <input id="t2_3" type="radio" required v-model="t2" value="Face to Face">
                                     <label for="t2_3">Face to Face</label>
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <div class="chiller_cb form-check-inline align-items-center"><br />
+                                    <input id="t2_4" type="radio" required v-model="t2" value="Online Support Ticket System">
+                                    <label for="t2_4">Online Support Ticket System</label>
                                     <span></span>
                                 </div>
                             </li>
@@ -299,28 +314,28 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t3_1" type="radio" v-model="t3" value="Very Satisfied">
+                                    <input id="t3_1" type="radio" required v-model="t3" value="Very Satisfied">
                                     <label for="t3_1">Very Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t3_2" type="radio" v-model="t3" value="Satisfied">
+                                    <input id="t3_2" type="radio" required v-model="t3" value="Satisfied">
                                     <label for="t3_2">Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t3_3" type="radio" v-model="t3" value="Dissatisfied">
+                                    <input id="t3_3" type="radio" required v-model="t3" value="Dissatisfied">
                                     <label for="t3_3">Dissatisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t3_4" type="radio" v-model="t3" value="Very Dissatisfied">
+                                    <input id="t3_4" type="radio" required v-model="t3" value="Very Dissatisfied">
                                     <label for="t3_4">Very Dissatisfied</label>
                                     <span></span>
                                 </div>
@@ -334,36 +349,36 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t4_1" type="radio" v-model="t4" value="Excellent">
+                                    <input id="t4_1" type="radio" required v-model="t4" value="Excellent">
                                     <label for="t4_1">Excellent</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t4_2" type="radio" v-model="t4" value="Very Good">
+                                    <input id="t4_2" type="radio" required v-model="t4" value="Very Good">
                                     <label for="t4_2">Very Good</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t4_3" type="radio" v-model="t4" value="Good">
+                                    <input id="t4_3" type="radio" required v-model="t4" value="Good">
                                     <label for="t4_3">Good</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t4_4" type="radio" v-model="t4" value="Fair">
+                                    <input id="t4_4" type="radio" required v-model="t4" value="Fair">
                                     <label for="t4_4">Fair</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t4_5" type="radio" v-model="t4" value="Bad">
-                                    <label for="t4_5">Bad</label>
+                                    <input id="t4_5" type="radio" required v-model="t4" value="Poor">
+                                    <label for="t4_5">Poor</label>
                                     <span></span>
                                 </div>
                             </li>
@@ -385,36 +400,36 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe1_1" type="radio" v-model="oe1" value="Excellent">
+                                    <input id="oe1_1" type="radio" required v-model="oe1" value="Excellent">
                                     <label for="oe1_1">Excellent</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe1_2" type="radio" v-model="oe1" value="Very Good">
+                                    <input id="oe1_2" type="radio" required v-model="oe1" value="Very Good">
                                     <label for="oe1_2">Very Good</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe1_3" type="radio" v-model="oe1" value="Good">
+                                    <input id="oe1_3" type="radio" required v-model="oe1" value="Good">
                                     <label for="oe1_3">Good</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe1_4" type="radio" v-model="oe1" value="Fair">
+                                    <input id="oe1_4" type="radio" required v-model="oe1" value="Fair">
                                     <label for="oe1_4">Fair</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe1_5" type="radio" v-model="oe1" value="Bad">
-                                    <label for="oe1_5">Bad</label>
+                                    <input id="oe1_5" type="radio" required v-model="oe1" value="Poor">
+                                    <label for="oe1_5">Poor</label>
                                     <span></span>
                                 </div>
                             </li>
@@ -427,36 +442,36 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe2_1" type="radio" v-model="oe2" value="Excellent">
+                                    <input id="oe2_1" type="radio" required v-model="oe2" value="Excellent">
                                     <label for="oe2_1">Excellent</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe2_2" type="radio" v-model="oe2" value="Very Good">
+                                    <input id="oe2_2" type="radio" required v-model="oe2" value="Very Good">
                                     <label for="oe2_2">Very Good</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe2_3" type="radio" v-model="oe2" value="Good">
+                                    <input id="oe2_3" type="radio" required v-model="oe2" value="Good">
                                     <label for="oe2_3">Good</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe2_4" type="radio" v-model="oe2" value="Fair">
+                                    <input id="oe2_4" type="radio" required v-model="oe2" value="Fair">
                                     <label for="oe2_4">Fair</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe2_5" type="radio" v-model="oe2" value="Bad">
-                                    <label for="oe2_5">Bad</label>
+                                    <input id="oe2_5" type="radio" required v-model="oe2" value="Poor">
+                                    <label for="oe2_5">Poor</label>
                                     <span></span>
                                 </div>
                             </li>
@@ -469,28 +484,28 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe3_1" type="radio" v-model="oe3" value="Very Satisfied">
+                                    <input id="oe3_1" type="radio" required v-model="oe3" value="Very Satisfied">
                                     <label for="oe3_1">Very Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe3_2" type="radio" v-model="oe3" value="Satisfied">
+                                    <input id="oe3_2" type="radio" required v-model="oe3" value="Satisfied">
                                     <label for="oe3_2">Satisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe3_3" type="radio" v-model="oe3" value="Dissatisfied">
+                                    <input id="oe3_3" type="radio" required v-model="oe3" value="Dissatisfied">
                                     <label for="oe3_3">Dissatisfied</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="oe3_4" type="radio" v-model="oe3" value="Very Dissatisfied">
+                                    <input id="oe3_4" type="radio" required v-model="oe3" value="Very Dissatisfied">
                                     <label for="oe3_4">Very Dissatisfied</label>
                                     <span></span>
                                 </div>
@@ -534,8 +549,7 @@
                 </dl>
             </div>
         </div>
-        
-        <div class="col-2">
+        <div class="col-1">
             
         </div>
     </div>
@@ -546,7 +560,7 @@
         <div class="col-4">
             <div class="form-group">
                 <div class="d-grid gap-2">
-                    <button type="button" v-on:click="SaveFeedback" class="btn shadow-sm btn-success rounded-0" id="btn_submit">
+                    <button type="submit"  class="btn shadow-sm btn-success rounded-0" id="btn_submit">
                         Submit Feedback 
                         <i class="fas fa-angle-double-right" style="horizontal-align: right;"></i>
                     </button> 
@@ -644,6 +658,7 @@ export default {
                 "challenges": this.$refs.challenges.value,
                 "changes": this.$refs.changes.value,
             };
+            console.log(postData);
             setTimeout(() => { 
                 try{
                     res = http.post("/savefeedback", postData)

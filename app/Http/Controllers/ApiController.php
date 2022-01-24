@@ -109,7 +109,7 @@ class ApiController extends Controller
     }
 
     public function GetAbsolute(Request $request){
-        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))->paginate(6);
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))->paginate(3);
         return response()->json($temp);
     }
 

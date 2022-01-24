@@ -33,7 +33,7 @@
                         <td>{{ user.profession_ }}</td>
                         <td>{{ user.accreditation_ }}</td>
                         <td>{{ user.date_ }}</td>
-                        <td><a :data-bs-target="Here" @click="ShowFeedback(user.id)" data-bs-toggle="tooltip" title="View"><i class="fas fa-eye text-secondary"></i></a></td>
+                        <td><a href="#" @click="ShowFeedback(user.id)" data-bs-toggle="tooltip" title="View"><i class="fas fa-eye text-secondary"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>
@@ -45,7 +45,7 @@
             <pagination align="center" :data="users" @pagination-change-page="list"></pagination>
             <br />     
             <br />
-            <span :v-model="Here" style="position: inherit"  v-html="LoadView"></span>
+            <div id="ll" v-html="LoadView"></div>
         </div>
         <br />
     </center>
@@ -59,43 +59,43 @@ import http from "../http-common.js";
 import load from "../feedback.js"; 
 import pagination from 'laravel-vue-pagination'
 import NavBar from './FeedbackNav.vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 export default {
     name:"app",
     data() {
         return {
                 users:{
-                    type:Object,
+                    type: Object,
                     default: null,
-                    LoadView: ''
-                }
+                },
+                LoadView: ''
             }
     },
     props: {
         records: Number,
-        perPage: Number
+        perPage: Number,
+        length: Number
     },
     components:{
         NavBar, pagination
     },
     created(){
         this.list()
-        this.$nextTick(function () {
-            // Code that will run only after the
-            $('[data-bs-toggle="tooltip"]').tooltip();
-        })
     },
     methods:{
-        list(page=1){
+        list(page=0){
             http.get(`/absolute?page=${page}`).then(({data})=>{
                 this.users = data
+                console.log(this.users.data.length);
             }).catch(({ response })=>{
                 console.error(response)
             })
         },
         ShowFeedback(ind){
-            this.LoadView = '<center><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i></center>';
+            this.LoadView = '<center><i class="fa fa-spinner fa-spin fa-4x fa-fw"></i></center>';
             try{
-                load.get('/load-feedback/'+ind).then(response =>{
+                load.get('/load-feedback/'+ ind).then(response =>{
                     this.LoadView = response.data
                 })
             }
@@ -104,11 +104,6 @@ export default {
             }
         }
     },
-    watch: {
-      $route(to, from) {
-        this.ShowFeedback();
-      }
-    }
 }
 </script>
 <style scoped>
