@@ -160,6 +160,20 @@
                                     <span></span>
                                 </div>
                             </li>
+                            <li class="list-inline-item">
+                                <div class="chiller_cb form-check-inline align-items-center"><br />
+                                    <input id="sd2_4" type="radio" v-model="sd2" value="Limited Liability Partnership (LLP)">
+                                    <label for="sd2_4">Limited Liability Partnership (LLP)</label>
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <div class="chiller_cb form-check-inline align-items-center"><br />
+                                    <input id="sd2_5" type="radio" v-model="sd2" value="Limited Partnership (LP)">
+                                    <label for="sd2_5">Limited Partnership (LP)</label>
+                                    <span></span>
+                                </div>
+                            </li>
                         </ul>
                     </dd>
                 </dl>
@@ -178,7 +192,7 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="q1" type="radio" ref="q" name="q" value="Very Satisfied">
+                                    <input id="q1" type="radio" v-model="q" name="q" value="Very Satisfied">
                                     <label for="q1">Very Satisfied</label>
                                     <span></span>
                                 </div>
@@ -619,7 +633,7 @@ export default {
                 "accreditation": this.$refs.accreditation.value,
                 "service_delivery1": this.sd1,
                 "service_delivery2": this.sd2,
-                "quality": this.$q,
+                "quality": this.q,
                 "timeliness1": this.t1,
                 "timeliness2": this.t2,
                 "timeliness3": this.t3,

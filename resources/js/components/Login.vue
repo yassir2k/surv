@@ -7,7 +7,7 @@
         <div class="col-9">
             <div class="row">
             <div class="col-sm-12" align="left"><!--Sign In-->
-                <h1 class="text-center text-secondary"><strong>API Portal</strong></h1>
+                <h3 class="text-center text-secondary"><strong>Feedback Portal - Admin</strong></h3>
             </div>
             </div>
             <div class="row"> 
@@ -60,12 +60,12 @@
                         <span v-html="status"></span>
                     </div>
                 </div>
-                <div class="row" style="text-size: 9px">
+                <div class="row">
                     <div class="col-sm-5"><!--Forgot Password-->
-                        <p class="text-center medium" ><a class="text-success" href="/forgot-password">Forgot Password?</a></p>
+                        <small class="text-center medium" ><a class="text-success" href="/forgot-password">Forgot Password?</a></small>
                     </div>
                     <div class="col-sm-7"><!--Sign Up-->
-                        <p class="text-center medium">New user Account? <a class="text-success" href="/signup">Sign up here</a></p>
+                        <small class="text-center medium">New user Account? <a class="text-success" href="/signup">Sign up here</a></small>
                     </div>
                 </div>
                 <div class="row">

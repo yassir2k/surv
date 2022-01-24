@@ -18,8 +18,7 @@ import router from './router';
 
 Vue.use(VueRouter);
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default)
+Vue.component('Chart', require('./components/Chart.vue').default);
 Vue.component('Survey', require('./components/Survey.vue').default);
 Vue.component('Login', require('./components/Login.vue').default);
 Vue.component('Dashboard', require('./components/Dashboard.vue').default);

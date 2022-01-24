@@ -208,7 +208,7 @@
         <div class="row"><!-- Challenges -->
             <div class="col-sm-1">
 			</div>
-            <div class="col-sm-6 d-flex p-2">
+            <div class="col-sm-6 d-flex p-2" align="left">
                 <h4 style="border-bottom: 2px solid #8FBC8F">Challenges</h4>
             </div>
             <div class="col-sm-5">
@@ -221,7 +221,7 @@
 			<div class="col-sm-5 d-flex p-2">
             What are the most common challenges you usually encounter?
 			</div>
-			<div class="col-sm-5 d-flex p-2">
+			<div class="col-sm-5 d-flex p-2" align="justify">
 				<strong>{{ $_feedback->challenges_ }}</strong>
 			</div>
             <div class="col-sm-1 ">
@@ -233,7 +233,7 @@
         <div class="row"><!-- Challenges -->
             <div class="col-sm-1">
 			</div>
-            <div class="col-sm-6 d-flex p-2">
+            <div class="col-sm-6 d-flex p-2" align="left">
                 <h4 style="border-bottom: 2px solid #8FBC8F">Changes</h4>
             </div>
             <div class="col-sm-5">
@@ -246,7 +246,7 @@
 			<div class="col-sm-5 d-flex p-2">
             What changes would you like us to make in our services to you?
 			</div>
-			<div class="col-sm-5 d-flex p-2">
+			<div class="col-sm-5 d-flex p-2" align="justify">
 				<strong>{{ $_feedback->changes_ }}</strong>
 			</div>
             <div class="col-sm-1 ">

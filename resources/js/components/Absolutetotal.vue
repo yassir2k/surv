@@ -33,7 +33,7 @@
                         <td>{{ user.profession_ }}</td>
                         <td>{{ user.accreditation_ }}</td>
                         <td>{{ user.date_ }}</td>
-                        <td><a :data-target="Here" @click="ShowFeedback(user.id)" data-bs-toggle="tooltip" title="Edit"><i class="fas fa-eye text-warning"></i></a></td>
+                        <td><a :data-bs-target="Here" @click="ShowFeedback(user.id)" data-bs-toggle="tooltip" title="View"><i class="fas fa-eye text-secondary"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>
@@ -61,9 +61,6 @@ import pagination from 'laravel-vue-pagination'
 import NavBar from './FeedbackNav.vue';
 export default {
     name:"app",
-        components:{
-            pagination
-        },
     data() {
         return {
                 users:{
