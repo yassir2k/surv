@@ -17,7 +17,7 @@
       	    <a class="dropdown-item text-success" href=""><i class="fas fa-calendar-day "></i>	Today</a>
             <!-- Submenu For Dropdown-->
                 <div class="dropdown-menu" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px">
-                    <a class="dropdown-item green" href="#"><i class="fas fa-clipboard-list"></i>	Total Feedback</a>
+                    <a class="dropdown-item green" href="/admin/total-today"><i class="fas fa-clipboard-list"></i>	Total Feedback</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item green" href="#"><i class="fas fa-user-tag"></i>	From Accredited Users</a>
 					<div class="dropdown-divider"></div>
@@ -134,7 +134,7 @@
 	
 	<div class="btn-group d-flex">
     	<button type="button" class="btn btn-sm btn-success btn-block dropdown-toggle" data-bs-toggle="dropdown">
-		<i class="fa fa-sliders"></i>	Settings</button>
+		<i class="fas fa-sliders"></i>	Settings</button>
       <div class="dropdown-menu" style="font-size:14px">
       	<a class="dropdown-item text-success" href="edit_user_profile.php"><i class="fa fa-pencil-square-o"></i>	Edit User Details</a>
 		<div class="dropdown-divider"></div>

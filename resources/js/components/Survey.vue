@@ -279,30 +279,44 @@
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t2_1" type="radio" required v-model="t2" value="Email">
+                                    <input @change="toggleOff"  id="t2_1" type="radio" required v-model="t2" value="Email">
                                     <label for="t2_1">Email</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t2_2" type="radio" required v-model="t2" value="Telephone">
+                                    <input @change="toggleOff"  id="t2_2" type="radio" required v-model="t2" value="Telephone">
                                     <label for="t2_2">Telephone</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t2_3" type="radio" required v-model="t2" value="Face to Face">
+                                    <input @change="toggleOff"  id="t2_3" type="radio" required v-model="t2" value="Face to Face">
                                     <label for="t2_3">Face to Face</label>
                                     <span></span>
                                 </div>
                             </li>
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />
-                                    <input id="t2_4" type="radio" required v-model="t2" value="Online Support Ticket System">
+                                    <input @change="toggleOff"  id="t2_4" type="radio" required v-model="t2" value="Online Support Ticket System">
                                     <label for="t2_4">Online Support Ticket System</label>
                                     <span></span>
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <div class="chiller_cb form-check-inline align-items-center"><br />
+                                    <input @change="toggleOn" id="t2_5" type="radio" required v-model="t2" value="Others">
+                                    <label for="t2_5">Others</label>
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input v-show="showOthers" type="text" class="form-control" placeholder="Others here..." name="others" ref="others" required :disabled="!(showOthers)">
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -596,7 +610,7 @@
 <script>
 import http from "./../http-common.js";
 import NavBar from './NavBar.vue';
-
+import swal from 'sweetalert';
 export default {
     name: 'app',
     data() {
@@ -614,7 +628,8 @@ export default {
             oe2: null,
             oe3: null,
             loader: null,
-            counter: null
+            counter: null,
+            showOthers: false
         }
     },
     components:{
@@ -664,14 +679,14 @@ export default {
                     res = http.post("/savefeedback", postData)
                     .then(response =>{
                         if(response.data[1] == "Successful"){
-                            this.loader='<div class="alert alert-success text-justify">	<strong>Dear ' + 
+                            this.loader='<div class="alert alert-success" align="justify">	<strong>Dear ' + 
                             this.$refs.respondent.value + ', </strong><i> Thank you for completing and submitting this form.' + 
                             ' Please take note that your feedback is of utmost importance to the CAC in making decision with' + 
                             ' respect to improving service delivery to our Clients.</i></div>';
                             this.counter='<label align="left" class="text-secondary">Your feedback index is <b class="text-warning">' +response.data[0]+ '</b></label>';
                         }
                         else{
-                            this.loader='<div class="alert alert-danger text-justify">	<strong>Dear ' + 
+                            this.loader='<div class="alert alert-danger" align="justify">	<strong>Dear ' + 
                             this.$refs.respondent.value + ', </strong><i> We seem to be experiencing some snag, ' + 
                             ' as your feeback has not been captured on our Database due to server or network issue.' + 
                             ' Please bear with us and try again. Many thanks.</i></div>';
@@ -681,6 +696,12 @@ export default {
                     console.log(err)
                 } 
             }, 3000);
+        },
+        toggleOn(){
+            this.showOthers = true;
+        },
+        toggleOff(){
+            this.showOthers = false;
         }
     },
     mounted(){

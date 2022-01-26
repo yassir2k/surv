@@ -114,7 +114,18 @@ class ApiController extends Controller
     }
 
     public function GetToday(Request $request){
-        $temp = Questions::where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))->get();
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetDatedFeedbackTotal(Request $request){
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->paginate(3);
         return response()->json($temp);
     }
 

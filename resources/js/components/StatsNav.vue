@@ -14,7 +14,7 @@
 		<!-- <i class="fas fa-file-signature"></i> --> <i class="fas fa-comments"></i>	Feedbacks</button>
     <div class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" style="font-size:14px">
         <div class="dropdown-submenu">
-      	    <a class="dropdown-item text-success" href=""><i class="fas fa-calendar-day "></i>	Today</a>
+      	    <router-link class="dropdown-item text-success"><i class="fas fa-calendar-day "></i>	Today</router-link>
             <!-- Submenu For Dropdown-->
                 <div class="dropdown-menu" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px">
                     <a class="dropdown-item green" href="#"><i class="fas fa-clipboard-list"></i>	Total Feedback</a>

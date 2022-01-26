@@ -23,6 +23,7 @@ Vue.component('Survey', require('./components/Survey.vue').default);
 Vue.component('Login', require('./components/Login.vue').default);
 Vue.component('Dashboard', require('./components/Dashboard.vue').default);
 Vue.component('Absolutetotal', require('./components/Absolutetotal.vue').default);
+Vue.component('Totaltoday', require('./components/Totaltoday.vue').default);
 
 
 const app = new Vue({

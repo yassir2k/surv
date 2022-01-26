@@ -33,7 +33,7 @@ Route::get('/admin/absolute-total', function () {
     return view('admin/absolute-total');
 });
 
-Route::get('/admin/chart', function () {
+Route::get('/admin/chart', function () { 
     return view('admin/chart');
 });
 

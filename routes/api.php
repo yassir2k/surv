@@ -27,6 +27,7 @@ Route::get('/total-accredited', [ApiController::class, 'GetTotalAccedited']);
 Route::get('/total-public', [ApiController::class, 'GetTotalPublic']);
 Route::get('/absolute', [ApiController::class, 'GetAbsolute']);
 Route::get('/today', [ApiController::class, 'GetToday']);
-
+Route::post('/dated-feedback-total', [ApiController::class, 'GetDatedFeedbackTotal']);
+ 
 Route::post('/login', [ApiController::class, 'Login']);
 Route::post('/savefeedback',[ApiController::class, 'SaveFeedback']);

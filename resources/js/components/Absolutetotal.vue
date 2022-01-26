@@ -93,7 +93,7 @@ export default {
             })
         },
         ShowFeedback(ind){
-            this.LoadView = '<center><i class="fa fa-spinner fa-spin fa-4x fa-fw"></i></center>';
+            this.LoadView = '<center><i class="fa fa-spinner fa-spin fa-5x fa-fw text-secondary"></i></center>';
             try{
                 load.get('/load-feedback/'+ ind).then(response =>{
                     this.LoadView = response.data
