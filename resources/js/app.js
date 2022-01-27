@@ -23,9 +23,15 @@ Vue.component('Survey', require('./components/Survey.vue').default);
 Vue.component('Login', require('./components/Login.vue').default);
 Vue.component('Dashboard', require('./components/Dashboard.vue').default);
 Vue.component('Absoluterecords', require('./components/Absoluterecords.vue').default);
+Vue.component('Todaysrecords', require('./components/Todaysrecords.vue').default);
 Vue.component('Trwdr', require('./components/Trwdr.vue').default);
+Vue.component('Trwd', require('./components/Trwd.vue').default);
 Vue.component('Arau', require('./components/Arau.vue').default);
 Vue.component('Arpu', require('./components/Arpu.vue').default);
+Vue.component('Aurwdr', require('./components/Aurwdr.vue').default);
+Vue.component('Purwdr', require('./components/Purwdr.vue').default);
+Vue.component('Trac', require('./components/Trac.vue').default);
+Vue.component('Trpu', require('./components/Trpu.vue').default);
 
 
 const app = new Vue({

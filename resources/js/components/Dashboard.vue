@@ -18,7 +18,7 @@
 
             <div class="row"><!--Beginning of today's data -->
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/total-today" style="text-decoration: none; color:inherit">
+                    <a href="/admin/todays-records" style="text-decoration: none; color:inherit">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #50C878">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_today"></span></h1>
@@ -29,22 +29,26 @@
                     </a>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #AFE1AF">
-						<div class="card-body">
-							<h1 class="card-title"><span v-html="total_today_accredited"></span></h1>
-							<hr class="separator">
-							<p class="card-text"><b class="font-pref14">FROM ACCREDITED USERS</b></p>
-						</div>
-					</div>
+                    <a href="/admin/todays-records-accredited-users" style="text-decoration: none; color:inherit">
+                        <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #AFE1AF">
+                            <div class="card-body">
+                                <h1 class="card-title"><span v-html="total_today_accredited"></span></h1>
+                                <hr class="separator">
+                                <p class="card-text"><b class="font-pref14">FROM ACCREDITED USERS</b></p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #00A36C">
-						<div class="card-body">
-							<h1 class="card-title"><span v-html="total_today_public"></span></h1>
-							<hr class="separator">
-							<p class="card-text"><b class="font-pref14">FROM PUBLIC USERS</b></p>
-						</div>
-					</div>
+                    <a href="/admin/todays-records-public-users" style="text-decoration: none; color:inherit">
+                        <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #00A36C">
+                            <div class="card-body">
+                                <h1 class="card-title"><span v-html="total_today_public"></span></h1>
+                                <hr class="separator">
+                                <p class="card-text"><b class="font-pref14">FROM PUBLIC USERS</b></p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
         	</div><!--End of today's data-->
             <br />
@@ -68,22 +72,26 @@
                     </a>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #E39802">
-						<div class="card-body">
-							<h1 class="card-title"><span v-html="total_absolute_accredited"></span></h1>
-							<hr class="separator">
-							<p class="card-text"><b class="font-pref14">FROM ACCREDITED USERS</b></p>
-						</div>
-					</div>
+                    <a href="/admin/absolute-records-accredited-users" style="text-decoration: none; color:inherit">
+                        <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #E39802">
+                            <div class="card-body">
+                                <h1 class="card-title"><span v-html="total_absolute_accredited"></span></h1>
+                                <hr class="separator">
+                                <p class="card-text"><b class="font-pref14">FROM ACCREDITED USERS</b></p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #B60A1C">
-						<div class="card-body">
-							<h1 class="card-title"><span v-html="total_absolute_public"></span></h1>
-							<hr class="separator">
-							<p class="card-text"><b class="font-pref14">FROM PUBLIC USERS</b></p>
-						</div>
-					</div>
+                    <a href="/admin/absolute-records-public-users" style="text-decoration: none; color:inherit">
+                        <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #B60A1C">
+                            <div class="card-body">
+                                <h1 class="card-title"><span v-html="total_absolute_public"></span></h1>
+                                <hr class="separator">
+                                <p class="card-text"><b class="font-pref14">FROM PUBLIC USERS</b></p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
         	</div><!--End of today's data-->
 

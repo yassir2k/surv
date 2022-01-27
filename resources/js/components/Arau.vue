@@ -18,7 +18,7 @@
                 </div>
             </div>
             <table class="table table-bordered table-striped table-condensed">
-                <thead style="background-color: #AAB7B8; color: #F5F5F5; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif">
+                <thead style="background-color: #AAB7B8; color: #FFFFFF; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif">
                     <tr>
                         <th>Name</th>
                         <th>Profession</th>

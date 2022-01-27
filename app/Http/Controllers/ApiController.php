@@ -151,12 +151,104 @@ class ApiController extends Controller
         return response()->json($temp);
     }
 
+    public function GetTodayAccredited(Request $request){
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))
+        ->WhereRaw('accreditation_ LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetTodayPublic(Request $request){
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))
+        ->whereNull('accreditation_')
+        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
     public function GetDatedFeedbackTotal(Request $request){
         $from = $request->input('from');
         $to = $request->input('to');
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetDatedFeedbackAccredited(Request $request){
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('accreditation_ LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetDatedFeedbackPublic(Request $request){
+        $from = $request->input('from');
+        $to = $request->input('to');
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNull('accreditation_')
+        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public function GetFeedbackTotalForADate(Request $request){
+        $date = $request->input('date_');
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date($date))
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetFeedbackAccreditedForADate(Request $request){
+        $date = $request->input('date_');
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date($date))
+        ->WhereRaw('accreditation_ LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetFeedbackPublicForADate(Request $request){
+        $date = $request->input('date_');
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date($date))
+        ->whereNull('accreditation_')
+        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
         ->paginate(3);
         return response()->json($temp);
     }

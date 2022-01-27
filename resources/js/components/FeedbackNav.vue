@@ -14,14 +14,14 @@
 		<!-- <i class="fas fa-file-signature"></i> --> <i class="fas fa-comments"></i>	Feedbacks</button>
     <div class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" style="font-size:14px">
         <div class="dropdown-submenu">
-      	    <a class="dropdown-item text-success" href=""><i class="fas fa-calendar-day "></i>	Today</a>
+      	    <a class="dropdown-item text-success" href="#"><i class="fas fa-calendar-day "></i>	Today</a>
             <!-- Submenu For Dropdown-->
                 <div class="dropdown-menu" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px">
-                    <a class="dropdown-item green" href="#"><i class="fas fa-clipboard-list"></i>	Total Feedback</a>
+                    <a class="dropdown-item green" href="/admin/todays-records"><i class="fas fa-clipboard-list"></i>	Total Feedback</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item green" href="#"><i class="fas fa-user-tag"></i>	From Accredited Users</a>
+					<a class="dropdown-item green" href="/admin/todays-records-accredited-users"><i class="fas fa-user-tag"></i>	From Accredited Users</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item green" href="#"><i class="fas fa-users"></i>	From Public Users</a>
+					<a class="dropdown-item green" href="/admin/todays-records-public-users"><i class="fas fa-users"></i>	From Public Users</a>
                   </div>
             <!-- End of Submeny For Dropdown-->
         </div>
