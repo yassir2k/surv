@@ -135,7 +135,9 @@
             Did you have cause to complain on anything? Which was your preferred channel of communicating the complaints?
 			</div>
 			<div class="col-sm-6 d-flex p-2">
-				<strong>{{ $_feedback->timeliness2 }}</strong>
+				<strong>{{ $_feedback->timeliness2 }}</strong>@if(!(is_null($_feedback->others)))
+					<strong>&nbsp; ({{ $_feedback->others }})</strong>
+				@endif
 			</div>
 		</div>
         <br />

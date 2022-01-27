@@ -25,12 +25,20 @@ Route::get('/admin/dashboard', function () {
     return view('admin/dashboard');
 });
 
-Route::get('/admin/total-today', function () {
-    return view('admin/total-today');
+Route::get('/admin/total-records-with-date-range', function () {
+    return view('admin/total-records-with-date-range');
 });
 
-Route::get('/admin/absolute-total', function () {
-    return view('admin/absolute-total');
+Route::get('/admin/absolute-records', function () {
+    return view('admin/absolute-records');
+});
+
+Route::get('/admin/absolute-records-accredited-users', function () {
+    return view('admin/absolute-records-accredited-users');
+});
+
+Route::get('/admin/absolute-records-public-users', function () {
+    return view('admin/absolute-records-public-users');
 });
 
 Route::get('/admin/chart', function () { 

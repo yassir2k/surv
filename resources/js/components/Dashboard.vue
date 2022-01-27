@@ -57,7 +57,7 @@
 
             <div class="row"><!--Beginning of absolute data -->
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/absolute-total" style="text-decoration: none; color:inherit">
+                    <a href="/admin/absolute-records" style="text-decoration: none; color:inherit">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #93C572">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_absolute"></span></h1>

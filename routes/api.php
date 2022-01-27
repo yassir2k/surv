@@ -28,6 +28,8 @@ Route::get('/total-public', [ApiController::class, 'GetTotalPublic']);
 Route::get('/absolute', [ApiController::class, 'GetAbsolute']);
 Route::get('/today', [ApiController::class, 'GetToday']);
 Route::post('/dated-feedback-total', [ApiController::class, 'GetDatedFeedbackTotal']);
+Route::get('/absolute-accredited', [ApiController::class, 'GetAbsoluteAccredited']);
+Route::get('/absolute-public', [ApiController::class, 'GetAbsolutePublic']);
  
 Route::post('/login', [ApiController::class, 'Login']);
 Route::post('/savefeedback',[ApiController::class, 'SaveFeedback']);

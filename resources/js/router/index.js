@@ -2,8 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Dashboard from "../components/Dashboard.vue";
 import Login from "../components/Login.vue";
-import Absolute from "../components/Absolutetotal.vue";
-import Today from "../components/Totaltoday.vue";
+import Absolute from "../components/Absoluterecords.vue";
+import Trwdr from "../components/Trwdr.vue";
 Vue.use(VueRouter);
     const routes = [
         {
@@ -18,12 +18,12 @@ Vue.use(VueRouter);
         },
         {
           path: "/admin/",
-          name: "total-today",
-          component: Today,
+          name: "total-records-with-date-range",
+          component: Trwdr,
         },
         {
           path: "/admin/",
-          name: "absolute-total",
+          name: "absolute-records",
           component: Absolute,
         },
     ];

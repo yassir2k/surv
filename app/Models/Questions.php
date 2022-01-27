@@ -21,6 +21,7 @@ class Questions extends Model
         'quality_',
         'timeliness1',
         'timeliness2',
+        'others',
         'timeliness3',
         'timeliness4',
         'online_environment1',
@@ -29,6 +30,9 @@ class Questions extends Model
         'online_environment4',
         'challenges_',
         'changes_',
-        'control_hash'
+        'control_hash',
+        'is_read',
+        'read_by',
+        'date_read'
     ];
 }

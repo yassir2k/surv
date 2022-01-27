@@ -44,6 +44,7 @@ class ApiController extends Controller
             'quality_' => $request->input('quality'),
             'timeliness1' => $request->input('timeliness1'),
             'timeliness2' => $request->input('timeliness2'),
+            'others' => $request->input('others'),
             'timeliness3' => $request->input('timeliness3'),
             'timeliness4' => $request->input('timeliness4'),
             'online_environment1' => $request->input('online_environment1'),
@@ -94,7 +95,11 @@ class ApiController extends Controller
     }
 
     public function GetTotalAccedited(Request $request){
-        $temp = Questions::select('id')->WhereRaw('accreditation_ LIKE "NBA%"')
+        $temp = Questions::select('id')->WhereRaw('accreditation_ LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
         ->get();
         $total_today = count($temp);
         return $total_today;
@@ -102,7 +107,11 @@ class ApiController extends Controller
 
     public function GetTotalPublic(Request $request){
         $temp = Questions::select('id')->whereNull('accreditation_')
-        ->orWhereRaw('accreditation_ NOT LIKE "NBA%"')
+        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
         ->get();
         $total_today = count($temp);
         return $total_today;
@@ -110,6 +119,29 @@ class ApiController extends Controller
 
     public function GetAbsolute(Request $request){
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetAbsoluteAccredited(Request $request){
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->WhereRaw('accreditation_ LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->paginate(3);
+        return response()->json($temp);
+    }
+
+    public function GetAbsolutePublic(Request $request){
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
+        ->whereNull('accreditation_')
+        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
+        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
+        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
+        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->paginate(3);
         return response()->json($temp);
     }
 

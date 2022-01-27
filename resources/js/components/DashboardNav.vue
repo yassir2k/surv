@@ -45,7 +45,7 @@
             <a class="dropdown-item text-success" href="#"><i class="fas fa-calendar-week "></i>	Select a Date Range</a>
             <!-- Submenu For Dropdown-->
                 <div class="dropdown-menu" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px">
-                    <a class="dropdown-item green" href="#"><i class="fas fa-clipboard-list"></i>	For Total Feedback</a>
+                    <a class="dropdown-item green" href="/admin/total-records-with-date-range"><i class="fas fa-clipboard-list"></i>	For Total Feedback</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item green" href="#"><i class="fas fa-user-tag"></i>	For Feedbacks From Accredited Users</a>
                     <div class="dropdown-divider"></div>
@@ -58,11 +58,11 @@
                 <a class="dropdown-item text-success" href="#"><i class="fas fa-history "></i>	From Beginning (Absolute)</a>
                 <!-- Submenu For Dropdown-->
                 <div class="dropdown-menu" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; font-size:14px">
-                    <a class="dropdown-item green" href="#"><i class="fas fa-clipboard-list"></i>	For Total Feedback</a>
+                    <a class="dropdown-item green" href="/admin/absolute-records"><i class="fas fa-clipboard-list"></i>	For Total Feedback</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item green" href="#"><i class="fas fa-user-tag"></i>	For Feedbacks From Accredited Users</a>
+                    <a class="dropdown-item green" href="/admin/absolute-records-accredited-users"><i class="fas fa-user-tag"></i>	For Feedbacks From Accredited Users</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item green" href="#"><i class="fas fa-users"></i>	For Feedbacks From Public Users</a>
+                    <a class="dropdown-item green" href="/admin/absolute-records-public-users"><i class="fas fa-users"></i>	For Feedbacks From Public Users</a>
                 </div>
             <!-- End of Submeny For Dropdown-->
             </div>

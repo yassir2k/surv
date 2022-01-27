@@ -22,8 +22,10 @@ Vue.component('Chart', require('./components/Chart.vue').default);
 Vue.component('Survey', require('./components/Survey.vue').default);
 Vue.component('Login', require('./components/Login.vue').default);
 Vue.component('Dashboard', require('./components/Dashboard.vue').default);
-Vue.component('Absolutetotal', require('./components/Absolutetotal.vue').default);
-Vue.component('Totaltoday', require('./components/Totaltoday.vue').default);
+Vue.component('Absoluterecords', require('./components/Absoluterecords.vue').default);
+Vue.component('Trwdr', require('./components/Trwdr.vue').default);
+Vue.component('Arau', require('./components/Arau.vue').default);
+Vue.component('Arpu', require('./components/Arpu.vue').default);
 
 
 const app = new Vue({

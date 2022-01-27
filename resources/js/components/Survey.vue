@@ -656,6 +656,11 @@ export default {
             let element = this.$refs.Modal;
             $(element).modal('show');
             let res = null;
+            let other_value = null;
+            if(this.showOthers){
+                other_value = this.$refs.others.value;
+                alert(other_value);
+            }
             var postData = {
                 "respondent": this.$refs.respondent.value,
                 "profession": this.$refs.profession.value,
@@ -665,6 +670,7 @@ export default {
                 "quality": this.q,
                 "timeliness1": this.t1,
                 "timeliness2": this.t2,
+                "others": other_value,
                 "timeliness3": this.t3,
                 "timeliness4": this.t4,
                 "online_environment1": this.oe1,
