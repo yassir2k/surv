@@ -32,6 +32,8 @@ Vue.component('Aurwdr', require('./components/Aurwdr.vue').default);
 Vue.component('Purwdr', require('./components/Purwdr.vue').default);
 Vue.component('Trac', require('./components/Trac.vue').default);
 Vue.component('Trpu', require('./components/Trpu.vue').default);
+Vue.component('Acrurwd', require('./components/Acrurwd.vue').default);
+Vue.component('Purwd', require('./components/Purwd.vue').default);
 
 
 const app = new Vue({

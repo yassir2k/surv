@@ -142,7 +142,7 @@ export default {
                 var postData = {
                     "date_": this.$refs.date_.value,
                 }
-                try{http.post(`/dated-feedback-total?page=${page}`, postData)
+                try{http.post(`/feedback-total-a-date?page=${page}`, postData)
                 .then(({data})=>{
                     this.users = data
                     this.flag = 1;
