@@ -15,6 +15,7 @@ createApp(Absolutetotal).mount("#AbsoluteTotal");*/
 import Vue from 'vue';
 import VueRouter from 'vue-router'
 import router from './router';
+import $ from "jquery";
 
 Vue.use(VueRouter);
 
@@ -38,5 +39,5 @@ Vue.component('Purwd', require('./components/Purwd.vue').default);
 
 const app = new Vue({
     el: '#app',
-    router: router,
+    router: router
 });

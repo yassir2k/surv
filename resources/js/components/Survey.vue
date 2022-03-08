@@ -138,7 +138,7 @@
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">2.</dt>
-                    <dd class="col-sm-11">Which Registration service have you done online?
+                    <dd class="col-sm-11">Which registration service have you done online?
                         <ul class="list-unstyled">
                             <li class="list-inline-item">
                                 <div class="chiller_cb form-check-inline align-items-center"><br />

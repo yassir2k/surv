@@ -33,7 +33,7 @@
                         <td>{{ user.profession_ }}</td>
                         <td>{{ user.accreditation_ }}</td>
                         <td>{{ user.date_ }}</td>
-                        <td><a href="#" @click="ShowFeedback(user.id)" data-bs-toggle="tooltip" title="View"><i class="fas fa-eye text-secondary"></i></a></td>
+                        <td><a href="#" @click="ShowFeedback(user.id)" data-bs-toggle="tooltip" data-bs-placement="right" title="View"><i class="fas fa-eye text-secondary"></i></a></td>
                     </tr>
                 </tbody>
                 <tbody v-else>
@@ -57,10 +57,9 @@
 <script>
 import http from "../http-common.js"; 
 import load from "../feedback.js"; 
-import pagination from 'laravel-vue-pagination'
+import pagination from 'laravel-vue-pagination';
 import NavBar from './FeedbackNav.vue';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+
 export default {
     name:"app",
     data() {
@@ -103,7 +102,7 @@ export default {
                     console.log(err)
             }
         }
-    },
+    }
 }
 </script>
 <style scoped>
