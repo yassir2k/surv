@@ -8,7 +8,8 @@ import TodaysRecords from "../components/Todaysrecords.vue";
 import TodaysRecordsAccreditedUsers from "../components/Trac.vue";
 import TodaysRecordsPublicUsers from "../components/Trpu.vue";
 import AbsoluteRecords from "../components/Absoluterecords.vue";
-import AbsuluteRecordsAccreditedUsers from "../components/Arau.vue";
+import AbsoluteRecordsAccreditedUsers from "../components/Arau.vue";
+import AbsoluteRecordsPublicUsers from "../components/Arpu.vue";
 
 
     const routes = [
@@ -38,8 +39,13 @@ import AbsuluteRecordsAccreditedUsers from "../components/Arau.vue";
         },
         {
           path: "/admin/absolute-records-accredited-users",
-          name: "AbsuluteRecordsAccreditedUsers",
-          component: AbsuluteRecordsAccreditedUsers,
+          name: "AbsoluteRecordsAccreditedUsers",
+          component: AbsoluteRecordsAccreditedUsers,
+        },
+        {
+          path: "/admin/absolute-records-public-users",
+          name: "AbsoluteRecordsPublicUsers",
+          component: AbsoluteRecordsPublicUsers,
         },
         {
           path: "/",

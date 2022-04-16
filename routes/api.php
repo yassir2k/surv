@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/questions', [ApiController::class, 'GetQuestions']);
-Route::get('/total-today', [ApiController::class, 'GetTotalToday']);
+Route::get('/total-today', [ApiController::class, 'GetTotalToday']); 
 //----------------------------------------------------//
 Route::get('/total-accredited-today', [ApiController::class, 'GetTotalAcceditedToday']);
 Route::get('/total-public-today', [ApiController::class, 'GetTotalPublicToday']);

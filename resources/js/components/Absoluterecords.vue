@@ -18,7 +18,7 @@
                 </div>
             </div>
             <table class="table table-bordered table-striped table-condensed">
-                <thead style="background-color: #AAB7B8; color: #FFFFFF; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif">
+                <thead style="background-color: #5F8575; color: #FFFFFF; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; border: 2px solid #5F8575">
                     <tr>
                         <th>Name</th>
                         <th>Profession</th>
@@ -94,7 +94,6 @@ export default {
         ShowFeedback(ind){
             this.LoadView = '<center><i class="fa fa-spinner fa-spin fa-5x fa-fw text-secondary"></i></center>';
             try{
-                alert(ind);
                 load.get('/load-feedback/'+ ind).then(response =>{
                     this.LoadView = response.data
                 })

@@ -72,7 +72,7 @@
                     </router-link>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <router-link class="text-decoration-none text-dark" :to="{ name: 'AbsuluteRecordsAccreditedUsers'}">
+                    <router-link class="text-decoration-none text-dark" :to="{ name: 'AbsoluteRecordsAccreditedUsers'}">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #E39802">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_absolute_accredited"></span></h1>
@@ -83,7 +83,7 @@
                     </router-link>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/absolute-records-public-users" style="text-decoration: none; color:inherit">
+                    <router-link class="text-decoration-none text-dark" :to="{ name: 'AbsoluteRecordsPublicUsers'}">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #B60A1C">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_absolute_public"></span></h1>
@@ -91,7 +91,7 @@
                                 <p class="card-text"><b class="font-pref14">FROM PUBLIC USERS</b></p>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
         	</div><!--End of today's data-->
 
@@ -161,12 +161,7 @@ export default {
         })
         .catch();
 
-        http.get("/today")
-        .then(response =>{
-            console.log(response);
-        })
-        .catch();
-    },
+    }, 
     watch: {
       getFromDB(){
           http.get("/total-today")
