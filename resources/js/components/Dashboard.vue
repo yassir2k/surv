@@ -18,7 +18,7 @@
 
             <div class="row"><!--Beginning of today's data -->
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/todays-records" style="text-decoration: none; color:inherit">
+                    <router-link class="text-decoration-none text-dark" :to="{ name: 'TodaysRecords'}">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #50C878">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_today"></span></h1>
@@ -26,10 +26,10 @@
                                 <p class="card-text"><b class="font-pref14">TOTAL FEEDBACK RECEIVED</b></p>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/todays-records-accredited-users" style="text-decoration: none; color:inherit">
+                    <router-link class="text-decoration-none text-dark" :to="{ name: 'TodaysRecordsAccreditedUsers'}">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #AFE1AF">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_today_accredited"></span></h1>
@@ -37,10 +37,10 @@
                                 <p class="card-text"><b class="font-pref14">FROM ACCREDITED USERS</b></p>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/todays-records-public-users" style="text-decoration: none; color:inherit">
+                    <router-link class="text-decoration-none text-dark" :to="{ name: 'TodaysRecordsPublicUsers'}">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #00A36C">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_today_public"></span></h1>
@@ -48,7 +48,7 @@
                                 <p class="card-text"><b class="font-pref14">FROM PUBLIC USERS</b></p>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
         	</div><!--End of today's data-->
             <br />
@@ -61,7 +61,7 @@
 
             <div class="row"><!--Beginning of absolute data -->
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/absolute-records" style="text-decoration: none; color:inherit">
+                    <router-link class="text-decoration-none text-dark" :to="{ name: 'AbsoluteRecords'}">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #93C572">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_absolute"></span></h1>
@@ -69,10 +69,10 @@
                                 <p class="card-text"><b class="font-pref14">TOTAL FEEDBACK RECEIVED</b></p>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
                 <div class="col-sm-4" align="center">
-                    <a href="/admin/absolute-records-accredited-users" style="text-decoration: none; color:inherit">
+                    <router-link class="text-decoration-none text-dark" :to="{ name: 'AbsuluteRecordsAccreditedUsers'}">
                         <div class="card bg-white mb-4 shadow-sm" style="width: 14rem; border-radius: 0.5em; border-bottom: 4px solid #E39802">
                             <div class="card-body">
                                 <h1 class="card-title"><span v-html="total_absolute_accredited"></span></h1>
@@ -80,7 +80,7 @@
                                 <p class="card-text"><b class="font-pref14">FROM ACCREDITED USERS</b></p>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
                 <div class="col-sm-4" align="center">
                     <a href="/admin/absolute-records-public-users" style="text-decoration: none; color:inherit">
@@ -103,9 +103,12 @@
 </template>
 <script>
 import http from "./../http-common.js";
-import NavBar from './DashboardNav.vue';
+import NavBar from './navigations/DashboardNav.vue';
 export default {
     name: 'app',
+    setup(){
+
+    },
     data() {
         return{
             total_today: '<i class="fa fa-spinner fa-spin fa-1x fa-fw text-secondary"></i>',

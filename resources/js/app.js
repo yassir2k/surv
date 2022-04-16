@@ -1,43 +1,20 @@
-/*import { createApp } from 'vue'
-
-import Survey from './components/Survey.vue';
-createApp(Survey).mount("#SurveyForm");
-import Login from './components/Login.vue';
-createApp(Login).mount("#LoginForm");
-import Dashboard from './components/Dashboard.vue';
-createApp(Dashboard).mount("#Dashboard");
-import TotalToday from './components/Totaltoday.vue';
-createApp(TotalToday).mount("#TotalToday");
-import Absolutetotal from './components/Absolutetotal.vue';
-createApp(Absolutetotal).mount("#AbsoluteTotal");*/
-
-
 import Vue from 'vue';
-import VueRouter from 'vue-router'
-import router from './router';
-import $ from "jquery";
+import VueRouter from 'vue-router';
+import App from './components/App.vue';
+import routes from './router';
+import VueSession from 'vue-session';
+Vue.use(VueSession);
 
 Vue.use(VueRouter);
 
-Vue.component('Chart', require('./components/Chart.vue').default);
-Vue.component('Survey', require('./components/Survey.vue').default);
-Vue.component('Login', require('./components/Login.vue').default);
-Vue.component('Dashboard', require('./components/Dashboard.vue').default);
-Vue.component('Absoluterecords', require('./components/Absoluterecords.vue').default);
-Vue.component('Todaysrecords', require('./components/Todaysrecords.vue').default);
-Vue.component('Trwdr', require('./components/Trwdr.vue').default);
-Vue.component('Trwd', require('./components/Trwd.vue').default);
-Vue.component('Arau', require('./components/Arau.vue').default);
-Vue.component('Arpu', require('./components/Arpu.vue').default);
-Vue.component('Aurwdr', require('./components/Aurwdr.vue').default);
-Vue.component('Purwdr', require('./components/Purwdr.vue').default);
-Vue.component('Trac', require('./components/Trac.vue').default);
-Vue.component('Trpu', require('./components/Trpu.vue').default);
-Vue.component('Acrurwd', require('./components/Acrurwd.vue').default);
-Vue.component('Purwd', require('./components/Purwd.vue').default);
 
 
-const app = new Vue({
+Vue.component('App', require('./components/App.vue').default);
+
+
+ const app = new Vue({
     el: '#app',
-    router: router
-});
+    router: routes,
+    render: h => h(App)
+  })
+

@@ -58,7 +58,7 @@
 import http from "../http-common.js"; 
 import load from "../feedback.js"; 
 import pagination from 'laravel-vue-pagination';
-import NavBar from './FeedbackNav.vue';
+import NavBar from './navigations/FeedbackNav.vue';
 
 export default {
     name:"app",
@@ -94,6 +94,7 @@ export default {
         ShowFeedback(ind){
             this.LoadView = '<center><i class="fa fa-spinner fa-spin fa-5x fa-fw text-secondary"></i></center>';
             try{
+                alert(ind);
                 load.get('/load-feedback/'+ ind).then(response =>{
                     this.LoadView = response.data
                 })

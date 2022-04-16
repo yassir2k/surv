@@ -34,6 +34,9 @@ class ApiController extends Controller
 
 
     public function SaveFeedback(Request $request){
+        $origin = $request->header("origin"); 
+        $authorization = $request->header("authorization");
+        $referer = $request->header("referer");
         $control_hash = substr(bin2hex(random_bytes(100)), 0, 100);//Generate Control Hash
         $FeedBackData = ['name_' => $request->input('respondent'), 
             'profession_' => $request->input('profession'),

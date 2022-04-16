@@ -79,10 +79,7 @@
 </template>
 
 <script>
-//import http from "./../http-common.js";
-//import router from './../router';
 import axios from 'axios'
-//import './../app.js';
     export default {
     name: 'app',
         data() {
@@ -143,11 +140,6 @@ import axios from 'axios'
                 }catch(err){    
                     console.log(err)
                 }
-            }
-        },
-        watch: {
-            $route(to, from) {
-                this.login();
             }
         }
     }

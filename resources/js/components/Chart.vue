@@ -34,7 +34,7 @@
 
 <script>
 import { Bar } from 'vue-chartjs'
-import NavBar from './StatsNav.vue';
+import NavBar from './navigations/StatsNav.vue';
 
 export default {
   extends: Bar,

@@ -1,7 +1,7 @@
 
 <template><div>
 <NavBar />
-  <form @submit.prevent="SaveFeedback">
+  <form @submit.prevent="SaveFeedback" validate>
   <input type="hidden" name="_token" :value="csrf"> 
     <div class="row">
         <div class="col-1">
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="col-sm-12 align-middle">
-                                    <strong>Name of Respondent:</strong><b class="text-danger">*</b>
+                                    <strong  class="form-label">Name of Respondent:</strong><b class="text-danger">*</b>
                                 </div>
                             </div>
                         </div>
@@ -603,13 +603,15 @@
 			</div>
 		</div>
     </div>
+    <br /><br /><br /><br /><br /><br />
   </form>
-          </div>
+</div>
 </template>
 
 <script>
 import http from "./../http-common.js";
-import NavBar from './NavBar.vue';
+import axios from 'axios';
+import NavBar from './navigations/NavBar.vue';
 import swal from 'sweetalert';
 export default {
     name: 'app',
@@ -634,13 +636,6 @@ export default {
     },
     components:{
         NavBar
-    },
-    created(){
-        http.get("/total-today")
-        .then(response =>{
-            console.log(response)
-        })
-        .catch()
     },
     methods:{
         OnModalHide(){
@@ -682,7 +677,16 @@ export default {
             console.log(postData);
             setTimeout(() => { 
                 try{
-                    res = http.post("/savefeedback", postData)
+                    axios({
+                        method: 'post',
+                        url: 'http://127.0.0.1:8000/api/savefeedback',
+                        data: postData,
+                        headers: { 
+                            'Content-type': 'application/json; charset=utf-8', 
+                            'Authorization': 'remitaConsumerKey=232323,remitaConsumerToken=121212'
+                        },
+                        responseType: 'json'
+                        })
                     .then(response =>{
                         if(response.data[1] == "Successful"){
                             this.loader='<div class="alert alert-success" align="justify">	<strong>Dear ' + 

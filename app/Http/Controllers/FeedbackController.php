@@ -11,6 +11,7 @@ class FeedbackController extends Controller
     //
     public function SaveFeedback(Request $request)
     {
+        dd($request);
         $respondent = $request->input('respondent');
         $profession = $request->input('profession');
         $accreditation = $request->input('accreditation');

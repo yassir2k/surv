@@ -99,7 +99,7 @@
 import http from "../http-common.js"; 
 import load from "../feedback.js"; 
 import pagination from 'laravel-vue-pagination'
-import NavBar from './FeedbackNav.vue';
+import NavBar from './navigations/FeedbackNav.vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 export default {
