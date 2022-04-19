@@ -20,7 +20,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-        <script src="{{asset('js/app.js')}}"></script>
         <script src="https://unpkg.com/v-tooltip@2.1.3/dist/v-tooltip.min.js"></script>
         
 
@@ -39,11 +38,10 @@
                     <img src="{{ asset('images/coat-of-arms.png') }}" align="right" class = "img-responsive" height="100%" />
                 </div>
 
-                <div style="margin-top: 0px">
-                    <main>
+                <div id="app" style="margin-top: 0px">
                         @yield('content')
-                    </main>
                 </div>
+                
 
                 <!-- Footer -->
                 <footer class="page-footer font-small fixed-bottom font-small" >

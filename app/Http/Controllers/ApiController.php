@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ApiController;
 use App\Models\Questions;
+use App\Models\User;
 use Session, DB;
 
 use Illuminate\Http\Request;
@@ -24,7 +25,11 @@ class ApiController extends Controller
         if (Auth::attempt($credentials))
         {
             // validation successful!
-            return "Successful";
+            $details = User::Where(['email' => $email])->first();
+            $success['status'] = "success";
+            $success['role'] = $details->role;
+            $success['token'] =  substr(bin2hex(random_bytes(100)), 0, 100);
+            return $success;
         } 
         else {        
             // validation not successful, send back to form 
@@ -121,7 +126,7 @@ class ApiController extends Controller
     }
 
     public function GetAbsolute(Request $request){
-        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))->paginate(3);
+        $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))->paginate(10);
         return response()->json($temp);
     }
 
@@ -132,7 +137,7 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -144,13 +149,13 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
     public function GetToday(Request $request){
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
-        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))->paginate(3);
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))->paginate(10);
         return response()->json($temp);
     }
 
@@ -162,7 +167,7 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -175,7 +180,7 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -185,7 +190,7 @@ class ApiController extends Controller
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -200,7 +205,7 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -216,7 +221,7 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -225,7 +230,7 @@ class ApiController extends Controller
         $date = $request->input('date_');
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date($date))
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -238,7 +243,7 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 
@@ -252,7 +257,7 @@ class ApiController extends Controller
         ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
         ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
         ->WhereRaw('accreditation_ LIKE "ICAN/%"')
-        ->paginate(3);
+        ->paginate(10);
         return response()->json($temp);
     }
 

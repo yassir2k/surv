@@ -7,14 +7,9 @@ Vue.use(VueSession);
 
 Vue.use(VueRouter);
 
-
-
-Vue.component('App', require('./components/App.vue').default);
-
-
  const app = new Vue({
-    el: '#app',
     router: routes,
-    render: h => h(App)
-  })
+    render: h => h(App),
+    el: '#app'
+  });
 

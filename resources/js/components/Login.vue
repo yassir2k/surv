@@ -127,8 +127,12 @@ import axios from 'axios'
                 try{
                     axios.post("http://127.0.0.1:8000/api/login", postData)
                     .then(response =>{
-                        if(response.data == "Successful"){
+                        if(response.data["status"] == "success"){
                             this.status='<div class="alert alert-success text-justify"><center>Success!</center></label>';
+                            this.$session.start();
+                            this.$session.set('username', this.username);
+                            this.$session.set('role', response.data["role"]);
+                            this.$session.set('token', response.data["token"]);
                             this.$router.push({ name: 'Dashboard' });
                         }
                         else{

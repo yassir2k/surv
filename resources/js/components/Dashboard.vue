@@ -2,14 +2,14 @@
 <div>
     <div class="row">
         <div class="col-sm-12">
-            <NavBar /> 
+            <NavBar />
         </div>
     </div>
     <br />
     <div class="row">
         <div class="col-sm-1">
         </div>
-        <div class="col-sm-8"> 
+        <div class="col-sm-8">
             <div class="row">
                 <div class="d-grid gap-2 col-12 mx-auto">
                     <hr class="separator"><h6 class="text-success " align="center"><b>Today's Feedback Statistics</b></h6><hr class="separator">
@@ -104,10 +104,19 @@
 <script>
 import http from "./../http-common.js";
 import NavBar from './navigations/DashboardNav.vue';
+import axios from 'axios';
 export default {
-    name: 'app',
-    setup(){
-
+    beforeCreate: function () {
+        if (!this.$session.exists()) {
+            this.$router.push('/admin');
+        }
+        else{
+            if(this.$session.get("role") != "Admin"){
+                alert("You do not have privilege to visit this page.");
+                this.$session.destroy();
+                this.$router.push('/admin');
+            }
+        }
     },
     data() {
         return{
@@ -116,7 +125,7 @@ export default {
             total_today_public: '<i class="fa fa-spinner fa-spin fa-1x fa-fw text-secondary"></i>',
             total_absolute: '<i class="fa fa-spinner fa-spin fa-1x fa-fw text-secondary"></i>',
             total_absolute_accredited: '<i class="fa fa-spinner fa-spin fa-1x fa-fw text-secondary"></i>',
-            total_absolute_public: '<i class="fa fa-spinner fa-spin fa-1x fa-fw text-secondary"></i>' 
+            total_absolute_public: '<i class="fa fa-spinner fa-spin fa-1x fa-fw text-secondary"></i>'
         }
     },
     components:{
@@ -161,17 +170,6 @@ export default {
         })
         .catch();
 
-    }, 
-    watch: {
-      getFromDB(){
-          http.get("/total-today")
-            .then(response =>{
-                this.total_today = '<b style="color: #50c878">'+ response.data +'</b>';
-            })
-            .catch();
-      }
     }
 }
 </script>
-<style>
-</style>

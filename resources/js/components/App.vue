@@ -1,11 +1,10 @@
 <template>
-    <div class="app">
         <router-view></router-view>
-    </div>
 </template>
-
 <script>
-    export default {
-        name: 'Survey'
-    }
+export default {
+        setup() {
+                
+        },
+}
 </script>

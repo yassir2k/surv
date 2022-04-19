@@ -18,7 +18,7 @@
                 </div>
             </div>
             <table class="table table-bordered table-striped table-condensed">
-                <thead style="background-color: #AAB7B8; color: #FFFFFF; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif">
+                <thead style="background-color: #5F8575; color: #FFFFFF; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; border: 2px solid #5F8575">
                     <tr>
                         <th>Name</th>
                         <th>Profession</th>
@@ -59,10 +59,7 @@ import http from "../http-common.js";
 import load from "../feedback.js"; 
 import pagination from 'laravel-vue-pagination'
 import NavBar from './navigations/FeedbackNav.vue';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
 export default {
-    name:"app",
     data() {
         return {
                 users:{
