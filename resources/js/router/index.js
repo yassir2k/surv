@@ -17,12 +17,18 @@ import TotalRecordsWithDateRange from "../components/Trwdr.vue";
 import AccreditedUsersRecordsWithDateRange from "../components/Aurwdr.vue";
 import PublicUsersRecordsWithDateRange from "../components/Purwdr.vue";
 import ChangeUserPassword from "../components/ChangeUserPassword.vue";
+import Statistics from "../components/Statistics.vue";
 
 
     const routes = [
         {
           path: '*',
           component: NotFound,
+        },
+        {
+          path: "/admin/business-intelligence-report",
+          name: "Statistics",
+          component: Statistics,
         },
         {
           path: "/admin/change-password",

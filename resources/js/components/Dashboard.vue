@@ -10,11 +10,17 @@
         <div class="col-sm-1">
         </div>
         <div class="col-sm-8">
+            <br />
             <div class="row">
-                <div class="d-grid gap-2 col-12 mx-auto">
-                    <hr class="separator"><h6 class="text-success " align="center"><b>Today's Feedback Statistics</b></h6><hr class="separator">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4" align="center"> <!-- Handles User Profile Details and current units -->
+                    <h3 style="border-bottom: 1px solid #DDDDDD; color: #666666">Today's Statistics</h3>
+                </div>
+                <div class="col-sm-4">
                 </div>
             </div>
+            <br />
 
             <div class="row"><!--Beginning of today's data -->
                 <div class="col-sm-4" align="center">
@@ -54,10 +60,15 @@
             <br />
             <br />
             <div class="row">
-                <div class="d-grid gap-2 col-12 mx-auto">
-                    <hr class="separator"><h6 class="text-success " align="center"><b>Absolute Feedback Statistics</b></h6><hr class="separator">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4" align="center"> <!-- Handles User Profile Details and current units -->
+                    <h3 style="border-bottom: 1px solid #DDDDDD; color: #666666">Cummulative Statistics</h3>
+                </div>
+                <div class="col-sm-4">
                 </div>
             </div>
+            <br />
 
             <div class="row"><!--Beginning of absolute data -->
                 <div class="col-sm-4" align="center">

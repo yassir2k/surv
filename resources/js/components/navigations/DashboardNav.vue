@@ -72,7 +72,7 @@
 	
     <div class="btn-group">
         <button type="button" class="btn btn-sm btn-success btn-block"><i class="fas fa-chart-bar"></i>
-            <router-link class="lo text-white" to="dashboard">Feedbacks Statistics</router-link>
+            <router-link class="lo text-white" :to="{ name: 'Statistics'}">Business Intelligence Report</router-link>
 		</button>
     </div>
 
