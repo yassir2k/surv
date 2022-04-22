@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\BiReportController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -51,3 +52,14 @@ Route::get('/absolute-public', [ApiController::class, 'GetAbsolutePublic']);
 Route::post('/login', [ApiController::class, 'Login']);
 Route::post('/savefeedback',[ApiController::class, 'SaveFeedback']);
  
+
+/*
+|--------------------------------------------------------------------------
+| API Routes FOr Business Intelligence Reports
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::post('/service_delivery_Q1', [BiReportController::class, 'ServiceDeliveryQ1']);
+Route::post('/service_delivery_Q2', [BiReportController::class, 'ServiceDeliveryQ2']);
+Route::post('/qualityQ1', [BiReportController::class, 'QualityQ1']);
