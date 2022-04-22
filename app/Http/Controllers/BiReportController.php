@@ -426,4 +426,160 @@ class BiReportController extends Controller
 
         return response()->json($Feedback);
     }
+
+    
+    
+    /*--------------------------------------------------------------------------
+                    Timeliness Q1
+    ---------------------------------------------------------------------------*/
+    public function TimelinessQ1(Request $request){
+        $from = $request->input('beginDate');
+        $to = $request->input('endDate');
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "Less than 24 Hrs"])
+        ->get();
+        $Feedback["t_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "24 Hrs"])
+        ->get();
+        $Feedback["t_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "48 Hrs"])
+        ->get();
+        $Feedback["t_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "3 Days"])
+        ->get();
+        $Feedback["t_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "Over 3 Days"])
+        ->get();
+        $Feedback["t_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('timeliness1')
+        ->get();
+        $Feedback["t_q1_total"] = count($temp);
+
+        /****************************************************************************
+                    For Agents 
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "Less than 24 Hrs"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "24 Hrs"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "48 Hrs"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "3 Days"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "Over 3 Days"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('accreditation_')
+        ->whereNotNull('timeliness1')
+        ->get();
+        $Feedback["agent_t_q1_total"] = count($temp);
+
+        /****************************************************************************
+                    For Public
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "Less than 24 Hrs"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "24 Hrs"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "48 Hrs"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "3 Days"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness1' => "Over 3 Days"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNull('accreditation_')
+        ->whereNotNull('timeliness1')
+        ->get();
+        $Feedback["public_t_q1_total"] = count($temp);
+
+        return response()->json($Feedback);
+    }
 }

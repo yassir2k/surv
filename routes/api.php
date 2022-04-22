@@ -63,3 +63,4 @@ Route::post('/savefeedback',[ApiController::class, 'SaveFeedback']);
 Route::post('/service_delivery_Q1', [BiReportController::class, 'ServiceDeliveryQ1']);
 Route::post('/service_delivery_Q2', [BiReportController::class, 'ServiceDeliveryQ2']);
 Route::post('/qualityQ1', [BiReportController::class, 'QualityQ1']);
+Route::post('/timeliness_Q1', [BiReportController::class, 'TimelinessQ1']);

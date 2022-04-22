@@ -613,7 +613,7 @@
                                 <div class="row"> <!-- Timeliness Question 1 -->
                                     <div class="col-sm-1">
                                     </div>
-                                    <div class="col-sm-6"><!-- Begin Numbers -->
+                                    <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
                                             <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How fast did we deliver the services you asked for?</b></div>
                                         </div>
@@ -746,7 +746,7 @@
                                 <div class="row"> <!-- Timeliness Question 2 -->
                                     <div class="col-sm-1">
                                     </div>
-                                    <div class="col-sm-6"><!-- Begin Numbers -->
+                                    <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
                                             <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Which was your preferred channel of communicating the complaints?</b></div>
                                         </div>
@@ -879,7 +879,7 @@
                                 <div class="row"> <!-- Timeliness Question 3 -->
                                     <div class="col-sm-1">
                                     </div>
-                                    <div class="col-sm-6"><!-- Begin Numbers -->
+                                    <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
                                             <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Were you satisfied with the way the complaint was handled?</b></div>
                                         </div>
@@ -1000,7 +1000,7 @@
                                 <div class="row"> <!-- Timeliness Question 4 -->
                                     <div class="col-sm-1">
                                     </div>
-                                    <div class="col-sm-6"><!-- Begin Numbers -->
+                                    <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
                                             <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How helpful did you find our Staff?</b></div>
                                         </div>
@@ -1150,7 +1150,7 @@
                                 <div class="row"> <!--  Online Environment Question 1 -->
                                     <div class="col-sm-1">
                                     </div>
-                                    <div class="col-sm-6"><!-- Begin Numbers -->
+                                    <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
                                             <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the effectiveness of the process flow of the online registration system?</b></div>
                                         </div>
@@ -1203,7 +1203,7 @@
                                 <div class="row"> <!--  Online Environment Question 2 -->
                                     <div class="col-sm-1">
                                     </div>
-                                    <div class="col-sm-6"><!-- Begin Numbers -->
+                                    <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
                                             <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How would you rate the e-stamping interface on the CRP?</b></div>
                                         </div>
@@ -1249,14 +1249,14 @@
                                             </div>
                                         </div>
                                     </div><!-- End Numbers -->
-                                    <div class="col-sm-5"><!-- Begin Chart -->
+                                    <div class="col-sm-5"><!-- Begin Chart --> 
                                     </div><!-- End Chart -->
                                 </div>
                                 <br />
                                 <div class="row"> <!--  Online Environment Question 3 -->
                                     <div class="col-sm-1">
                                     </div>
-                                    <div class="col-sm-6"><!-- Begin Numbers -->
+                                    <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
                                             <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the Remita payment platform on the CRP?</b></div>
                                         </div>
@@ -1620,7 +1620,7 @@ export default {
                             this.sd_q2_b = '<b style="color: #E39802">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
                             this.sd_q2_c = '<b style="color: #E39802">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
                             this.sd_q2_d = '<b style="color: #E39802">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q2_e = '<b style="color: #E39802">' + d + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q2_e = '<b style="color: #E39802">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
                             this.sd_q2_a = '<b style="color: #E39802">' + a + '</b>';
@@ -1740,7 +1740,7 @@ export default {
                 this.timelinessSelected = true;
                 //Start with Timeliness Q1
                 try{
-                    axios.post("http://127.0.0.1:8000/api/timeliness_Q2", postData) 
+                    axios.post("http://127.0.0.1:8000/api/timeliness_Q1", postData) 
                     .then(response =>{
                         console.log(response);
                         var a = response.data["t_q1_a"];
@@ -1770,7 +1770,7 @@ export default {
                             this.t_q1_b = '<b style="color: #E39802">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
                             this.t_q1_c = '<b style="color: #E39802">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
                             this.t_q1_d = '<b style="color: #E39802">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q1_e = '<b style="color: #E39802">' + d + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q1_e = '<b style="color: #E39802">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
                             this.t_q1_a = '<b style="color: #E39802">' + a + '</b>';
