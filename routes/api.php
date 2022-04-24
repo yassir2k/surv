@@ -55,7 +55,7 @@ Route::post('/savefeedback',[ApiController::class, 'SaveFeedback']);
 
 /*
 |--------------------------------------------------------------------------
-| API Routes FOr Business Intelligence Reports
+| API Routes FOr Business Intelligence Reports online_environment_Q1
 |--------------------------------------------------------------------------
 |
 */
@@ -64,3 +64,9 @@ Route::post('/service_delivery_Q1', [BiReportController::class, 'ServiceDelivery
 Route::post('/service_delivery_Q2', [BiReportController::class, 'ServiceDeliveryQ2']);
 Route::post('/qualityQ1', [BiReportController::class, 'QualityQ1']);
 Route::post('/timeliness_Q1', [BiReportController::class, 'TimelinessQ1']);
+Route::post('/timeliness_Q2', [BiReportController::class, 'TimelinessQ2']);
+Route::post('/timeliness_Q3', [BiReportController::class, 'TimelinessQ3']);
+Route::post('/timeliness_Q4', [BiReportController::class, 'TimelinessQ4']);
+Route::post('/online_environment_Q1', [BiReportController::class, 'OnlineEnvironmentQ1']);
+Route::post('/online_environment_Q2', [BiReportController::class, 'OnlineEnvironmentQ2']);
+Route::post('/online_environment_Q3', [BiReportController::class, 'OnlineEnvironmentQ3']);

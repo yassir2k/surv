@@ -1147,7 +1147,7 @@
                                         <h3 style="border-bottom: 2px solid #8FBC8F">Online Environment</h3>
                                     </div>
                                 </div>
-                                <div class="row"> <!--  Online Environment Question 1 -->
+                                <div class="row"> <!-- Online Environment 1 -->
                                     <div class="col-sm-1">
                                     </div>
                                     <div class="col-sm-10"><!-- Begin Numbers -->
@@ -1156,8 +1156,41 @@
                                         </div>
                                         <br />
                                         <div class="row">
-                                            <div class="col-sm-5">
+                                            <div class="col-sm-3">
                                                 <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Participants</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Combined</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Agents</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Public</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        Total:
+                                                    </li>
                                                     <li class="list-group-item" style="border:none">
                                                         Excellent:
                                                     </li>
@@ -1175,22 +1208,69 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="col-sm-3"> <!-- For Charts -->
+                                            <div class="col-sm-3">
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item" style="border:none">
-                                                        3%
+                                                        <span v-html="oe_q1_total"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        23%
+                                                        <span v-html="oe_q1_a"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        34.4%
+                                                        <span v-html="oe_q1_b"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        50%
+                                                        <span v-html="oe_q1_c"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        50%
+                                                        <span v-html="oe_q1_d"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="oe_q1_e"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q1_total"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q1_a"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q1_b"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q1_c"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q1_d"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q1_e"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q1_total"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q1_a"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q1_b"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q1_c"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q1_d"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q1_e"></span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1200,17 +1280,50 @@
                                     </div><!-- End Chart -->
                                 </div>
                                 <br />
-                                <div class="row"> <!--  Online Environment Question 2 -->
+                                <div class="row"> <!-- Online Environment 2 -->
                                     <div class="col-sm-1">
                                     </div>
                                     <div class="col-sm-10"><!-- Begin Numbers -->
                                         <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How would you rate the e-stamping interface on the CRP?</b></div>
+                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i><b>How would you rate the e-stamping interface on the CRP?</b></div>
                                         </div>
                                         <br />
                                         <div class="row">
-                                            <div class="col-sm-5">
+                                            <div class="col-sm-3">
                                                 <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Participants</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Combined</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Agents</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <b>Public</b>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        Total:
+                                                    </li>
                                                     <li class="list-group-item" style="border:none">
                                                         Excellent:
                                                     </li>
@@ -1228,28 +1341,75 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="col-sm-3"> <!-- For Charts -->
+                                            <div class="col-sm-3">
                                                 <ul class="list-group list-group-flush">
                                                     <li class="list-group-item" style="border:none">
-                                                        3%
+                                                        <span v-html="oe_q2_total"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        23%
+                                                        <span v-html="oe_q2_a"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        34.4%
+                                                        <span v-html="oe_q2_b"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        50%
+                                                        <span v-html="oe_q2_c"></span>
                                                     </li>
                                                     <li class="list-group-item" style="border:none">
-                                                        50%
+                                                        <span v-html="oe_q2_d"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="oe_q2_e"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q2_total"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q2_a"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q2_b"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q2_c"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q2_d"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="agent_oe_q2_e"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q2_total"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q2_a"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q2_b"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q2_c"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q2_d"></span>
+                                                    </li>
+                                                    <li class="list-group-item" style="border:none">
+                                                        <span v-html="public_oe_q2_e"></span>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div><!-- End Numbers -->
-                                    <div class="col-sm-5"><!-- Begin Chart --> 
+                                    <div class="col-sm-5"><!-- Begin Chart -->
                                     </div><!-- End Chart -->
                                 </div>
                                 <br />
@@ -1464,6 +1624,57 @@ export default {
             public_t_q4_c: '',
             public_t_q4_d: '',
             public_t_q4_e: '',
+            oe_q1_total: '',
+            oe_q1_a: '',
+            oe_q1_b: '',
+            oe_q1_c: '',
+            oe_q1_d: '',
+            oe_q1_e: '',
+            agent_oe_q1_total: '',
+            agent_oe_q1_a: '',
+            agent_oe_q1_b: '',
+            agent_oe_q1_c: '',
+            agent_oe_q1_d: '',
+            agent_oe_q1_e: '',
+            public_oe_q1_total: '',
+            public_oe_q1_a: '',
+            public_oe_q1_b: '',
+            public_oe_q1_c: '',
+            public_oe_q1_d: '',
+            public_oe_q1_e: '',
+            oe_q2_total: '',
+            oe_q2_a: '',
+            oe_q2_b: '',
+            oe_q2_c: '',
+            oe_q2_d: '',
+            oe_q2_e: '',
+            agent_oe_q2_total: '',
+            agent_oe_q2_a: '',
+            agent_oe_q2_b: '',
+            agent_oe_q2_c: '',
+            agent_oe_q2_d: '',
+            agent_oe_q2_e: '',
+            public_oe_q2_total: '',
+            public_oe_q2_a: '',
+            public_oe_q2_b: '',
+            public_oe_q2_c: '',
+            public_oe_q2_d: '',
+            public_oe_q2_e: '',
+            oe_q3_total: '',
+            oe_q3_a: '',
+            oe_q3_b: '',
+            oe_q3_c: '',
+            oe_q3_d: '',
+            agent_oe_q3_total: '',
+            agent_oe_q3_a: '',
+            agent_oe_q3_b: '',
+            agent_oe_q3_c: '',
+            agent_oe_q3_d: '',
+            public_oe_q3_total: '',
+            public_oe_q3_a: '',
+            public_oe_q3_b: '',
+            public_oe_q3_c: '',
+            public_oe_q3_d: '',
         }
     },
     components:{
@@ -1508,7 +1719,6 @@ export default {
         },
         GenerateReport(){
             this.loader = '<center><i class="fas fa-spinner fa-spin fa-5x fa-fw" style="color: #8FBC8F"></i></center>';
-            this.revealAll = true;
             this.serviceDeliverySelected = false;
             this.qualitySelected = false;
             this.timelinessSelected = false;
@@ -1524,7 +1734,6 @@ export default {
                 try{
                     axios.post("http://127.0.0.1:8000/api/service_delivery_Q1", postData) 
                     .then(response =>{
-                        console.log(response);
                         var a = response.data["sd_q1_a"];
                         var b = response.data["sd_q1_b"];
                         var c = response.data["sd_q1_c"];
@@ -1540,47 +1749,47 @@ export default {
                         var k = response.data["public_sd_q1_c"];
                         var l = response.data["public_sd_q1_d"];
                         var z = response.data["public_sd_q1_total"]
-                        this.sd_q1_total = '<b style="color: #FF0000">' + x + "</b>";
-                        this.agent_sd_q1_total = '<b style="color: #FF0000">' + y + "</b>";
-                        this.public_sd_q1_total = '<b style="color: #FF0000">' + z + "</b>";
+                        this.sd_q1_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_sd_q1_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_sd_q1_total = '<b style="color: #899499">' + z + "</b>";
                         if(x != 0)
                         {
-                            this.sd_q1_a = '<b style="color: #E39802">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q1_b = '<b style="color: #E39802">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q1_c = '<b style="color: #E39802">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q1_d = '<b style="color: #E39802">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q1_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q1_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q1_c = '<b style="color: #FFBF00">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q1_d = '<b style="color: red">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.sd_q1_a = '<b style="color: #E39802">' + a + '</b>';
-                            this.sd_q1_b = '<b style="color: #E39802">' + b + '</b>';
-                            this.sd_q1_c = '<b style="color: #E39802">' + c + '</b>';
-                            this.sd_q1_d = '<b style="color: #E39802">' + d + '</b>';
+                            this.sd_q1_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.sd_q1_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.sd_q1_c = '<b style="color: #FFBF00">' + c + '</b>';
+                            this.sd_q1_d = '<b style="color: red">' + d + '</b>';
                         }
                         if(y != 0)
                         {
-                            this.agent_sd_q1_a = '<b style="color: #E39802">' + e + ' (' + ((e/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_sd_q1_b = '<b style="color: #E39802">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_sd_q1_c = '<b style="color: #E39802">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_sd_q1_d = '<b style="color: #E39802">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q1_a = '<b style="color: #72cc66">' + e + ' (' + ((e/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q1_b = '<b style="color: #40B5AD">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q1_c = '<b style="color: #FFBF00">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q1_d = '<b style="color: red">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.agent_sd_q1_a = '<b style="color: #E39802">' + e + '</b>';
-                            this.agent_sd_q1_b = '<b style="color: #E39802">' + f + '</b>';
-                            this.agent_sd_q1_c = '<b style="color: #E39802">' + g + '</b>';
-                            this.agent_sd_q1_d = '<b style="color: #E39802">' + h + '</b>';
+                            this.agent_sd_q1_a = '<b style="color: #72cc66">' + e + '</b>';
+                            this.agent_sd_q1_b = '<b style="color: #40B5AD">' + f + '</b>';
+                            this.agent_sd_q1_c = '<b style="color: #FFBF00">' + g + '</b>';
+                            this.agent_sd_q1_d = '<b style="color: red">' + h + '</b>';
                         }
                         if(z != 0)
                         {
-                            this.public_sd_q1_a = '<b style="color: #E39802">' + i + ' (' + ((i/z)*100).toFixed(2) +' %)</b>';
-                            this.public_sd_q1_b = '<b style="color: #E39802">' + j + ' (' + ((j/z)*100).toFixed(2) +' %)</b>';
-                            this.public_sd_q1_c = '<b style="color: #E39802">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
-                            this.public_sd_q1_d = '<b style="color: #E39802">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q1_a = '<b style="color: #72cc66">' + i + ' (' + ((i/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q1_b = '<b style="color: #40B5AD">' + j + ' (' + ((j/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q1_c = '<b style="color: #FFBF00">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q1_d = '<b style="color: red">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.public_sd_q1_a = '<b style="color: #E39802">' + i + '</b>';
-                            this.public_sd_q1_b = '<b style="color: #E39802">' + j + '</b>';
-                            this.public_sd_q1_c = '<b style="color: #E39802">' + k + '</b>';
-                            this.public_sd_q1_d = '<b style="color: #E39802">' + l + '</b>';
+                            this.public_sd_q1_a = '<b style="color: #72cc66">' + i + '</b>';
+                            this.public_sd_q1_b = '<b style="color: #40B5AD">' + j + '</b>';
+                            this.public_sd_q1_c = '<b style="color: #FFBF00">' + k + '</b>';
+                            this.public_sd_q1_d = '<b style="color: red">' + l + '</b>';
                         }
                     })
                 }
@@ -1592,7 +1801,6 @@ export default {
                 try{
                     axios.post("http://127.0.0.1:8000/api/service_delivery_Q2", postData) 
                     .then(response =>{
-                        console.log(response);
                         var a = response.data["sd_q2_a"];
                         var b = response.data["sd_q2_b"];
                         var c = response.data["sd_q2_c"];
@@ -1611,53 +1819,53 @@ export default {
                         var n = response.data["public_sd_q2_d"];
                         var o = response.data["public_sd_q2_e"];
                         var z = response.data["public_sd_q2_total"]
-                        this.sd_q2_total = '<b style="color: #4CBB17">' + x + "</b>";
-                        this.agent_sd_q2_total = '<b style="color: #4CBB17">' + y + "</b>";
-                        this.public_sd_q2_total = '<b style="color: #4CBB17">' + z + "</b>";
+                        this.sd_q2_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_sd_q2_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_sd_q2_total = '<b style="color: #899499">' + z + "</b>";
                         if(x != 0)
                         {
-                            this.sd_q2_a = '<b style="color: #E39802">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q2_b = '<b style="color: #E39802">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q2_c = '<b style="color: #E39802">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q2_d = '<b style="color: #E39802">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
-                            this.sd_q2_e = '<b style="color: #E39802">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q2_a = '<b style="color: #FF7F50">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q2_b = '<b style="color: #89CFF0">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q2_c = '<b style="color: #FFEA00">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q2_d = '<b style="color: #C0C0C0">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.sd_q2_e = '<b style="color: #71797E">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.sd_q2_a = '<b style="color: #E39802">' + a + '</b>';
-                            this.sd_q2_b = '<b style="color: #E39802">' + b + '</b>';
-                            this.sd_q2_c = '<b style="color: #E39802">' + c + '</b>';
-                            this.sd_q2_d = '<b style="color: #E39802">' + d + '</b>';
-                            this.sd_q2_e = '<b style="color: #E39802">' + e + '</b>';
+                            this.sd_q2_a = '<b style="color: #FF7F50">' + a + '</b>';
+                            this.sd_q2_b = '<b style="color: #89CFF0">' + b + '</b>';
+                            this.sd_q2_c = '<b style="color: #FFEA00">' + c + '</b>';
+                            this.sd_q2_d = '<b style="color: #C0C0C0">' + d + '</b>';
+                            this.sd_q2_e = '<b style="color: #71797E">' + e + '</b>';
                         }
                         if(y != 0)
                         {
-                            this.agent_sd_q2_a = '<b style="color: #E39802">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_sd_q2_b = '<b style="color: #E39802">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_sd_q2_c = '<b style="color: #E39802">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_sd_q2_d = '<b style="color: #E39802">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_sd_q2_e = '<b style="color: #E39802">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q2_a = '<b style="color: #FF7F50">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q2_b = '<b style="color: #89CFF0">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q2_c = '<b style="color: #FFEA00">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q2_d = '<b style="color: #C0C0C0">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_sd_q2_e = '<b style="color: #71797E">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.agent_sd_q2_a = '<b style="color: #E39802">' + f + '</b>';
-                            this.agent_sd_q2_b = '<b style="color: #E39802">' + g + '</b>';
-                            this.agent_sd_q2_c = '<b style="color: #E39802">' + h + '</b>';
-                            this.agent_sd_q2_d = '<b style="color: #E39802">' + i + '</b>';
-                            this.agent_sd_q2_e = '<b style="color: #E39802">' + j + '</b>';
+                            this.agent_sd_q2_a = '<b style="color: #FF7F50">' + f + '</b>';
+                            this.agent_sd_q2_b = '<b style="color: #89CFF0">' + g + '</b>';
+                            this.agent_sd_q2_c = '<b style="color: #FFEA00">' + h + '</b>';
+                            this.agent_sd_q2_d = '<b style="color: #C0C0C0">' + i + '</b>';
+                            this.agent_sd_q2_e = '<b style="color: #71797E">' + j + '</b>';
                         }
                         if(z != 0)
                         {
-                            this.public_sd_q2_a = '<b style="color: #E39802">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
-                            this.public_sd_q2_b = '<b style="color: #E39802">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
-                            this.public_sd_q2_c = '<b style="color: #E39802">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
-                            this.public_sd_q2_d = '<b style="color: #E39802">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
-                            this.public_sd_q2_e = '<b style="color: #E39802">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q2_a = '<b style="color: #FF7F50">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q2_b = '<b style="color: #89CFF0">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q2_c = '<b style="color: #FFEA00">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q2_d = '<b style="color: #C0C0C0">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_sd_q2_e = '<b style="color: #71797E">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.public_sd_q2_a = '<b style="color: #E39802">' + k + '</b>';
-                            this.public_sd_q2_b = '<b style="color: #E39802">' + l + '</b>';
-                            this.public_sd_q2_c = '<b style="color: #E39802">' + m + '</b>';
-                            this.public_sd_q2_d = '<b style="color: #E39802">' + n + '</b>';
-                            this.public_sd_q2_e = '<b style="color: #E39802">' + o + '</b>';
+                            this.public_sd_q2_a = '<b style="color: #FF7F50">' + k + '</b>';
+                            this.public_sd_q2_b = '<b style="color: #89CFF0">' + l + '</b>';
+                            this.public_sd_q2_c = '<b style="color: #FFEA00">' + m + '</b>';
+                            this.public_sd_q2_d = '<b style="color: #C0C0C0">' + n + '</b>';
+                            this.public_sd_q2_e = '<b style="color: #71797E">' + o + '</b>';
                         }
                     })
                 }
@@ -1671,7 +1879,6 @@ export default {
                 try{
                     axios.post("http://127.0.0.1:8000/api/qualityQ1", postData) 
                     .then(response =>{
-                        console.log(response);
                         var a = response.data["q_a"];
                         var b = response.data["q_b"];
                         var c = response.data["q_c"];
@@ -1687,47 +1894,47 @@ export default {
                         var k = response.data["public_q_c"];
                         var l = response.data["public_q_d"];
                         var z = response.data["public_q_total"]
-                        this.q_total = '<b style="color: #FF0000">' + x + "</b>";
-                        this.agent_q_total = '<b style="color: #FF0000">' + y + "</b>";
-                        this.public_q_total = '<b style="color: #FF0000">' + z + "</b>";
+                        this.q_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_q_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_q_total = '<b style="color: #899499">' + z + "</b>";
                         if(x != 0)
                         {
-                            this.q_a = '<b style="color: #E39802">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
-                            this.q_b = '<b style="color: #E39802">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
-                            this.q_c = '<b style="color: #E39802">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
-                            this.q_d = '<b style="color: #E39802">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.q_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.q_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.q_c = '<b style="color: #FFBF00">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.q_d = '<b style="color: red">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.q_a = '<b style="color: #E39802">' + a + '</b>';
-                            this.q_b = '<b style="color: #E39802">' + b + '</b>';
-                            this.q_c = '<b style="color: #E39802">' + c + '</b>';
-                            this.q_d = '<b style="color: #E39802">' + d + '</b>';
+                            this.q_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.q_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.q_c = '<b style="color: #FFBF00">' + c + '</b>';
+                            this.q_d = '<b style="color: red">' + d + '</b>';
                         }
                         if(y != 0)
                         {
-                            this.agent_q_a = '<b style="color: #E39802">' + e + ' (' + ((e/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_q_b = '<b style="color: #E39802">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_q_c = '<b style="color: #E39802">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_q_d = '<b style="color: #E39802">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_q_a = '<b style="color: #72cc66">' + e + ' (' + ((e/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_q_b = '<b style="color: #40B5AD">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_q_c = '<b style="color: #FFBF00">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_q_d = '<b style="color: red">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.agent_q_a = '<b style="color: #E39802">' + e + '</b>';
-                            this.agent_q_b = '<b style="color: #E39802">' + f + '</b>';
-                            this.agent_q_c = '<b style="color: #E39802">' + g + '</b>';
-                            this.agent_q_d = '<b style="color: #E39802">' + h + '</b>';
+                            this.agent_q_a = '<b style="color: #72cc66">' + e + '</b>';
+                            this.agent_q_b = '<b style="color: #40B5AD">' + f + '</b>';
+                            this.agent_q_c = '<b style="color: #FFBF00">' + g + '</b>';
+                            this.agent_q_d = '<b style="color: red">' + h + '</b>';
                         }
                         if(z != 0)
                         {
-                            this.public_q_a = '<b style="color: #E39802">' + i + ' (' + ((i/z)*100).toFixed(2) +' %)</b>';
-                            this.public_q_b = '<b style="color: #E39802">' + j + ' (' + ((j/z)*100).toFixed(2) +' %)</b>';
-                            this.public_q_c = '<b style="color: #E39802">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
-                            this.public_q_d = '<b style="color: #E39802">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_q_a = '<b style="color: #72cc66">' + i + ' (' + ((i/z)*100).toFixed(2) +' %)</b>';
+                            this.public_q_b = '<b style="color: #40B5AD">' + j + ' (' + ((j/z)*100).toFixed(2) +' %)</b>';
+                            this.public_q_c = '<b style="color: #FFBF00">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_q_d = '<b style="color: red">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.public_sd_q1_a = '<b style="color: #E39802">' + i + '</b>';
-                            this.public_sd_q1_b = '<b style="color: #E39802">' + j + '</b>';
+                            this.public_sd_q1_a = '<b style="color: #72cc66">' + i + '</b>';
+                            this.public_sd_q1_b = '<b style="color: #40B5AD">' + j + '</b>';
                             this.public_sd_q1_c = '<b style="color: #E39802">' + k + '</b>';
-                            this.public_sd_q1_d = '<b style="color: #E39802">' + l + '</b>';
+                            this.public_sd_q1_d = '<b style="color: red">' + l + '</b>';
                         }
                     })
                 }
@@ -1742,7 +1949,6 @@ export default {
                 try{
                     axios.post("http://127.0.0.1:8000/api/timeliness_Q1", postData) 
                     .then(response =>{
-                        console.log(response);
                         var a = response.data["t_q1_a"];
                         var b = response.data["t_q1_b"];
                         var c = response.data["t_q1_c"];
@@ -1761,64 +1967,361 @@ export default {
                         var n = response.data["public_t_q1_d"];
                         var o = response.data["public_t_q1_e"];
                         var z = response.data["public_t_q1_total"]
-                        this.t_q1_total = '<b style="color: #4CBB17">' + x + "</b>";
-                        this.agent_t_q1_total = '<b style="color: #4CBB17">' + y + "</b>";
-                        this.public_t_q1_total = '<b style="color: #4CBB17">' + z + "</b>";
+                        this.t_q1_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_t_q1_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_t_q1_total = '<b style="color: #899499">' + z + "</b>";
                         if(x != 0)
                         {
-                            this.t_q1_a = '<b style="color: #E39802">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q1_b = '<b style="color: #E39802">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q1_c = '<b style="color: #E39802">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q1_d = '<b style="color: #E39802">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q1_e = '<b style="color: #E39802">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q1_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q1_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q1_c = '<b style="color: #DAE021">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q1_d = '<b style="color: #FFBF00">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q1_e = '<b style="color: red">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.t_q1_a = '<b style="color: #E39802">' + a + '</b>';
-                            this.t_q1_b = '<b style="color: #E39802">' + b + '</b>';
-                            this.t_q1_c = '<b style="color: #E39802">' + c + '</b>';
-                            this.t_q1_d = '<b style="color: #E39802">' + d + '</b>';
-                            this.t_q1_e = '<b style="color: #E39802">' + e + '</b>';
+                            this.t_q1_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.t_q1_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.t_q1_c = '<b style="color: #DAE021">' + c + '</b>';
+                            this.t_q1_d = '<b style="color: #FFBF00">' + d + '</b>';
+                            this.t_q1_e = '<b style="color: red">' + e + '</b>';
                         }
                         if(y != 0)
                         {
-                            this.agent_t_q1_a = '<b style="color: #E39802">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_t_q1_b = '<b style="color: #E39802">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_t_q1_c = '<b style="color: #E39802">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_t_q1_d = '<b style="color: #E39802">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_t_q1_e = '<b style="color: #E39802">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q1_a = '<b style="color: #72cc66">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q1_b = '<b style="color: #40B5AD">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q1_c = '<b style="color: #DAE021">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q1_d = '<b style="color: #FFBF00">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q1_e = '<b style="color: red">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.agent_t_q1_a = '<b style="color: #E39802">' + f + '</b>';
-                            this.agent_t_q1_b = '<b style="color: #E39802">' + g + '</b>';
-                            this.agent_t_q1_c = '<b style="color: #E39802">' + h + '</b>';
-                            this.agent_t_q1_d = '<b style="color: #E39802">' + i + '</b>';
-                            this.agent_t_q1_e = '<b style="color: #E39802">' + j + '</b>';
+                            this.agent_t_q1_a = '<b style="color: #72cc66">' + f + '</b>';
+                            this.agent_t_q1_b = '<b style="color: #40B5AD">' + g + '</b>';
+                            this.agent_t_q1_c = '<b style="color: #DAE021">' + h + '</b>';
+                            this.agent_t_q1_d = '<b style="color: #FFBF00">' + i + '</b>';
+                            this.agent_t_q1_e = '<b style="color: red">' + j + '</b>';
                         }
                         if(z != 0)
                         {
-                            this.public_t_q1_a = '<b style="color: #E39802">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
-                            this.public_t_q1_b = '<b style="color: #E39802">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
-                            this.public_t_q1_c = '<b style="color: #E39802">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
-                            this.public_t_q1_d = '<b style="color: #E39802">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
-                            this.public_t_q1_e = '<b style="color: #E39802">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q1_a = '<b style="color: #72cc66">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q1_b = '<b style="color: #40B5AD">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q1_c = '<b style="color: #DAE021">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q1_d = '<b style="color: #FFBF00">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q1_e = '<b style="color: red">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.public_t_q1_a = '<b style="color: #E39802">' + k + '</b>';
-                            this.public_t_q1_b = '<b style="color: #E39802">' + l + '</b>';
-                            this.public_t_q1_c = '<b style="color: #E39802">' + m + '</b>';
-                            this.public_t_q1_d = '<b style="color: #E39802">' + n + '</b>';
-                            this.public_t_q1_e = '<b style="color: #E39802">' + o + '</b>';
+                            this.public_t_q1_a = '<b style="color: #72cc66">' + k + '</b>';
+                            this.public_t_q1_b = '<b style="color: #40B5AD">' + l + '</b>';
+                            this.public_t_q1_c = '<b style="color: #DAE021">' + m + '</b>';
+                            this.public_t_q1_d = '<b style="color: #FFBF00">' + n + '</b>';
+                            this.public_t_q1_e = '<b style="color: red">' + o + '</b>';
                         }
                     })
                 }
                 catch(err){    
-                        console.log("SDQ2: " + err);
+                        console.log("TQ1: " + err);
+                }
+
+                //Start with Timeliness Q2
+                try{
+                    axios.post("http://127.0.0.1:8000/api/timeliness_Q2", postData) 
+                    .then(response =>{
+                        var a = response.data["t_q2_a"];
+                        var b = response.data["t_q2_b"];
+                        var c = response.data["t_q2_c"];
+                        var d = response.data["t_q2_d"];
+                        var e = response.data["t_q2_e"];
+                        var x = response.data["t_q2_total"]
+                        var f = response.data["agent_t_q2_a"];
+                        var g = response.data["agent_t_q2_b"];
+                        var h = response.data["agent_t_q2_c"];
+                        var i = response.data["agent_t_q2_d"];
+                        var j = response.data["agent_t_q2_e"];
+                        var y = response.data["agent_t_q2_total"]
+                        var k = response.data["public_t_q2_a"];
+                        var l = response.data["public_t_q2_b"];
+                        var m = response.data["public_t_q2_c"];
+                        var n = response.data["public_t_q2_d"];
+                        var o = response.data["public_t_q2_e"];
+                        var z = response.data["public_t_q2_total"]
+                        this.t_q2_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_t_q2_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_t_q2_total = '<b style="color: #899499">' + z + "</b>";
+                        if(x != 0)
+                        {
+                            this.t_q2_a = '<b style="color: #CBC3E3">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q2_b = '<b style="color: #CCCCFF">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q2_c = '<b style="color: #CF9FFF">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q2_d = '<b style="color: #DA70D6">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q2_e = '<b style="color: #800080">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.t_q2_a = '<b style="color: #CBC3E3">' + a + '</b>';
+                            this.t_q2_b = '<b style="color: #CCCCFF">' + b + '</b>';
+                            this.t_q2_c = '<b style="color: #CF9FFF">' + c + '</b>';
+                            this.t_q2_d = '<b style="color: #DA70D6">' + d + '</b>';
+                            this.t_q2_e = '<b style="color: #800080">' + e + '</b>';
+                        }
+                        if(y != 0)
+                        {
+                            this.agent_t_q2_a = '<b style="color: #CBC3E3">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q2_b = '<b style="color: #CCCCFF">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q2_c = '<b style="color: #CF9FFF">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q2_d = '<b style="color: #DA70D6">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q2_e = '<b style="color: #800080">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.agent_t_q2_a = '<b style="color: #CBC3E3">' + f + '</b>';
+                            this.agent_t_q2_b = '<b style="color: #CCCCFF">' + g + '</b>';
+                            this.agent_t_q2_c = '<b style="color: #CF9FFF">' + h + '</b>';
+                            this.agent_t_q2_d = '<b style="color: #DA70D6">' + i + '</b>';
+                            this.agent_t_q2_e = '<b style="color: #800080">' + j + '</b>';
+                        }
+                        if(z != 0)
+                        {
+                            this.public_t_q2_a = '<b style="color: #CBC3E3">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q2_b = '<b style="color: #CCCCFF">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q2_c = '<b style="color: #CF9FFF">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q2_d = '<b style="color: #DA70D6">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q2_e = '<b style="color: #800080">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.public_t_q2_a = '<b style="color: #CBC3E3">' + k + '</b>';
+                            this.public_t_q2_b = '<b style="color: #CCCCFF">' + l + '</b>';
+                            this.public_t_q2_c = '<b style="color: #CF9FFF">' + m + '</b>';
+                            this.public_t_q2_d = '<b style="color: #DA70D6">' + n + '</b>';
+                            this.public_t_q2_e = '<b style="color: #800080">' + o + '</b>';
+                        }
+                    })
+                }
+                catch(err){    
+                        console.log("TQ2: " + err);
+                }
+
+                //Start with Timeliness Q3
+                try{
+                    axios.post("http://127.0.0.1:8000/api/timeliness_Q3", postData) 
+                    .then(response =>{
+                        var a = response.data["t_q3_a"];
+                        var b = response.data["t_q3_b"];
+                        var c = response.data["t_q3_c"];
+                        var d = response.data["t_q3_d"];
+                        var x = response.data["t_q3_total"]
+                        var f = response.data["agent_t_q3_a"];
+                        var g = response.data["agent_t_q3_b"];
+                        var h = response.data["agent_t_q3_c"];
+                        var i = response.data["agent_t_q3_d"];
+                        var y = response.data["agent_t_q3_total"]
+                        var k = response.data["public_t_q3_a"];
+                        var l = response.data["public_t_q3_b"];
+                        var m = response.data["public_t_q3_c"];
+                        var n = response.data["public_t_q3_d"];
+                        var z = response.data["public_t_q3_total"]
+                        this.t_q3_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_t_q3_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_t_q3_total = '<b style="color: #899499">' + z + "</b>";
+                        if(x != 0)
+                        {
+                            this.t_q3_a = '<b style="color: #CBC3E3">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q3_b = '<b style="color: #CCCCFF">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q3_c = '<b style="color: #CF9FFF">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q3_d = '<b style="color: #DA70D6">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.t_q3_a = '<b style="color: #CBC3E3">' + a + '</b>';
+                            this.t_q3_b = '<b style="color: #CCCCFF">' + b + '</b>';
+                            this.t_q3_c = '<b style="color: #CF9FFF">' + c + '</b>';
+                            this.t_q3_d = '<b style="color: #DA70D6">' + d + '</b>';
+                        }
+                        if(y != 0)
+                        {
+                            this.agent_t_q3_a = '<b style="color: #CBC3E3">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q3_b = '<b style="color: #CCCCFF">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q3_c = '<b style="color: #CF9FFF">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q3_d = '<b style="color: #DA70D6">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.agent_t_q3_a = '<b style="color: #CBC3E3">' + f + '</b>';
+                            this.agent_t_q3_b = '<b style="color: #CCCCFF">' + g + '</b>';
+                            this.agent_t_q3_c = '<b style="color: #CF9FFF">' + h + '</b>';
+                            this.agent_t_q3_d = '<b style="color: #DA70D6">' + i + '</b>';
+                        }
+                        if(z != 0)
+                        {
+                            this.public_t_q3_a = '<b style="color: #CBC3E3">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q3_b = '<b style="color: #CCCCFF">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q3_c = '<b style="color: #CF9FFF">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q3_d = '<b style="color: #DA70D6">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.public_t_q3_a = '<b style="color: #CBC3E3">' + k + '</b>';
+                            this.public_t_q3_b = '<b style="color: #CCCCFF">' + l + '</b>';
+                            this.public_t_q3_c = '<b style="color: #CF9FFF">' + m + '</b>';
+                            this.public_t_q3_d = '<b style="color: #DA70D6">' + n + '</b>';
+                        }
+                    })
+                }
+                catch(err){    
+                        console.log("TQ2: " + err);
+                }
+
+                //Start with Timeliness Q4
+                try{
+                    axios.post("http://127.0.0.1:8000/api/timeliness_Q4", postData) 
+                    .then(response =>{
+                        var a = response.data["t_q4_a"];
+                        var b = response.data["t_q4_b"];
+                        var c = response.data["t_q4_c"];
+                        var d = response.data["t_q4_d"];
+                        var e = response.data["t_q4_e"];
+                        var x = response.data["t_q4_total"]
+                        var f = response.data["agent_t_q4_a"];
+                        var g = response.data["agent_t_q4_b"];
+                        var h = response.data["agent_t_q4_c"];
+                        var i = response.data["agent_t_q4_d"];
+                        var j = response.data["agent_t_q4_e"];
+                        var y = response.data["agent_t_q4_total"]
+                        var k = response.data["public_t_q4_a"];
+                        var l = response.data["public_t_q4_b"];
+                        var m = response.data["public_t_q4_c"];
+                        var n = response.data["public_t_q4_d"];
+                        var o = response.data["public_t_q4_e"];
+                        var z = response.data["public_t_q4_total"]
+                        this.t_q4_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_t_q4_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_t_q4_total = '<b style="color: #899499">' + z + "</b>";
+                        if(x != 0)
+                        {
+                            this.t_q4_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q4_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q4_c = '<b style="color: #DAE021">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q4_d = '<b style="color: #FFBF00">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q4_e = '<b style="color: red">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.t_q4_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.t_q4_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.t_q4_c = '<b style="color: #DAE021">' + c + '</b>';
+                            this.t_q4_d = '<b style="color: #FFBF00">' + d + '</b>';
+                            this.t_q4_e = '<b style="color: red">' + e + '</b>';
+                        }
+                        if(y != 0)
+                        {
+                            this.agent_t_q4_a = '<b style="color: #72cc66">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q4_b = '<b style="color: #40B5AD">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q4_c = '<b style="color: #DAE021">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q4_d = '<b style="color: #FFBF00">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q4_e = '<b style="color: red">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.agent_t_q4_a = '<b style="color: #72cc66">' + f + '</b>';
+                            this.agent_t_q4_b = '<b style="color: #40B5AD">' + g + '</b>';
+                            this.agent_t_q4_c = '<b style="color: #DAE021">' + h + '</b>';
+                            this.agent_t_q4_d = '<b style="color: #FFBF00">' + i + '</b>';
+                            this.agent_t_q4_e = '<b style="color: red">' + j + '</b>';
+                        }
+                        if(z != 0)
+                        {
+                            this.public_t_q4_a = '<b style="color: #72cc66">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q4_b = '<b style="color: #40B5AD">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q4_c = '<b style="color: #DAE021">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q4_d = '<b style="color: #FFBF00">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q4_e = '<b style="color: red">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.public_t_q4_a = '<b style="color: #72cc66">' + k + '</b>';
+                            this.public_t_q4_b = '<b style="color: #40B5AD">' + l + '</b>';
+                            this.public_t_q4_c = '<b style="color: #DAE021">' + m + '</b>';
+                            this.public_t_q4_d = '<b style="color: #FFBF00">' + n + '</b>';
+                            this.public_t_q4_e = '<b style="color: red">' + o + '</b>';
+                        }
+                    })
+                }
+                catch(err){    
+                        console.log("TQ1: " + err);
                 }
             }
             if(this.onlineEnvBox)
             {
                 this.onlineEnvironmentSelected = true;
+
+                //Start with Online Environment Q1
+                try{
+                    axios.post("http://127.0.0.1:8000/api/online_environment_Q1", postData) 
+                    .then(response =>{
+                        var a = response.data["oe_q1_a"];
+                        var b = response.data["oe_q1_b"];
+                        var c = response.data["oe_q1_c"];
+                        var d = response.data["oe_q1_d"];
+                        var e = response.data["oe_q1_e"];
+                        var x = response.data["oe_q1_total"]
+                        var f = response.data["agent_oe_q1_a"];
+                        var g = response.data["agent_oe_q1_b"];
+                        var h = response.data["agent_oe_q1_c"];
+                        var i = response.data["agent_oe_q1_d"];
+                        var j = response.data["agent_oe_q1_e"];
+                        var y = response.data["agent_oe_q1_total"]
+                        var k = response.data["public_oe_q1_a"];
+                        var l = response.data["public_oe_q1_b"];
+                        var m = response.data["public_oe_q1_c"];
+                        var n = response.data["public_oe_q1_d"];
+                        var o = response.data["public_oe_q1_e"];
+                        var z = response.data["public_oe_q1_total"]
+                        this.oe_q1_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_oe_q1_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_oe_q1_total = '<b style="color: #899499">' + z + "</b>";
+                        if(x != 0)
+                        {
+                            this.oe_q1_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q1_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q1_c = '<b style="color: #DAE021">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q1_d = '<b style="color: #FFBF00">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q1_e = '<b style="color: red">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.oe_q1_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.oe_q1_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.oe_q1_c = '<b style="color: #DAE021">' + c + '</b>';
+                            this.oe_q1_d = '<b style="color: #FFBF00">' + d + '</b>';
+                            this.oe_q1_e = '<b style="color: red">' + e + '</b>';
+                        }
+                        if(y != 0)
+                        {
+                            this.agent_oe_q1_a = '<b style="color: #72cc66">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q1_b = '<b style="color: #40B5AD">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q1_c = '<b style="color: #DAE021">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q1_d = '<b style="color: #FFBF00">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q1_e = '<b style="color: red">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.agent_oe_q1_a = '<b style="color: #72cc66">' + f + '</b>';
+                            this.agent_oe_q1_b = '<b style="color: #40B5AD">' + g + '</b>';
+                            this.agent_oe_q1_c = '<b style="color: #DAE021">' + h + '</b>';
+                            this.agent_oe_q1_d = '<b style="color: #FFBF00">' + i + '</b>';
+                            this.agent_oe_q1_e = '<b style="color: red">' + j + '</b>';
+                        }
+                        if(z != 0)
+                        {
+                            this.public_oe_q1_a = '<b style="color: #72cc66">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q1_b = '<b style="color: #40B5AD">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q1_c = '<b style="color: #DAE021">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q1_d = '<b style="color: #FFBF00">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q1_e = '<b style="color: red">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.public_oe_q1_a = '<b style="color: #72cc66">' + k + '</b>';
+                            this.public_oe_q1_b = '<b style="color: #40B5AD">' + l + '</b>';
+                            this.public_oe_q1_c = '<b style="color: #DAE021">' + m + '</b>';
+                            this.public_oe_q1_d = '<b style="color: #FFBF00">' + n + '</b>';
+                            this.public_oe_q1_e = '<b style="color: red">' + o + '</b>';
+                        }
+                    })
+                }
+                catch(err){    
+                        console.log("TQ1: " + err);
+                }
             }
+            this.loader = '';
+            this.revealAll = true;
         }
     }
 }

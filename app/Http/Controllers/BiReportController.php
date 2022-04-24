@@ -582,4 +582,601 @@ class BiReportController extends Controller
 
         return response()->json($Feedback);
     }
+
+
+    /*--------------------------------------------------------------------------
+                    Timeliness Q2
+    ---------------------------------------------------------------------------*/
+    public function TimelinessQ2(Request $request){
+        $from = $request->input('beginDate');
+        $to = $request->input('endDate');
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Email"])
+        ->get();
+        $Feedback["t_q2_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Telephone"])
+        ->get();
+        $Feedback["t_q2_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Face to Face"])
+        ->get();
+        $Feedback["t_q2_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Online Support Ticket System"])
+        ->get();
+        $Feedback["t_q2_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Others"])
+        ->get();
+        $Feedback["t_q2_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('timeliness2')
+        ->get();
+        $Feedback["t_q2_total"] = count($temp);
+
+        /****************************************************************************
+                    For Agents 
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Email"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q2_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Telephone"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q2_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Face to Face"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q2_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Online Support Ticket System"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q2_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Others"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q2_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('accreditation_')
+        ->whereNotNull('timeliness2')
+        ->get();
+        $Feedback["agent_t_q2_total"] = count($temp);
+
+        /****************************************************************************
+                    For Public
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Email"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q2_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Telephone"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q2_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Face to Face"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q2_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Online Support Ticket System"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q2_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness2' => "Others"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q2_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNull('accreditation_')
+        ->whereNotNull('timeliness2')
+        ->get();
+        $Feedback["public_t_q2_total"] = count($temp);
+
+        return response()->json($Feedback);
+    }
+
+
+    /*--------------------------------------------------------------------------
+                    Timeliness Q3
+    ---------------------------------------------------------------------------*/
+    public function TimelinessQ3(Request $request){
+        $from = $request->input('beginDate');
+        $to = $request->input('endDate');
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Very Satisfied"])
+        ->get();
+        $Feedback["t_q3_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Satisfied"])
+        ->get();
+        $Feedback["t_q3_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Dissatisfied"])
+        ->get();
+        $Feedback["t_q3_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Very Dissatisfied"])
+        ->get();
+        $Feedback["t_q3_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('timeliness3')
+        ->get();
+        $Feedback["t_q3_total"] = count($temp);
+
+        /****************************************************************************
+                    For Agents 
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Very Satisfied"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q3_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Satisfied"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q3_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Dissatisfied"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q3_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Very Dissatisfied"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q3_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('accreditation_')
+        ->whereNotNull('timeliness3')
+        ->get();
+        $Feedback["agent_t_q3_total"] = count($temp);
+
+        /****************************************************************************
+                    For Public
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Very Satisfied"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q3_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Satisfied"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q3_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Dissatisfied"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q3_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness3' => "Very Dissatisfied"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q3_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNull('accreditation_')
+        ->whereNotNull('timeliness3')
+        ->get();
+        $Feedback["public_t_q3_total"] = count($temp);
+
+        return response()->json($Feedback);
+    }
+
+
+    /*--------------------------------------------------------------------------
+                    Timeliness Q4
+    ---------------------------------------------------------------------------*/
+    public function TimelinessQ4(Request $request){
+        $from = $request->input('beginDate');
+        $to = $request->input('endDate');
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Excellent"])
+        ->get();
+        $Feedback["t_q4_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Very Good"])
+        ->get();
+        $Feedback["t_q4_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Good"])
+        ->get();
+        $Feedback["t_q4_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Fair"])
+        ->get();
+        $Feedback["t_q4_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Poor"])
+        ->get();
+        $Feedback["t_q4_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('timeliness4')
+        ->get();
+        $Feedback["t_q4_total"] = count($temp);
+
+        /****************************************************************************
+                    For Agents 
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Excellent"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q4_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Very Good"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q4_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Good"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q4_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Fair"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q4_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Poor"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_t_q4_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('accreditation_')
+        ->whereNotNull('timeliness4')
+        ->get();
+        $Feedback["agent_t_q4_total"] = count($temp);
+
+        /****************************************************************************
+                    For Public
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Excellent"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q4_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Very Good"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q4_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Good"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q4_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Fair"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q4_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['timeliness4' => "Poor"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_t_q4_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNull('accreditation_')
+        ->whereNotNull('timeliness4')
+        ->get();
+        $Feedback["public_t_q4_total"] = count($temp);
+
+        return response()->json($Feedback);
+    }
+
+
+    /*--------------------------------------------------------------------------
+                    Online Environment Q1
+    ---------------------------------------------------------------------------*/
+    public function OnlineEnvironmentQ1(Request $request){
+        $from = $request->input('beginDate');
+        $to = $request->input('endDate');
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Excellent"])
+        ->get();
+        $Feedback["oe_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Very Good"])
+        ->get();
+        $Feedback["oe_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Good"])
+        ->get();
+        $Feedback["oe_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Fair"])
+        ->get();
+        $Feedback["oe_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Poor"])
+        ->get();
+        $Feedback["oe_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('online_environment1')
+        ->get();
+        $Feedback["oe_q1_total"] = count($temp);
+
+        /****************************************************************************
+                    For Agents 
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Excellent"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_oe_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Very Good"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_oe_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Good"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_oe_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Fair"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_oe_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Poor"])
+        ->whereNotNull('accreditation_')
+        ->get();
+        $Feedback["agent_oe_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('accreditation_')
+        ->whereNotNull('online_environment1')
+        ->get();
+        $Feedback["agent_oe_q1_total"] = count($temp);
+
+        /****************************************************************************
+                    For Public
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Excellent"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_oe_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Very Good"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_oe_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Good"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_oe_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Fair"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_oe_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['online_environment1' => "Poor"])
+        ->whereNull('accreditation_')
+        ->get();
+        $Feedback["public_oe_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNull('accreditation_')
+        ->whereNotNull('online_environment1')
+        ->get();
+        $Feedback["public_oe_q1_total"] = count($temp);
+
+        return response()->json($Feedback);
+    }
 }
