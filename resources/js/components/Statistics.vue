@@ -201,21 +201,21 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-3">
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item" style="border:none">
                                                             <b>Combined</b>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-3">
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item" style="border:none">
                                                             <b>Agents</b>
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-3">
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item" style="border:none">
                                                             <b>Public</b>
@@ -246,7 +246,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-sm-2"> <!-- For Charts -->
+                                                <div class="col-sm-3"> <!-- For Charts -->
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item" style="border:none">
                                                             <span v-html="sd_q1_total"></span>
@@ -268,7 +268,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-sm-2"> <!-- For Charts -->
+                                                <div class="col-sm-3"> <!-- For Charts -->
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item" style="border:none">
                                                             <span v-html="agent_sd_q1_total"></span>
@@ -290,7 +290,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-sm-2"> <!-- For Charts -->
+                                                <div class="col-sm-3"> <!-- For Charts -->
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item" style="border:none">
                                                             <span v-html="public_sd_q1_total"></span>
@@ -312,14 +312,23 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="col-sm-2">
-                                                    <div class="row" style="width: auto; height: 10% !important">
-                                                        <div class="col-sm-12">
-                                                            <LineChart v-if="loaded"  :data="chartData" />
-                                                        </div>
-                                                    </div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <LineChart v-if="loaded"  :chart-data="chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <LineChart v-if="loaded"  :data="chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <LineChart v-if="loaded"  :data="chartData" :height="270" />
                                                 </div>
                                             </div>
+                                            <br />
                                         </div><!-- End Numbers -->
                                         <div class="col-sm-1"><!-- Begin Chart -->
                                         </div><!-- End Chart -->

@@ -4,6 +4,8 @@
     extends: Bar,
     data() {
       return {
+        _begin: '',
+        _end: '',
         vsatisfied:'',
         satisfied:'',
         dissatisfied: '',
@@ -28,7 +30,7 @@
               'rgba(255, 0, 0, 1)'
             ],
             pointBorderColor: '#2554FF',
-            data: [20, 16, 2, 0, 2]
+            data: [20, 16, 2, 4, 2]
           }]
         },
         options: {
