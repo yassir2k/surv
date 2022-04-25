@@ -158,7 +158,7 @@
                             </div><!--End Button-->
                         </form>
                         <hr class="separator">
-                        <p class="card-text"><b class="font-pref14">REPORT SECTION</b></p>
+                        <center><p class="card-text"><b class="font-pref14">REPORT SECTION</b></p></center>
                         <br />
                         <br />
                         <div class="row">
@@ -167,1301 +167,1384 @@
                             </div>
                         </div>
 
+
                         <!-- *******************************************************************************************************************
                                                                         Report Section Below
                              ****************************************************************************************************************-->
-                        <br />
 
                         <!-- *******************************************************************************************************************
                                                                         Service Delivery
                              ****************************************************************************************************************-->
                         <div v-show="revealAll">
-                        <div class="row" v-show="this.serviceDeliverySelected"> <!-- Service Delivery -->
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-1">
+                            <div class="row" v-show="this.serviceDeliverySelected"> <!-- Service Delivery -->
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-11 d-flex p-2">
+                                            <h3 style="border-bottom: 2px solid #8FBC8F">Service Delivery</h3>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-11 d-flex p-2">
-                                        <h3 style="border-bottom: 2px solid #8FBC8F">Service Delivery</h3>
+                                    <div class="row"> <!-- Service Delivery Question 1 -->
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Are you satisfied with the conduct of the Name Availability for your registration?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Satisfied:
+                                                        </li>
+                                                    
+                                                        <li class="list-group-item" style="border:none">
+                                                            Satisfied
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            Dissatisfied
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Dissatisfied
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-2"> <!-- For Charts -->
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q1_a"></span>
+                                                        </li>
+                                                    
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q1_b"></span>
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q1_c"></span>
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q1_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-2"> <!-- For Charts -->
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q1_a"></span>
+                                                        </li>
+                                                    
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q1_b"></span>
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q1_c"></span>
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q1_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-2"> <!-- For Charts -->
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q1_a"></span>
+                                                        </li>
+                                                    
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q1_b"></span>
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q1_c"></span>
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q1_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="row" style="width: auto; height: 10% !important">
+                                                        <div class="col-sm-12">
+                                                            <LineChart v-if="loaded"  :data="chartData" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-1"><!-- Begin Chart -->
+                                        </div><!-- End Chart -->
                                     </div>
-                                </div>
-                                <div class="row"> <!-- Service Delivery Question 1 -->
-                                    <div class="col-sm-1">
+                                    
+                                    <br />
+                                    <div class="row"> <!-- Service Delivery Question 2 -->
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Which registration service have you done online?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Company (LLC):
+                                                        </li>
+                                                    
+                                                        <li class="list-group-item" style="border:none">
+                                                            Business Names
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            Incorporated Trustees
+                                                        </li>
+                                                        
+                                                        <li class="list-group-item" style="border:none">
+                                                            Limited Partnership
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Limited Liability Partnership
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="sd_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_sd_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_sd_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-1"><!-- Begin Chart -->
+                                        </div><!-- End Chart -->
                                     </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Are you satisfied with the conduct of the Name Availability for your registration?</b></div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Satisfied:
-                                                    </li>
-                                                
-                                                    <li class="list-group-item" style="border:none">
-                                                        Satisfied
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        Dissatisfied
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Dissatisfied
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3"> <!-- For Charts -->
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q1_a"></span>
-                                                    </li>
-                                                
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q1_b"></span>
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q1_c"></span>
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q1_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3"> <!-- For Charts -->
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q1_a"></span>
-                                                    </li>
-                                                
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q1_b"></span>
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q1_c"></span>
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q1_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3"> <!-- For Charts -->
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q1_a"></span>
-                                                    </li>
-                                                
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q1_b"></span>
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q1_c"></span>
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q1_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-1"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                                <br />
-                                <div class="row"> <!-- Service Delivery Question 2 -->
-                                    <div class="col-sm-1">
-                                    </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Which registration service have you done online?</b></div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Company (LLC):
-                                                    </li>
-                                                
-                                                    <li class="list-group-item" style="border:none">
-                                                        Business Names
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        Incorporated Trustees
-                                                    </li>
-                                                    
-                                                    <li class="list-group-item" style="border:none">
-                                                        Limited Partnership
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Limited Liability Partnership
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                     <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="sd_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_sd_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_sd_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-1"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                            </div> <!-- End of Column 12 -->
-                        </div><!-- End of Service Delivery-->
+                                </div> <!-- End of Column 12 -->
+                            </div><!-- End of Service Delivery-->
 
-                        <br />
-                        <br />
+                            <br />
+                            <br />
 
-                        <!-- *******************************************************************************************************************
-                                                                        Quality
-                             ****************************************************************************************************************-->
-                        <div class="row" v-show="qualitySelected"> <!-- Quality -->
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                    </div>
-                                    <div class="col-sm-11 d-flex p-2">
-                                        <h3 style="border-bottom: 2px solid #8FBC8F">Quality</h3>
-                                    </div>
-                                </div>
-                                <div class="row"> <!-- Quality Question 1 -->
-                                    <div class="col-sm-1">
-                                    </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the services we provide?</b></div>
+                            <!-- *******************************************************************************************************************
+                                                                            Quality
+                                ****************************************************************************************************************-->
+                            <div class="row" v-show="qualitySelected"> <!-- Quality -->
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-1">
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                        <div class="col-sm-11 d-flex p-2">
+                                            <h3 style="border-bottom: 2px solid #8FBC8F">Quality</h3>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Satisfied:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Satisfied
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Dissatisfied
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Dissatisfied
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="q_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="q_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="q_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="q_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="q_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3"> 
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_q_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_q_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_q_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_q_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_q_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3"> <!-- For Charts -->
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_q_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_q_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_q_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_q_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_q_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                    </div>
+                                    <div class="row"> <!-- Quality Question 1 -->
+                                        <div class="col-sm-1">
                                         </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-1"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                                <br />
-                            </div> <!-- End of Column 12 -->
-                        </div><!-- End of Quality-->
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the services we provide?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Satisfied:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Satisfied
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Dissatisfied
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Dissatisfied
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="q_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="q_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="q_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="q_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="q_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3"> 
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_q_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_q_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_q_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_q_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_q_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3"> <!-- For Charts -->
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_q_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_q_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_q_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_q_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_q_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-1"><!-- Begin Chart -->
+                                        </div><!-- End Chart -->
+                                    </div>
+                                    <br />
+                                </div> <!-- End of Column 12 -->
+                            </div><!-- End of Quality-->
 
-                        <br />
-                        <br />
+                            <br />
+                            <br />
 
-                        <!-- *******************************************************************************************************************
-                                                                        Timeliness
-                             ****************************************************************************************************************-->
-                        <div class="row" v-show="timelinessSelected"> <!-- Timeliness -->
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-1">
+                            <!-- *******************************************************************************************************************
+                                                                            Timeliness
+                                ****************************************************************************************************************-->
+                            <div class="row" v-show="timelinessSelected"> <!-- Timeliness -->
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-11 d-flex p-2">
+                                            <h3 style="border-bottom: 2px solid #8FBC8F">Timeliness</h3>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-11 d-flex p-2">
-                                        <h3 style="border-bottom: 2px solid #8FBC8F">Timeliness</h3>
+                                    <div class="row"> <!-- Timeliness Question 1 -->
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How fast did we deliver the services you asked for?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Less than 24 Hours:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            24 Hours:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            48 Hours:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            3 Days:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Over 3 Days:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q1_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q1_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q1_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5">
+                                        </div><!-- End Chart -->
                                     </div>
-                                </div>
-                                <div class="row"> <!-- Timeliness Question 1 -->
-                                    <div class="col-sm-1">
+                                    <br />
+                                    <div class="row"> <!-- Timeliness Question 2 -->
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Which was your preferred channel of communicating the complaints?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Email:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Telephone:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Face-to-Face:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Online Support Ticket System:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Others:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5">
+                                        </div>
                                     </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How fast did we deliver the services you asked for?</b></div>
+                                    <br /><br />
+                                    <div class="row"> <!-- Timeliness Question 3 -->
+                                        <div class="col-sm-1">
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Were you satisfied with the way the complaint was handled?</b></div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Satisfied:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Satisfied:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Dissatisfied:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Dissatisfied:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q3_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q3_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q3_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q3_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q3_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q3_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q3_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q3_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q3_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q3_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q3_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q3_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q3_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q3_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q3_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Less than 24 Hours:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        24 Hours:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        48 Hours:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        3 Days:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Over 3 Days:
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q1_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q1_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q1_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q1_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q1_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q1_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q1_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q1_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q1_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q1_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q1_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q1_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q1_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q1_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q1_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-5">
-                                    </div><!-- End Chart -->
-                                </div>
-                                <br />
-                                <div class="row"> <!-- Timeliness Question 2 -->
-                                    <div class="col-sm-1">
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5"><!-- Begin Chart -->
+                                        </div><!-- End Chart -->
                                     </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Which was your preferred channel of communicating the complaints?</b></div>
+                                    <br />
+                                    <div class="row"> <!-- Timeliness Question 4 -->
+                                        <div class="col-sm-1">
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How helpful did you find our Staff?</b></div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Excellent:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Good:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Good:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Fair:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Poor:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q4_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q4_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q4_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q4_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q4_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="t_q4_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q4_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q4_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q4_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q4_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q4_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_t_q4_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q4_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q4_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q4_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q4_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q4_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_t_q4_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Email:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Telephone:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Face-to-Face:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Online Support Ticket System:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Others:
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-5">
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5"><!-- Begin Chart -->
+                                        </div><!-- End Chart -->
                                     </div>
-                                </div>
-                                <br /><br />
-                                <div class="row"> <!-- Timeliness Question 3 -->
-                                    <div class="col-sm-1">
-                                    </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Were you satisfied with the way the complaint was handled?</b></div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Satisfied:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Satisfied:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Dissatisfied:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Dissatisfied:
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q3_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q3_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q3_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q3_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q3_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q3_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q3_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q3_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q3_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q3_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q3_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q3_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q3_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q3_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q3_d"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-5"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                                <br />
-                                <div class="row"> <!-- Timeliness Question 4 -->
-                                    <div class="col-sm-1">
-                                    </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How helpful did you find our Staff?</b></div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Excellent:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Good:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Good:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Fair:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Poor:
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q4_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q4_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q4_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q4_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q4_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="t_q4_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q4_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q4_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q4_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q4_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q4_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_t_q4_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q4_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q4_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q4_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q4_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q4_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_t_q4_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-5"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                            </div> <!-- End of Column 12 -->
-                        </div><!-- End of Timeliness-->
+                                </div> <!-- End of Column 12 -->
+                            </div><!-- End of Timeliness-->
 
-                        <br />
-                        <br />
+                            <br />
+                            <br />
 
-                        <!-- *******************************************************************************************************************
-                                                                        Online Environment
-                             ****************************************************************************************************************-->
-                        <div class="row" v-show="onlineEnvironmentSelected"> <!--  Online Environment -->
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <div class="col-sm-1">
+                            <!-- *******************************************************************************************************************
+                                                                            Online Environment
+                                ****************************************************************************************************************-->
+                            <div class="row" v-show="onlineEnvironmentSelected"> <!--  Online Environment -->
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-11 d-flex p-2">
+                                            <h3 style="border-bottom: 2px solid #8FBC8F">Online Environment</h3>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-11 d-flex p-2">
-                                        <h3 style="border-bottom: 2px solid #8FBC8F">Online Environment</h3>
+                                    <div class="row"> <!-- Online Environment 1 -->
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the effectiveness of the process flow of the online registration system?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Excellent:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Good:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Good:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Fair:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Poor:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q1_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q1_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q1_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5"><!-- Begin Chart -->
+                                            
+                                        </div><!-- End Chart -->
                                     </div>
-                                </div>
-                                <div class="row"> <!-- Online Environment 1 -->
-                                    <div class="col-sm-1">
+                                    <br />
+                                    <div class="row"> <!-- Online Environment 2 -->
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i><b>How would you rate the e-stamping interface on the CRP?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Excellent:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Good:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Good:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Fair:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Poor:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q2_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q2_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q2_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q2_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q2_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q2_e"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5"><!-- Begin Chart -->
+                                        </div><!-- End Chart -->
                                     </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the effectiveness of the process flow of the online registration system?</b></div>
+                                    <br />
+                                    <div class="row"> <!--  Online Environment Question 3 -->
+                                        <div class="col-sm-1">
                                         </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the Remita payment platform on the CRP?</b></div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Satisfied:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Satisfied:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Dissatisfied:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Very Dissatisfied:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q3_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q3_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q3_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q3_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q3_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q3_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q3_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q3_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q3_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q3_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q3_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q3_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q3_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q3_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q3_d"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Excellent:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Good:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Good:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Fair:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Poor:
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q1_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q1_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q1_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q1_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q1_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q1_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q1_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q1_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q1_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q1_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q1_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q1_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q1_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q1_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q1_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q1_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-5"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                                <br />
-                                <div class="row"> <!-- Online Environment 2 -->
-                                    <div class="col-sm-1">
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5"><!-- Begin Chart -->
+                                        </div><!-- End Chart -->
                                     </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i><b>How would you rate the e-stamping interface on the CRP?</b></div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Participants</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Combined</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Agents</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <b>Public</b>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Total:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Excellent:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Good:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Good:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Fair:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Poor:
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="oe_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="agent_oe_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q2_total"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q2_a"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q2_b"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q2_c"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q2_d"></span>
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        <span v-html="public_oe_q2_e"></span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-5"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                                <br />
-                                <div class="row"> <!--  Online Environment Question 3 -->
-                                    <div class="col-sm-1">
-                                    </div>
-                                    <div class="col-sm-10"><!-- Begin Numbers -->
-                                        <div class="row">
-                                            <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>How satisfied are you with the Remita payment platform on the CRP?</b></div>
-                                        </div>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-sm-5">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Satisfied:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Satisfied:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Dissatisfied:
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        Very Dissatisfied:
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3"> <!-- For Charts -->
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item" style="border:none">
-                                                        3%
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        23%
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        34.4%
-                                                    </li>
-                                                    <li class="list-group-item" style="border:none">
-                                                        50%
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div><!-- End Numbers -->
-                                    <div class="col-sm-5"><!-- Begin Chart -->
-                                    </div><!-- End Chart -->
-                                </div>
-                                <br />
-                            </div> <!-- End of Column 12 -->
-                        </div><!-- End of Online Environment-->
+                                    <br />
+                                </div> <!-- End of Column 12 -->
+                            </div><!-- End of Online Environment-->
                         </div> <!-- Reveal or Not -->
                     </div>
                 </div>
@@ -1484,6 +1567,8 @@
 <script>
 import NavBar from './navigations/BiNav.vue';
 import axios from 'axios';
+import LineChart from './charts/LineChart.vue';
+
 export default {
     data() {
         return {
@@ -1675,10 +1760,12 @@ export default {
             public_oe_q3_b: '',
             public_oe_q3_c: '',
             public_oe_q3_d: '',
+            chartData: [],
+            loaded: false
         }
     },
     components:{
-         NavBar
+         NavBar, LineChart
     },
     beforeCreate: function () {
         if (!this.$session.exists()) {
@@ -1718,7 +1805,10 @@ export default {
                 this.enableSubmit = true;
         },
         GenerateReport(){
+            this.revealAll = false;
+            this.enableSubmit = false;
             this.loader = '<center><i class="fas fa-spinner fa-spin fa-5x fa-fw" style="color: #8FBC8F"></i></center>';
+            this.rotor = '&nbsp;<i class="fa fa-cog fa-spin fa-1x fa-fw"></i>';
             this.serviceDeliverySelected = false;
             this.qualitySelected = false;
             this.timelinessSelected = false;
@@ -1730,7 +1820,7 @@ export default {
             if(this.serviceDeliveryBox)
             {
                 this.serviceDeliverySelected = true;
-                //Start with Service Delivery Q1
+                //Start Service Delivery Q1
                 try{
                     axios.post("http://127.0.0.1:8000/api/service_delivery_Q1", postData) 
                     .then(response =>{
@@ -1739,6 +1829,8 @@ export default {
                         var c = response.data["sd_q1_c"];
                         var d = response.data["sd_q1_d"];
                         var x = response.data["sd_q1_total"]
+                        this.chartData = [x, a, b, c, d];
+                        this.loaded = true;
                         var e = response.data["agent_sd_q1_a"];
                         var f = response.data["agent_sd_q1_b"];
                         var g = response.data["agent_sd_q1_c"];
@@ -1797,7 +1889,7 @@ export default {
                         console.log("SDQ1: " + err);
                 }
 
-                //Start with Service Delivery Q2
+                //Start Service Delivery Q2
                 try{
                     axios.post("http://127.0.0.1:8000/api/service_delivery_Q2", postData) 
                     .then(response =>{
@@ -1868,6 +1960,10 @@ export default {
                             this.public_sd_q2_e = '<b style="color: #71797E">' + o + '</b>';
                         }
                     })
+                    this.rotor = '&nbsp;<i class="fas fa-cog"></i>';
+                    this.loader = '';
+                    this.revealAll = true;
+                    this.enableSubmit = false;
                 }
                 catch(err){    
                         console.log("SDQ2: " + err);
@@ -1876,6 +1972,8 @@ export default {
             if(this.qualityBox)
             {
                 this.qualitySelected = true;
+
+                //Start Quality
                 try{
                     axios.post("http://127.0.0.1:8000/api/qualityQ1", postData) 
                     .then(response =>{
@@ -1945,7 +2043,7 @@ export default {
             if(this.timelinessBox)
             {
                 this.timelinessSelected = true;
-                //Start with Timeliness Q1
+                //Start Timeliness Q1
                 try{
                     axios.post("http://127.0.0.1:8000/api/timeliness_Q1", postData) 
                     .then(response =>{
@@ -2021,7 +2119,7 @@ export default {
                         console.log("TQ1: " + err);
                 }
 
-                //Start with Timeliness Q2
+                //Start Timeliness Q2
                 try{
                     axios.post("http://127.0.0.1:8000/api/timeliness_Q2", postData) 
                     .then(response =>{
@@ -2097,7 +2195,7 @@ export default {
                         console.log("TQ2: " + err);
                 }
 
-                //Start with Timeliness Q3
+                //Start Timeliness Q3
                 try{
                     axios.post("http://127.0.0.1:8000/api/timeliness_Q3", postData) 
                     .then(response =>{
@@ -2121,42 +2219,42 @@ export default {
                         this.public_t_q3_total = '<b style="color: #899499">' + z + "</b>";
                         if(x != 0)
                         {
-                            this.t_q3_a = '<b style="color: #CBC3E3">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q3_b = '<b style="color: #CCCCFF">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q3_c = '<b style="color: #CF9FFF">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
-                            this.t_q3_d = '<b style="color: #DA70D6">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q3_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q3_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q3_c = '<b style="color: #FFBF00">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.t_q3_d = '<b style="color: red">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.t_q3_a = '<b style="color: #CBC3E3">' + a + '</b>';
-                            this.t_q3_b = '<b style="color: #CCCCFF">' + b + '</b>';
-                            this.t_q3_c = '<b style="color: #CF9FFF">' + c + '</b>';
-                            this.t_q3_d = '<b style="color: #DA70D6">' + d + '</b>';
+                            this.t_q3_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.t_q3_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.t_q3_c = '<b style="color: #FFBF00">' + c + '</b>';
+                            this.t_q3_d = '<b style="color: red">' + d + '</b>';
                         }
                         if(y != 0)
                         {
-                            this.agent_t_q3_a = '<b style="color: #CBC3E3">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_t_q3_b = '<b style="color: #CCCCFF">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_t_q3_c = '<b style="color: #CF9FFF">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
-                            this.agent_t_q3_d = '<b style="color: #DA70D6">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q3_a = '<b style="color: #72cc66">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q3_b = '<b style="color: #40B5AD">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q3_c = '<b style="color: #FFBF00">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_t_q3_d = '<b style="color: red">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.agent_t_q3_a = '<b style="color: #CBC3E3">' + f + '</b>';
-                            this.agent_t_q3_b = '<b style="color: #CCCCFF">' + g + '</b>';
-                            this.agent_t_q3_c = '<b style="color: #CF9FFF">' + h + '</b>';
-                            this.agent_t_q3_d = '<b style="color: #DA70D6">' + i + '</b>';
+                            this.agent_t_q3_a = '<b style="color: #72cc66">' + f + '</b>';
+                            this.agent_t_q3_b = '<b style="color: #40B5AD">' + g + '</b>';
+                            this.agent_t_q3_c = '<b style="color: #FFBF00">' + h + '</b>';
+                            this.agent_t_q3_d = '<b style="color: red">' + i + '</b>';
                         }
                         if(z != 0)
                         {
-                            this.public_t_q3_a = '<b style="color: #CBC3E3">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
-                            this.public_t_q3_b = '<b style="color: #CCCCFF">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
-                            this.public_t_q3_c = '<b style="color: #CF9FFF">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
-                            this.public_t_q3_d = '<b style="color: #DA70D6">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q3_a = '<b style="color: #72cc66">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q3_b = '<b style="color: #40B5AD">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q3_c = '<b style="color: #FFBF00">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_t_q3_d = '<b style="color: red">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
                         }
                         else{
-                            this.public_t_q3_a = '<b style="color: #CBC3E3">' + k + '</b>';
-                            this.public_t_q3_b = '<b style="color: #CCCCFF">' + l + '</b>';
-                            this.public_t_q3_c = '<b style="color: #CF9FFF">' + m + '</b>';
-                            this.public_t_q3_d = '<b style="color: #DA70D6">' + n + '</b>';
+                            this.public_t_q3_a = '<b style="color: #72cc66">' + k + '</b>';
+                            this.public_t_q3_b = '<b style="color: #40B5AD">' + l + '</b>';
+                            this.public_t_q3_c = '<b style="color: #FFBF00">' + m + '</b>';
+                            this.public_t_q3_d = '<b style="color: red">' + n + '</b>';
                         }
                     })
                 }
@@ -2164,7 +2262,7 @@ export default {
                         console.log("TQ2: " + err);
                 }
 
-                //Start with Timeliness Q4
+                //Start Timeliness Q4
                 try{
                     axios.post("http://127.0.0.1:8000/api/timeliness_Q4", postData) 
                     .then(response =>{
@@ -2244,7 +2342,7 @@ export default {
             {
                 this.onlineEnvironmentSelected = true;
 
-                //Start with Online Environment Q1
+                //Start Online Environment Q1
                 try{
                     axios.post("http://127.0.0.1:8000/api/online_environment_Q1", postData) 
                     .then(response =>{
@@ -2317,11 +2415,155 @@ export default {
                     })
                 }
                 catch(err){    
-                        console.log("TQ1: " + err);
+                        console.log("OEQ1: " + err);
+                }
+
+
+                //Start Online Environment Q2
+                try{
+                    axios.post("http://127.0.0.1:8000/api/online_environment_Q2", postData) 
+                    .then(response =>{
+                        var a = response.data["oe_q2_a"];
+                        var b = response.data["oe_q2_b"];
+                        var c = response.data["oe_q2_c"];
+                        var d = response.data["oe_q2_d"];
+                        var e = response.data["oe_q2_e"];
+                        var x = response.data["oe_q2_total"]
+                        var f = response.data["agent_oe_q2_a"];
+                        var g = response.data["agent_oe_q2_b"];
+                        var h = response.data["agent_oe_q2_c"];
+                        var i = response.data["agent_oe_q2_d"];
+                        var j = response.data["agent_oe_q2_e"];
+                        var y = response.data["agent_oe_q2_total"]
+                        var k = response.data["public_oe_q2_a"];
+                        var l = response.data["public_oe_q2_b"];
+                        var m = response.data["public_oe_q2_c"];
+                        var n = response.data["public_oe_q2_d"];
+                        var o = response.data["public_oe_q2_e"];
+                        var z = response.data["public_oe_q2_total"]
+                        this.oe_q2_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_oe_q2_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_oe_q2_total = '<b style="color: #899499">' + z + "</b>";
+                        if(x != 0)
+                        {
+                            this.oe_q2_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q2_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q2_c = '<b style="color: #DAE021">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q2_d = '<b style="color: #FFBF00">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q2_e = '<b style="color: red">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.oe_q2_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.oe_q2_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.oe_q2_c = '<b style="color: #DAE021">' + c + '</b>';
+                            this.oe_q2_d = '<b style="color: #FFBF00">' + d + '</b>';
+                            this.oe_q2_e = '<b style="color: red">' + e + '</b>';
+                        }
+                        if(y != 0)
+                        {
+                            this.agent_oe_q2_a = '<b style="color: #72cc66">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q2_b = '<b style="color: #40B5AD">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q2_c = '<b style="color: #DAE021">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q2_d = '<b style="color: #FFBF00">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q2_e = '<b style="color: red">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.agent_oe_q2_a = '<b style="color: #72cc66">' + f + '</b>';
+                            this.agent_oe_q2_b = '<b style="color: #40B5AD">' + g + '</b>';
+                            this.agent_oe_q2_c = '<b style="color: #DAE021">' + h + '</b>';
+                            this.agent_oe_q2_d = '<b style="color: #FFBF00">' + i + '</b>';
+                            this.agent_oe_q2_e = '<b style="color: red">' + j + '</b>';
+                        }
+                        if(z != 0)
+                        {
+                            this.public_oe_q2_a = '<b style="color: #72cc66">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q2_b = '<b style="color: #40B5AD">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q2_c = '<b style="color: #DAE021">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q2_d = '<b style="color: #FFBF00">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q2_e = '<b style="color: red">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.public_oe_q2_a = '<b style="color: #72cc66">' + k + '</b>';
+                            this.public_oe_q2_b = '<b style="color: #40B5AD">' + l + '</b>';
+                            this.public_oe_q2_c = '<b style="color: #DAE021">' + m + '</b>';
+                            this.public_oe_q2_d = '<b style="color: #FFBF00">' + n + '</b>';
+                            this.public_oe_q2_e = '<b style="color: red">' + o + '</b>';
+                        }
+                    })
+                }
+                catch(err){    
+                        console.log("OEQ2: " + err);
+                }
+
+
+                //Start Online Environment Q3
+                try{
+                    axios.post("http://127.0.0.1:8000/api/online_environment_Q3", postData) 
+                    .then(response =>{
+                        var a = response.data["oe_q3_a"];
+                        var b = response.data["oe_q3_b"];
+                        var c = response.data["oe_q3_c"];
+                        var d = response.data["oe_q3_d"];
+                        var x = response.data["oe_q3_total"]
+                        var f = response.data["agent_oe_q3_a"];
+                        var g = response.data["agent_oe_q3_b"];
+                        var i = response.data["agent_oe_q3_c"];
+                        var j = response.data["agent_oe_q3_d"];
+                        var y = response.data["agent_oe_q3_total"]
+                        var k = response.data["public_oe_q3_a"];
+                        var l = response.data["public_oe_q3_b"];
+                        var n = response.data["public_oe_q3_c"];
+                        var o = response.data["public_oe_q3_d"];
+                        var z = response.data["public_oe_q3_total"]
+                        this.oe_q3_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_oe_q3_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_oe_q3_total = '<b style="color: #899499">' + z + "</b>";
+                        if(x != 0)
+                        {
+                            this.oe_q3_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q3_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q3_c = '<b style="color: #FFBF00">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q3_d = '<b style="color: red">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.oe_q3_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.oe_q3_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.oe_q3_c = '<b style="color: #FFBF00">' + c + '</b>';
+                            this.oe_q3_d = '<b style="color: red">' + d + '</b>';
+                        }
+                        if(y != 0)
+                        {
+                            this.agent_oe_q3_a = '<b style="color: #72cc66">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q3_b = '<b style="color: #40B5AD">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q3_c = '<b style="color: #FFBF00">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q3_d = '<b style="color: red">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.agent_oe_q3_a = '<b style="color: #72cc66">' + f + '</b>';
+                            this.agent_oe_q3_b = '<b style="color: #40B5AD">' + g + '</b>';
+                            this.agent_oe_q3_c = '<b style="color: #FFBF00">' + i + '</b>';
+                            this.agent_oe_q3_d = '<b style="color: red">' + j + '</b>';
+                        }
+                        if(z != 0)
+                        {
+                            this.public_oe_q3_a = '<b style="color: #72cc66">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q3_b = '<b style="color: #40B5AD">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q3_c = '<b style="color: #FFBF00">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q3_d = '<b style="color: red">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.public_oe_q3_a = '<b style="color: #72cc66">' + k + '</b>';
+                            this.public_oe_q3_b = '<b style="color: #40B5AD">' + l + '</b>';
+                            this.public_oe_q3_c = '<b style="color: #FFBF00">' + n + '</b>';
+                            this.public_oe_q3_d = '<b style="color: red">' + o + '</b>';
+                        }
+                    })
+                    this.loader = '';
+                }
+                catch(err){    
+                        console.log("OEQ3: " + err);
                 }
             }
-            this.loader = '';
-            this.revealAll = true;
         }
     }
 }
