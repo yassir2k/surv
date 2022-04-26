@@ -316,16 +316,15 @@
                                             <br />
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <LineChart v-if="loaded"  :chart-data="chartData" :height="270" />
+                                                    <SdQ1cChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_C_chartData" :height="270" />
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <LineChart v-if="loaded"  :data="chartData" :height="270" />
+                                                    <SdQ1aChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_A_chartData" :height="270" />
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <LineChart v-if="loaded"  :data="chartData" :height="270" />
+                                                    <SdQ1pChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_P_chartData" :height="270" />
                                                 </div>
                                             </div>
                                             <br />
@@ -466,6 +465,20 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <SdQ2cChart v-if="Sd_Q2_loaded"  :_chartData="this.Sd_Q2_C_chartData" :height="350" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <SdQ2aChart v-if="Sd_Q2_loaded"  :_chartData="this.Sd_Q2_A_chartData" :height="350" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <SdQ2pChart v-if="Sd_Q2_loaded"  :_chartData="this.Sd_Q2_P_chartData" :height="350" />
+                                                </div>
+                                            </div>
                                         </div><!-- End Numbers -->
                                         <div class="col-sm-1"><!-- Begin Chart -->
                                         </div><!-- End Chart -->
@@ -602,6 +615,20 @@
                                                             <span v-html="public_q_d"></span>
                                                         </li>
                                                     </ul>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <QQ1cChart v-if="Q_Q1_loaded"  :_chartData="this.Q_Q1_C_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <QQ1aChart v-if="Q_Q1_loaded"  :_chartData="this.Q_Q1_A_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <QQ1pChart v-if="Q_Q1_loaded"  :_chartData="this.Q_Q1_P_chartData" :height="270" />
                                                 </div>
                                             </div>
                                         </div><!-- End Numbers -->
@@ -1576,7 +1603,27 @@
 <script>
 import NavBar from './navigations/BiNav.vue';
 import axios from 'axios';
-import LineChart from './charts/LineChart.vue';
+import SdQ1cChart from './charts/Sd_Q1_C_LineChart.vue';
+import SdQ1aChart from './charts/Sd_Q1_A_LineChart.vue';
+import SdQ1pChart from './charts/Sd_Q1_P_LineChart.vue';
+import SdQ2cChart from './charts/Sd_Q2_C_LineChart.vue';
+import SdQ2aChart from './charts/Sd_Q2_A_LineChart.vue';
+import SdQ2pChart from './charts/Sd_Q2_P_LineChart.vue';
+import QQ1cChart from './charts/Q_Q1_C_LineChart.vue';
+import QQ1aChart from './charts/Q_Q1_A_LineChart.vue';
+import QQ1pChart from './charts/Q_Q1_P_LineChart.vue';
+import TQ1cChart from './charts/T_Q1_C_LineChart.vue';
+import TQ1aChart from './charts/T_Q1_A_LineChart.vue';
+import TQ1pChart from './charts/T_Q1_P_LineChart.vue';
+import TQ2cChart from './charts/T_Q2_C_LineChart.vue';
+import TQ2aChart from './charts/T_Q2_A_LineChart.vue';
+import TQ2pChart from './charts/T_Q2_P_LineChart.vue';
+import TQ3cChart from './charts/T_Q3_C_LineChart.vue';
+import TQ3aChart from './charts/T_Q3_A_LineChart.vue';
+import TQ3pChart from './charts/T_Q3_P_LineChart.vue';
+import TQ4cChart from './charts/T_Q4_C_LineChart.vue';
+import TQ4aChart from './charts/T_Q4_A_LineChart.vue';
+import TQ4pChart from './charts/T_Q4_P_LineChart.vue';
 
 export default {
     data() {
@@ -1769,12 +1816,39 @@ export default {
             public_oe_q3_b: '',
             public_oe_q3_c: '',
             public_oe_q3_d: '',
-            chartData: [],
-            loaded: false
+            Sd_Q1_C_chartData: [],
+            Sd_Q1_A_chartData: [],
+            Sd_Q1_P_chartData: [],
+            Sd_Q1_loaded: false,
+            Sd_Q2_C_chartData: [],
+            Sd_Q2_A_chartData: [],
+            Sd_Q2_P_chartData: [],
+            Sd_Q2_loaded: false,
+            Q_Q1_C_chartData: [],
+            Q_Q1_A_chartData: [],
+            Q_Q1_P_chartData: [],
+            Q_Q1_loaded: false,
+            T_Q1_C_chartData: [],
+            T_Q1_A_chartData: [],
+            T_Q1_P_chartData: [],
+            T_Q1_loaded: false,
+            T_Q2_C_chartData: [],
+            T_Q2_A_chartData: [],
+            T_Q2_P_chartData: [],
+            T_Q2_loaded: false,
+            T_Q3_C_chartData: [],
+            T_Q3_A_chartData: [],
+            T_Q3_P_chartData: [],
+            T_Q3_loaded: false,
+            T_Q4_C_chartData: [],
+            T_Q4_A_chartData: [],
+            T_Q4_P_chartData: [],
+            T_Q4_loaded: false,
         }
     },
     components:{
-         NavBar, LineChart
+         NavBar, SdQ1cChart, SdQ1aChart, SdQ1pChart, SdQ2cChart, SdQ2aChart, SdQ2pChart, QQ1cChart, QQ1aChart, QQ1pChart, TQ1cChart, TQ1aChart, TQ1pChart,
+         TQ2cChart, TQ2aChart, TQ2pChart, TQ3cChart, TQ3aChart, TQ3pChart, TQ4cChart, TQ4aChart, TQ4pChart
     },
     beforeCreate: function () {
         if (!this.$session.exists()) {
@@ -1838,18 +1912,19 @@ export default {
                         var c = response.data["sd_q1_c"];
                         var d = response.data["sd_q1_d"];
                         var x = response.data["sd_q1_total"]
-                        this.chartData = [x, a, b, c, d];
-                        this.loaded = true;
+                        this.Sd_Q1_C_chartData = [x, a, b, c, d];
                         var e = response.data["agent_sd_q1_a"];
                         var f = response.data["agent_sd_q1_b"];
                         var g = response.data["agent_sd_q1_c"];
                         var h = response.data["agent_sd_q1_d"];
                         var y = response.data["agent_sd_q1_total"]
+                        this.Sd_Q1_A_chartData = [y, e, f, g, h];
                         var i = response.data["public_sd_q1_a"];
                         var j = response.data["public_sd_q1_b"];
                         var k = response.data["public_sd_q1_c"];
                         var l = response.data["public_sd_q1_d"];
                         var z = response.data["public_sd_q1_total"]
+                        this.Sd_Q1_P_chartData = [z, i, j, k, l];
                         this.sd_q1_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_sd_q1_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_sd_q1_total = '<b style="color: #899499">' + z + "</b>";
@@ -1892,6 +1967,7 @@ export default {
                             this.public_sd_q1_c = '<b style="color: #FFBF00">' + k + '</b>';
                             this.public_sd_q1_d = '<b style="color: red">' + l + '</b>';
                         }
+                        this.Sd_Q1_loaded = true;
                     })
                 }
                 catch(err){    
@@ -1907,19 +1983,22 @@ export default {
                         var c = response.data["sd_q2_c"];
                         var d = response.data["sd_q2_d"];
                         var e = response.data["sd_q2_e"];
-                        var x = response.data["sd_q2_total"]
+                        var x = response.data["sd_q2_total"];
+                        this.Sd_Q2_C_chartData = [x, a, b, c, d, e];
                         var f = response.data["agent_sd_q2_a"];
                         var g = response.data["agent_sd_q2_b"];
                         var h = response.data["agent_sd_q2_c"];
                         var i = response.data["agent_sd_q2_d"];
                         var j = response.data["agent_sd_q2_e"];
-                        var y = response.data["agent_sd_q2_total"]
+                        var y = response.data["agent_sd_q2_total"];
+                        this.Sd_Q2_A_chartData = [y, f, g, h, i, j];
                         var k = response.data["public_sd_q2_a"];
                         var l = response.data["public_sd_q2_b"];
                         var m = response.data["public_sd_q2_c"];
                         var n = response.data["public_sd_q2_d"];
                         var o = response.data["public_sd_q2_e"];
-                        var z = response.data["public_sd_q2_total"]
+                        var z = response.data["public_sd_q2_total"];
+                        this.Sd_Q2_P_chartData = [z, k, l, m, n, o];
                         this.sd_q2_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_sd_q2_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_sd_q2_total = '<b style="color: #899499">' + z + "</b>";
@@ -1968,6 +2047,7 @@ export default {
                             this.public_sd_q2_d = '<b style="color: #C0C0C0">' + n + '</b>';
                             this.public_sd_q2_e = '<b style="color: #71797E">' + o + '</b>';
                         }
+                        this.Sd_Q2_loaded = true;
                     })
                     this.rotor = '&nbsp;<i class="fas fa-cog"></i>';
                     this.loader = '';
@@ -1990,17 +2070,20 @@ export default {
                         var b = response.data["q_b"];
                         var c = response.data["q_c"];
                         var d = response.data["q_d"];
-                        var x = response.data["q_total"]
+                        var x = response.data["q_total"];
+                        this.Q_Q1_C_chartData = [x, a, b, c, d];
                         var e = response.data["agent_q_a"];
                         var f = response.data["agent_q_b"];
                         var g = response.data["agent_q_c"];
                         var h = response.data["agent_q_d"];
-                        var y = response.data["agent_q_total"]
+                        var y = response.data["agent_q_total"];
+                        this.Q_Q1_A_chartData = [y, e, f, g, h];
                         var i = response.data["public_q_a"];
                         var j = response.data["public_q_b"];
                         var k = response.data["public_q_c"];
                         var l = response.data["public_q_d"];
-                        var z = response.data["public_q_total"]
+                        var z = response.data["public_q_total"];
+                        this.Q_Q1_P_chartData = [z, i, j, k, l];
                         this.q_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_q_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_q_total = '<b style="color: #899499">' + z + "</b>";
@@ -2043,6 +2126,7 @@ export default {
                             this.public_sd_q1_c = '<b style="color: #E39802">' + k + '</b>';
                             this.public_sd_q1_d = '<b style="color: red">' + l + '</b>';
                         }
+                        this.Q_Q1_loaded = true;
                     })
                 }
                 catch(err){    

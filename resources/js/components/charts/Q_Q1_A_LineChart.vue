@@ -4,10 +4,6 @@
     extends: Bar,
     data() {
       return {
-        vsatisfied:'',
-        satisfied:'',
-        dissatisfied: '',
-        vdissatisfied: '',
         chartData: {
           labels: ["Total", "Very Satisfied", "Satisfied", "Dissatisfied", "Very Dissatisfied"],
           datasets: [{
