@@ -5,7 +5,7 @@
     data() {
       return {
         chartData: {
-          labels: ["Total", "Very Satisfied", "Satisfied", "Dissatisfied", "Very Dissatisfied"],
+          labels: ["Total", "Excellent", "Very Good", "Good", "Fair", "Poor"],
           datasets: [{
             label: 'Bar Chart',
             borderWidth: 1,
@@ -13,6 +13,7 @@
               'rgba(137, 148, 153, 0.2)',
               'rgba(114, 204, 102, 0.2)',
               'rgba(64, 181, 173, 0.2)',
+              'rgba(218, 224, 33, 0.2)',
               'rgba(255, 191, 0, 0.2)',
               'rgba(255, 0, 0, 0.2)'
             ],
@@ -20,6 +21,7 @@
               'rgba(137, 148, 153,1)',
               'rgba(114, 204, 102, 1)',
               'rgba(64, 181, 173, 1)',
+              'rgba(218, 224, 33, 1)',
               'rgba(255, 191, 0, 1)',
               'rgba(255, 0, 0, 1)'
             ],

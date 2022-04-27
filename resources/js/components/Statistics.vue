@@ -782,6 +782,20 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ1cChart v-if="T_Q1_loaded"  :_chartData="this.T_Q1_C_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ1aChart v-if="T_Q1_loaded"  :_chartData="this.T_Q1_A_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ1pChart v-if="T_Q1_loaded"  :_chartData="this.T_Q1_P_chartData" :height="270" />
+                                                </div>
+                                            </div>
                                         </div><!-- End Numbers -->
                                         <div class="col-sm-5">
                                         </div><!-- End Chart -->
@@ -915,6 +929,20 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ2cChart v-if="T_Q2_loaded"  :_chartData="this.T_Q2_C_chartData" :height="350" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ2aChart v-if="T_Q2_loaded"  :_chartData="this.T_Q2_A_chartData" :height="350" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ2pChart v-if="T_Q2_loaded"  :_chartData="this.T_Q2_P_chartData" :height="350" />
+                                                </div>
+                                            </div>
                                         </div><!-- End Numbers -->
                                         <div class="col-sm-5">
                                         </div>
@@ -1034,6 +1062,19 @@
                                                             <span v-html="public_t_q3_d"></span>
                                                         </li>
                                                     </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ3cChart v-if="T_Q3_loaded"  :_chartData="this.T_Q3_C_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ3aChart v-if="T_Q3_loaded"  :_chartData="this.T_Q3_A_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ3pChart v-if="T_Q3_loaded"  :_chartData="this.T_Q3_P_chartData" :height="270" />
                                                 </div>
                                             </div>
                                         </div><!-- End Numbers -->
@@ -1167,6 +1208,19 @@
                                                             <span v-html="public_t_q4_e"></span>
                                                         </li>
                                                     </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ4cChart v-if="T_Q4_loaded"  :_chartData="this.T_Q4_C_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ4aChart v-if="T_Q4_loaded"  :_chartData="this.T_Q4_A_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <TQ4pChart v-if="T_Q4_loaded"  :_chartData="this.T_Q4_P_chartData" :height="270" />
                                                 </div>
                                             </div>
                                         </div><!-- End Numbers -->
@@ -2145,19 +2199,22 @@ export default {
                         var c = response.data["t_q1_c"];
                         var d = response.data["t_q1_d"];
                         var e = response.data["t_q1_e"];
-                        var x = response.data["t_q1_total"]
+                        var x = response.data["t_q1_total"];
+                        this.T_Q1_C_chartData = [x, a, b, c, d, e];
                         var f = response.data["agent_t_q1_a"];
                         var g = response.data["agent_t_q1_b"];
                         var h = response.data["agent_t_q1_c"];
                         var i = response.data["agent_t_q1_d"];
                         var j = response.data["agent_t_q1_e"];
-                        var y = response.data["agent_t_q1_total"]
+                        var y = response.data["agent_t_q1_total"];
+                        this.T_Q1_A_chartData = [y, f, g, h, i, j];
                         var k = response.data["public_t_q1_a"];
                         var l = response.data["public_t_q1_b"];
                         var m = response.data["public_t_q1_c"];
                         var n = response.data["public_t_q1_d"];
                         var o = response.data["public_t_q1_e"];
-                        var z = response.data["public_t_q1_total"]
+                        var z = response.data["public_t_q1_total"];
+                        this.T_Q1_P_chartData = [z, k, l, m, n, o];
                         this.t_q1_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_t_q1_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_t_q1_total = '<b style="color: #899499">' + z + "</b>";
@@ -2206,6 +2263,7 @@ export default {
                             this.public_t_q1_d = '<b style="color: #FFBF00">' + n + '</b>';
                             this.public_t_q1_e = '<b style="color: red">' + o + '</b>';
                         }
+                        this.T_Q1_loaded = true;
                     })
                 }
                 catch(err){    
@@ -2221,19 +2279,22 @@ export default {
                         var c = response.data["t_q2_c"];
                         var d = response.data["t_q2_d"];
                         var e = response.data["t_q2_e"];
-                        var x = response.data["t_q2_total"]
+                        var x = response.data["t_q2_total"];
+                        this.T_Q2_C_chartData = [x, a, b, c, d, e];
                         var f = response.data["agent_t_q2_a"];
                         var g = response.data["agent_t_q2_b"];
                         var h = response.data["agent_t_q2_c"];
                         var i = response.data["agent_t_q2_d"];
                         var j = response.data["agent_t_q2_e"];
-                        var y = response.data["agent_t_q2_total"]
+                        var y = response.data["agent_t_q2_total"];
+                        this.T_Q2_A_chartData = [y, f, g, h, i, j];
                         var k = response.data["public_t_q2_a"];
                         var l = response.data["public_t_q2_b"];
                         var m = response.data["public_t_q2_c"];
                         var n = response.data["public_t_q2_d"];
                         var o = response.data["public_t_q2_e"];
-                        var z = response.data["public_t_q2_total"]
+                        var z = response.data["public_t_q2_total"];
+                        this.T_Q2_P_chartData = [z, k, l, m, n, 0];
                         this.t_q2_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_t_q2_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_t_q2_total = '<b style="color: #899499">' + z + "</b>";
@@ -2282,6 +2343,7 @@ export default {
                             this.public_t_q2_d = '<b style="color: #DA70D6">' + n + '</b>';
                             this.public_t_q2_e = '<b style="color: #800080">' + o + '</b>';
                         }
+                        this.T_Q2_loaded = true;
                     })
                 }
                 catch(err){    
@@ -2296,17 +2358,20 @@ export default {
                         var b = response.data["t_q3_b"];
                         var c = response.data["t_q3_c"];
                         var d = response.data["t_q3_d"];
-                        var x = response.data["t_q3_total"]
+                        var x = response.data["t_q3_total"];
+                        this.T_Q3_C_chartData = [x, a, b, c, d];
                         var f = response.data["agent_t_q3_a"];
                         var g = response.data["agent_t_q3_b"];
                         var h = response.data["agent_t_q3_c"];
                         var i = response.data["agent_t_q3_d"];
-                        var y = response.data["agent_t_q3_total"]
+                        var y = response.data["agent_t_q3_total"];
+                        this.T_Q3_A_chartData = [y, f, g, h, i];
                         var k = response.data["public_t_q3_a"];
                         var l = response.data["public_t_q3_b"];
                         var m = response.data["public_t_q3_c"];
                         var n = response.data["public_t_q3_d"];
-                        var z = response.data["public_t_q3_total"]
+                        var z = response.data["public_t_q3_total"];
+                        this.T_Q3_P_chartData = [z, k, l, m, n];
                         this.t_q3_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_t_q3_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_t_q3_total = '<b style="color: #899499">' + z + "</b>";
@@ -2349,6 +2414,7 @@ export default {
                             this.public_t_q3_c = '<b style="color: #FFBF00">' + m + '</b>';
                             this.public_t_q3_d = '<b style="color: red">' + n + '</b>';
                         }
+                        this.T_Q3_loaded = true;
                     })
                 }
                 catch(err){    
@@ -2364,19 +2430,22 @@ export default {
                         var c = response.data["t_q4_c"];
                         var d = response.data["t_q4_d"];
                         var e = response.data["t_q4_e"];
-                        var x = response.data["t_q4_total"]
+                        var x = response.data["t_q4_total"];
+                        this.T_Q4_C_chartData = [x, a, b, c, d, e];
                         var f = response.data["agent_t_q4_a"];
                         var g = response.data["agent_t_q4_b"];
                         var h = response.data["agent_t_q4_c"];
                         var i = response.data["agent_t_q4_d"];
                         var j = response.data["agent_t_q4_e"];
-                        var y = response.data["agent_t_q4_total"]
+                        var y = response.data["agent_t_q4_total"];
+                        this.T_Q4_A_chartData = [y, f, g, h, i, j];
                         var k = response.data["public_t_q4_a"];
                         var l = response.data["public_t_q4_b"];
                         var m = response.data["public_t_q4_c"];
                         var n = response.data["public_t_q4_d"];
                         var o = response.data["public_t_q4_e"];
-                        var z = response.data["public_t_q4_total"]
+                        var z = response.data["public_t_q4_total"];
+                        this.T_Q4_P_chartData = [z, k, l, m, n, o];
                         this.t_q4_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_t_q4_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_t_q4_total = '<b style="color: #899499">' + z + "</b>";
@@ -2425,6 +2494,7 @@ export default {
                             this.public_t_q4_d = '<b style="color: #FFBF00">' + n + '</b>';
                             this.public_t_q4_e = '<b style="color: red">' + o + '</b>';
                         }
+                        this.T_Q4_loaded = true;
                     })
                 }
                 catch(err){    

@@ -5,23 +5,25 @@
     data() {
       return {
         chartData: {
-          labels: ["Total", "Very Satisfied", "Satisfied", "Dissatisfied", "Very Dissatisfied"],
+          labels: ["Total", "Email", "Telephone", "Face-to-Face", "Online Support Ticket System", "Others"],
           datasets: [{
             label: 'Bar Chart',
             borderWidth: 1,
             backgroundColor: [
               'rgba(137, 148, 153, 0.2)',
-              'rgba(114, 204, 102, 0.2)',
-              'rgba(64, 181, 173, 0.2)',
-              'rgba(255, 191, 0, 0.2)',
-              'rgba(255, 0, 0, 0.2)'
+              'rgba(203, 195, 227, 0.2)',
+              'rgba(204, 204, 255, 0.2)',
+              'rgba(207, 159, 255, 0.2)',
+              'rgba(218, 112, 214, 0.2)',
+              'rgba(128, 0, 128, 0.2)'
             ],
             borderColor: [
               'rgba(137, 148, 153,1)',
-              'rgba(114, 204, 102, 1)',
-              'rgba(64, 181, 173, 1)',
-              'rgba(255, 191, 0, 1)',
-              'rgba(255, 0, 0, 1)'
+              'rgba(203, 195, 227, 1)',
+              'rgba(204, 204, 255, 1)',
+              'rgba(207, 159, 255, 1)',
+              'rgba(218, 112, 214, 1)',
+              'rgba(128, 0, 128, 1)'
             ],
             pointBorderColor: '#2554FF',
             data: this._chartData
