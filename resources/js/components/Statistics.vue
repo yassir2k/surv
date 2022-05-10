@@ -1373,6 +1373,19 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ1cChart v-if="Oe_Q1_loaded"  :_chartData="this.Oe_Q1_C_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ1aChart v-if="Oe_Q1_loaded"  :_chartData="this.Oe_Q1_A_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ1pChart v-if="Oe_Q1_loaded"  :_chartData="this.Oe_Q1_P_chartData" :height="270" />
+                                                </div>
+                                            </div>
                                         </div><!-- End Numbers -->
                                         <div class="col-sm-5"><!-- Begin Chart -->
                                             
@@ -1507,6 +1520,19 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ2cChart v-if="Oe_Q2_loaded"  :_chartData="this.Oe_Q2_C_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ2aChart v-if="Oe_Q2_loaded"  :_chartData="this.Oe_Q2_A_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ2pChart v-if="Oe_Q2_loaded"  :_chartData="this.Oe_Q2_P_chartData" :height="270" />
+                                                </div>
+                                            </div>
                                         </div><!-- End Numbers -->
                                         <div class="col-sm-5"><!-- Begin Chart -->
                                         </div><!-- End Chart -->
@@ -1628,6 +1654,19 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ3cChart v-if="Oe_Q3_loaded"  :_chartData="this.Oe_Q3_C_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ3aChart v-if="Oe_Q3_loaded"  :_chartData="this.Oe_Q3_A_chartData" :height="270" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <OeQ3pChart v-if="Oe_Q3_loaded"  :_chartData="this.Oe_Q3_P_chartData" :height="270" />
+                                                </div>
+                                            </div>
                                         </div><!-- End Numbers -->
                                         <div class="col-sm-5"><!-- Begin Chart -->
                                         </div><!-- End Chart -->
@@ -1663,9 +1702,11 @@ import SdQ1pChart from './charts/Sd_Q1_P_LineChart.vue';
 import SdQ2cChart from './charts/Sd_Q2_C_LineChart.vue';
 import SdQ2aChart from './charts/Sd_Q2_A_LineChart.vue';
 import SdQ2pChart from './charts/Sd_Q2_P_LineChart.vue';
+
 import QQ1cChart from './charts/Q_Q1_C_LineChart.vue';
 import QQ1aChart from './charts/Q_Q1_A_LineChart.vue';
 import QQ1pChart from './charts/Q_Q1_P_LineChart.vue';
+
 import TQ1cChart from './charts/T_Q1_C_LineChart.vue';
 import TQ1aChart from './charts/T_Q1_A_LineChart.vue';
 import TQ1pChart from './charts/T_Q1_P_LineChart.vue';
@@ -1678,6 +1719,16 @@ import TQ3pChart from './charts/T_Q3_P_LineChart.vue';
 import TQ4cChart from './charts/T_Q4_C_LineChart.vue';
 import TQ4aChart from './charts/T_Q4_A_LineChart.vue';
 import TQ4pChart from './charts/T_Q4_P_LineChart.vue';
+
+import OeQ1cChart from './charts/Oe_Q1_C_LineChart.vue';
+import OeQ1aChart from './charts/Oe_Q1_A_LineChart.vue';
+import OeQ1pChart from './charts/Oe_Q1_P_LineChart.vue';
+import OeQ2cChart from './charts/Oe_Q2_C_LineChart.vue';
+import OeQ2aChart from './charts/Oe_Q2_A_LineChart.vue';
+import OeQ2pChart from './charts/Oe_Q2_P_LineChart.vue';
+import OeQ3cChart from './charts/Oe_Q3_C_LineChart.vue';
+import OeQ3aChart from './charts/Oe_Q3_A_LineChart.vue';
+import OeQ3pChart from './charts/Oe_Q3_P_LineChart.vue';
 
 export default {
     data() {
@@ -1898,11 +1949,24 @@ export default {
             T_Q4_A_chartData: [],
             T_Q4_P_chartData: [],
             T_Q4_loaded: false,
+            Oe_Q1_C_chartData: [],
+            Oe_Q1_A_chartData: [],
+            Oe_Q1_P_chartData: [],
+            Oe_Q1_loaded: false,
+            Oe_Q2_C_chartData: [],
+            Oe_Q2_A_chartData: [],
+            Oe_Q2_P_chartData: [],
+            Oe_Q2_loaded: false,
+            Oe_Q3_C_chartData: [],
+            Oe_Q3_A_chartData: [],
+            Oe_Q3_P_chartData: [],
+            Oe_Q3_loaded: false
         }
     },
     components:{
          NavBar, SdQ1cChart, SdQ1aChart, SdQ1pChart, SdQ2cChart, SdQ2aChart, SdQ2pChart, QQ1cChart, QQ1aChart, QQ1pChart, TQ1cChart, TQ1aChart, TQ1pChart,
-         TQ2cChart, TQ2aChart, TQ2pChart, TQ3cChart, TQ3aChart, TQ3pChart, TQ4cChart, TQ4aChart, TQ4pChart
+         TQ2cChart, TQ2aChart, TQ2pChart, TQ3cChart, TQ3aChart, TQ3pChart, TQ4cChart, TQ4aChart, TQ4pChart, OeQ1cChart, OeQ1aChart, OeQ1pChart, OeQ2cChart,
+         OeQ2aChart, OeQ2pChart, OeQ3cChart, OeQ3aChart, OeQ3pChart
     },
     beforeCreate: function () {
         if (!this.$session.exists()) {
@@ -2514,19 +2578,22 @@ export default {
                         var c = response.data["oe_q1_c"];
                         var d = response.data["oe_q1_d"];
                         var e = response.data["oe_q1_e"];
-                        var x = response.data["oe_q1_total"]
+                        var x = response.data["oe_q1_total"];
+                        this.Oe_Q1_C_chartData = [x, a, b, c, d, e];
                         var f = response.data["agent_oe_q1_a"];
                         var g = response.data["agent_oe_q1_b"];
                         var h = response.data["agent_oe_q1_c"];
                         var i = response.data["agent_oe_q1_d"];
                         var j = response.data["agent_oe_q1_e"];
                         var y = response.data["agent_oe_q1_total"]
+                        this.Oe_Q1_A_chartData = [y, f, g, h, i, j];
                         var k = response.data["public_oe_q1_a"];
                         var l = response.data["public_oe_q1_b"];
                         var m = response.data["public_oe_q1_c"];
                         var n = response.data["public_oe_q1_d"];
                         var o = response.data["public_oe_q1_e"];
-                        var z = response.data["public_oe_q1_total"]
+                        var z = response.data["public_oe_q1_total"];
+                        this.Oe_Q1_P_chartData = [z, k, l, m, n, o];
                         this.oe_q1_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_oe_q1_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_oe_q1_total = '<b style="color: #899499">' + z + "</b>";
@@ -2575,6 +2642,7 @@ export default {
                             this.public_oe_q1_d = '<b style="color: #FFBF00">' + n + '</b>';
                             this.public_oe_q1_e = '<b style="color: red">' + o + '</b>';
                         }
+                        this.Oe_Q1_loaded = true;
                     })
                 }
                 catch(err){    
@@ -2592,18 +2660,21 @@ export default {
                         var d = response.data["oe_q2_d"];
                         var e = response.data["oe_q2_e"];
                         var x = response.data["oe_q2_total"]
+                        this.Oe_Q2_C_chartData = [x, a, b, c, d, e];
                         var f = response.data["agent_oe_q2_a"];
                         var g = response.data["agent_oe_q2_b"];
                         var h = response.data["agent_oe_q2_c"];
                         var i = response.data["agent_oe_q2_d"];
                         var j = response.data["agent_oe_q2_e"];
-                        var y = response.data["agent_oe_q2_total"]
+                        var y = response.data["agent_oe_q2_total"];
+                        this.Oe_Q2_A_chartData = [y, f, g, h, i, j];
                         var k = response.data["public_oe_q2_a"];
                         var l = response.data["public_oe_q2_b"];
                         var m = response.data["public_oe_q2_c"];
                         var n = response.data["public_oe_q2_d"];
                         var o = response.data["public_oe_q2_e"];
-                        var z = response.data["public_oe_q2_total"]
+                        var z = response.data["public_oe_q2_total"];
+                        this.Oe_Q2_P_chartData = [z, k, l, m, n, o];
                         this.oe_q2_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_oe_q2_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_oe_q2_total = '<b style="color: #899499">' + z + "</b>";
@@ -2652,6 +2723,7 @@ export default {
                             this.public_oe_q2_d = '<b style="color: #FFBF00">' + n + '</b>';
                             this.public_oe_q2_e = '<b style="color: red">' + o + '</b>';
                         }
+                        this.Oe_Q2_loaded = true;
                     })
                 }
                 catch(err){    
@@ -2667,17 +2739,20 @@ export default {
                         var b = response.data["oe_q3_b"];
                         var c = response.data["oe_q3_c"];
                         var d = response.data["oe_q3_d"];
-                        var x = response.data["oe_q3_total"]
+                        var x = response.data["oe_q3_total"];
+                        this.Oe_Q3_C_chartData = [x, a, b, c, d];
                         var f = response.data["agent_oe_q3_a"];
                         var g = response.data["agent_oe_q3_b"];
                         var i = response.data["agent_oe_q3_c"];
                         var j = response.data["agent_oe_q3_d"];
-                        var y = response.data["agent_oe_q3_total"]
+                        var y = response.data["agent_oe_q3_total"];
+                        this.Oe_Q3_A_chartData = [y, f, g, i, j];
                         var k = response.data["public_oe_q3_a"];
                         var l = response.data["public_oe_q3_b"];
                         var n = response.data["public_oe_q3_c"];
                         var o = response.data["public_oe_q3_d"];
-                        var z = response.data["public_oe_q3_total"]
+                        var z = response.data["public_oe_q3_total"];
+                        this.Oe_Q3_P_chartData = [z, k, l, n, o];
                         this.oe_q3_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_oe_q3_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_oe_q3_total = '<b style="color: #899499">' + z + "</b>";
@@ -2720,8 +2795,8 @@ export default {
                             this.public_oe_q3_c = '<b style="color: #FFBF00">' + n + '</b>';
                             this.public_oe_q3_d = '<b style="color: red">' + o + '</b>';
                         }
+                        this.Oe_Q3_loaded = true;
                     })
-                    this.loader = '';
                 }
                 catch(err){    
                         console.log("OEQ3: " + err);
