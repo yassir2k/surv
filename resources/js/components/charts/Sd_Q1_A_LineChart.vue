@@ -1,23 +1,21 @@
 <script>
-  import { Bar } from 'vue-chartjs'
+  import { Pie } from 'vue-chartjs'
   export default {
-    extends: Bar,
+    extends: Pie,
     data() {
       return {
         chartData: {
-          labels: ["Total", "Very Satisfied", "Satisfied", "Dissatisfied", "Very Dissatisfied"],
+          labels: ["Very Satisfied", "Satisfied", "Dissatisfied", "Very Dissatisfied"],
           datasets: [{
-            label: 'Bar Chart',
+            label: 'Service Delivery Q1', 
             borderWidth: 1,
             backgroundColor: [
-              'rgba(137, 148, 153, 0.2)',
               'rgba(114, 204, 102, 0.2)',
               'rgba(64, 181, 173, 0.2)',
               'rgba(255, 191, 0, 0.2)',
               'rgba(255, 0, 0, 0.2)'
             ],
             borderColor: [
-              'rgba(137, 148, 153,1)',
               'rgba(114, 204, 102, 1)',
               'rgba(64, 181, 173, 1)',
               'rgba(255, 191, 0, 1)',
@@ -28,26 +26,11 @@
           }]
         },
         options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              },
-              gridLines: {
-                display: true
-              }
-            }],
-            xAxes: [{
-              gridLines: {
-                display: false
-              }
-            }]
-          },
           legend: {
-            display: false
+            display: true
           },
           responsive: true,
-          maintainAspectRatio: false
+          maintainAspectRatio: true
         }
       }
     },

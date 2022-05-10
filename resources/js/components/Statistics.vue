@@ -318,13 +318,13 @@
                                                 <div class="col-sm-3">
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <SdQ1cChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_C_chartData" :height="270" />
+                                                    <SdQ1aChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_C_chartData" :height="270" />
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <SdQ1aChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_A_chartData" :height="270" />
+                                                    <SdQ1cChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_A_chartData" :height="270" />
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    <SdQ1pChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_P_chartData" :height="270" />
+                                                    <SdQ1cChart v-if="Sd_Q1_loaded"  :_chartData="this.Sd_Q1_P_chartData" :height="270" />
                                                 </div>
                                             </div>
                                             <br />
@@ -1966,7 +1966,7 @@ export default {
                         var c = response.data["sd_q1_c"];
                         var d = response.data["sd_q1_d"];
                         var x = response.data["sd_q1_total"]
-                        this.Sd_Q1_C_chartData = [x, a, b, c, d];
+                        this.Sd_Q1_C_chartData = [a, b, c, d];
                         var e = response.data["agent_sd_q1_a"];
                         var f = response.data["agent_sd_q1_b"];
                         var g = response.data["agent_sd_q1_c"];
@@ -2294,7 +2294,7 @@ export default {
                         var n = response.data["public_t_q2_d"];
                         var o = response.data["public_t_q2_e"];
                         var z = response.data["public_t_q2_total"];
-                        this.T_Q2_P_chartData = [z, k, l, m, n, 0];
+                        this.T_Q2_P_chartData = [z, k, l, m, n, o];
                         this.t_q2_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_t_q2_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_t_q2_total = '<b style="color: #899499">' + z + "</b>";
