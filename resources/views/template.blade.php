@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <link rel="icon" href="{{ URL::asset('images/cac_icon.ico') }}" >
     <head>
@@ -15,12 +16,11 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/survey-css.css') }}">
         <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-        <script src="{{asset('js/jquery.min.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
         <script src="https://unpkg.com/v-tooltip@2.1.3/dist/v-tooltip.min.js"></script>
+        <script src="{{asset('js/jquery.min.js')}}"></script>
         
 
         <style>
