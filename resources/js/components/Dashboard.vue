@@ -105,6 +105,12 @@
                     </router-link>
                 </div>
         	</div><!--End of today's data-->
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 
         </div>
         <div class="col-sm-3">

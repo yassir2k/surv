@@ -158,7 +158,7 @@
                             </div><!--End Button-->
                         </form>
                         <hr class="separator">
-                        <center><p class="card-text"><b class="font-pref14">REPORT SECTION</b></p></center>
+                        <center><p class="card-text"><b class="font-pref14">{{header_2}}</b></p></center>
                         <br />
                         <br />
                         <div class="row">
@@ -1735,6 +1735,7 @@ export default {
         return {
 
             header_1: "Business Intelligence Report",
+            header_2: "",
             counter: 0,
             enableSubmit: true,
             revealAll: false,
@@ -2007,7 +2008,27 @@ export default {
         },
         GenerateReport(){
             this.revealAll = false;
+            this.Sd_Q1_loaded = false;
+            this.Sd_Q2_loaded = false;
+            this.Q_Q1_loaded = false;
+            this.T_Q1_loaded = false;
+            this.T_Q2_loaded = false;
+            this.T_Q3_loaded = false;
+            this.T_Q4_loaded = false;
+            this.Oe_Q1_loaded = false;
+            this.Oe_Q2_loaded = false;
+            this.Oe_Q3_loaded = false;
             this.enableSubmit = false;
+            var d1 = new Date(this.beginDate);
+            var d2 = new Date(this.endDate);
+            if(d1.getTime() === d2.getTime())
+            {
+                alert("Dates are equal");
+            }
+            else
+            {
+                alert("Dates are not equal");
+            }
             this.loader = '<center><i class="fas fa-spinner fa-spin fa-5x fa-fw" style="color: #8FBC8F"></i></center>';
             this.rotor = '&nbsp;<i class="fa fa-cog fa-spin fa-1x fa-fw"></i>';
             this.serviceDeliverySelected = false;
@@ -2030,7 +2051,7 @@ export default {
                         var c = response.data["sd_q1_c"];
                         var d = response.data["sd_q1_d"];
                         var x = response.data["sd_q1_total"]
-                        this.Sd_Q1_C_chartData = [a, b, c, d];
+                        this.Sd_Q1_C_chartData = [x, a, b, c, d];
                         var e = response.data["agent_sd_q1_a"];
                         var f = response.data["agent_sd_q1_b"];
                         var g = response.data["agent_sd_q1_c"];

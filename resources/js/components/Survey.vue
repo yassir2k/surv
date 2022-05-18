@@ -574,11 +574,6 @@ export default {
             this.counter = null;
             let element = this.$refs.Modal;
             $(element).modal('show');
-            let other_value = null;
-            if(this.showOthers){
-                other_value = this.$refs.others.value;
-                alert(other_value);
-            }
             var postData = {
                 "respondent": this.respondent,
                 "profession": this.profession,
@@ -588,7 +583,7 @@ export default {
                 "quality": this.q,
                 "timeliness1": this.t1,
                 "timeliness2": this.t2,
-                "others": other_value,
+                "others": this.others,
                 "timeliness3": this.t3,
                 "timeliness4": this.t4,
                 "online_environment1": this.oe1,
@@ -598,7 +593,7 @@ export default {
                 "changes": this.changes,
             };
             console.log(postData);
-            setTimeout(() => { 
+            //setTimeout(() => { 
                 try{
                     axios({
                         method: 'post',
@@ -628,7 +623,7 @@ export default {
                 }catch(err){    
                     console.log(err)
                 } 
-            }, 3000);
+            //}, 3000);
         },
         toggleOn(){
             this.showOthers = true;

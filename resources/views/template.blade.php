@@ -3,7 +3,7 @@
 <link rel="icon" href="{{ URL::asset('images/cac_icon.ico') }}" >
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/survey-css.css') }}">
         <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
@@ -27,6 +28,50 @@
             .body{
                 font-family: 'Nunito', sans-serif;
             }
+
+            [class*="col-"] {
+            width: 100%;
+            }
+
+            @media only screen and (max-width: 768px) {
+            /* For desktop: */
+            .col-1 {width: 8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%;}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+            }
+
+            @media only screen and (max-width: 600px) {
+            /* For tablets: */
+            .col-s-1 {width: 8.33%;}
+            .col-s-2 {width: 16.66%;}
+            .col-s-3 {width: 25%;}
+            .col-s-4 {width: 33.33%;}
+            .col-s-5 {width: 41.66%;}
+            .col-s-6 {width: 50%;}
+            .col-s-7 {width: 58.33%;}
+            .col-s-8 {width: 66.66%;}
+            .col-s-9 {width: 75%;}
+            .col-s-10 {width: 83.33%;}
+            .col-s-11 {width: 91.66%;}
+            .col-s-12 {width: 100%;}
+            }
+            @media (max-width: 600px), (max-width: 1000px) {
+                .login-form {
+                    width: 100%;
+                    margin: 50px auto;
+                    padding:30px
+                }
+            }
+
         </style>
     </head>
 
@@ -46,7 +91,7 @@
                 <!-- Footer -->
                 <footer class="page-footer font-small fixed-bottom font-small" >
                     <!-- Copyright -->
-                    <div class="footer-copyright text-center text-white py-5 font-pref14">
+                    <div class="footer-copyright text-center text-white py-4 font-pref14">
                         © 2022 Copyright - Corporate Affairs Commission: ICT Department
                     </div>
                     <!-- Copyright -->
