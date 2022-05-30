@@ -158,7 +158,7 @@
                             </div><!--End Button-->
                         </form>
                         <hr class="separator">
-                        <center><p class="card-text"><b class="font-pref14">{{header_2}}</b></p></center>
+                        <center><h2 class="text-uppercase" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; color: #9ACD32"><b>{{header_2}}</b></h2></center>
                         <br />
                         <br />
                         <div class="row">
@@ -1961,7 +1961,9 @@ export default {
             Oe_Q3_C_chartData: [],
             Oe_Q3_A_chartData: [],
             Oe_Q3_P_chartData: [],
-            Oe_Q3_loaded: false
+            Oe_Q3_loaded: false,
+            days: ['Sun','Mon','Tue','Wed','Thur','Fri','Sat'],
+            months: ['January','February','March','April','May','June','July','August','September','October','November','December']
         }
     },
     components:{
@@ -2023,11 +2025,11 @@ export default {
             var d2 = new Date(this.endDate);
             if(d1.getTime() === d2.getTime())
             {
-                alert("Dates are equal");
+                this.header_2 = "BI REPORT FOR " + this.days[ d1.getDay() ] + " " + d1.getDate() + " " + this.months[ d1.getMonth() ] + ", " + d1.getFullYear();
             }
             else
             {
-                alert("Dates are not equal");
+                this.header_2 = "BI REPORT BETWEEN " + this.days[ d1.getDay() ] + " " + d1.getDate() + " " + this.months[ d1.getMonth() ] + ", " + d1.getFullYear() + " AND " + this.days[ d2.getDay() ] + " " + d2.getDate() + " " + this.months[ d2.getMonth() ] + ", " + d2.getFullYear();
             }
             this.loader = '<center><i class="fas fa-spinner fa-spin fa-5x fa-fw" style="color: #8FBC8F"></i></center>';
             this.rotor = '&nbsp;<i class="fa fa-cog fa-spin fa-1x fa-fw"></i>';
@@ -2267,6 +2269,10 @@ export default {
                         }
                         this.Q_Q1_loaded = true;
                     })
+                    this.rotor = '&nbsp;<i class="fas fa-cog"></i>';
+                    this.loader = '';
+                    this.revealAll = true;
+                    this.enableSubmit = false;
                 }
                 catch(err){    
                         console.log("QQ1: " + err);
@@ -2581,6 +2587,10 @@ export default {
                         }
                         this.T_Q4_loaded = true;
                     })
+                    this.rotor = '&nbsp;<i class="fas fa-cog"></i>';
+                    this.loader = '';
+                    this.revealAll = true;
+                    this.enableSubmit = false;
                 }
                 catch(err){    
                         console.log("TQ1: " + err);
@@ -2818,6 +2828,10 @@ export default {
                         }
                         this.Oe_Q3_loaded = true;
                     })
+                    this.rotor = '&nbsp;<i class="fas fa-cog"></i>';
+                    this.loader = '';
+                    this.revealAll = true;
+                    this.enableSubmit = false;
                 }
                 catch(err){    
                         console.log("OEQ3: " + err);

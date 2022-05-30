@@ -29,7 +29,6 @@ class Questions extends Model
         'online_environment3',
         'online_environment4',
         'challenges_',
-        'changes_',
         'control_hash',
         'is_read',
         'read_by',

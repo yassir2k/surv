@@ -16,6 +16,40 @@ class ApiController extends Controller
         return Questions::take(2)->get();
     }
 
+    /*---------------------------------------- 
+        Update User Details
+    ----------------------------------------*/
+    public function ChangeUserPassword(Request $request)
+    {
+        $Password = $request->input('password');
+        $nPassword = $request->input('new_password');
+        $cPassword = $request->input('confirm_password');
+        $username = $request->input('username'); 
+        if(is_null($Password) || is_null($nPassword) || is_null($cPassword)  || is_null($username))
+        {
+            return "Incomplete data posted";
+        }
+        $credentials = ['email' => $username, 'password' => $Password];
+
+        // attempt to do the login
+        if (Auth::attempt($credentials))
+        {
+            //Meaning current password is valid. bcrypt('Qa1234@')
+            $User = User::where(['email'=> $username])->first();
+            $User->password = bcrypt($nPassword);
+            $User->save();
+            return "success";
+
+        }
+        else
+        {
+            return "Invalid current password";
+        }
+    }
+
+    /*---------------------------------------- 
+        Login
+    ----------------------------------------*/
     public function Login(Request $request){
         // create our user data for the authentication
         $email   = $request->input('email');
@@ -59,7 +93,6 @@ class ApiController extends Controller
             'online_environment2' => $request->input('online_environment2'),
             'online_environment3' => $request->input('online_environment3'),
             'challenges_' => $request->input('challenges'),
-            'changes_' => $request->input('changes'),
             'control_hash' => $control_hash,
         ];
         //Now we commit new entry to the database using eloquence

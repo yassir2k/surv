@@ -550,3 +550,26 @@ Radio Buttons
 	border-color: #8FBC8F !important;
 	box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
   }
+
+/*--------------------------------------------------------------------------------------------------------------------------------
+Checkbox
+--------------------------------------------------------------------------------------------------------------------------------*/
+input[type=checkbox]
+{border-radius:50%;width:1.25rem;height:1.25rem;margin-top:.125em;margin-right:6px}
+.form-check-input[type=checkbox]:checked{background-image:none;background-color:#26bd2e; border-color: #26bd2e}
+.form-check-input[type=checkbox]:checked:after
+{
+	display:block;transform:rotate(45deg) /*!rtl:ignore*/;
+	width:.375rem;height:.8125rem;
+	border-top:0;border-left:0 /*!rtl:ignore*/;
+	margin-left:.25rem;margin-top:-1px;
+}
+.form-check-input[type=checkbox]:checked:focus{background-color:#26bd2e}
+.form-check-input[type=checkbox]:indeterminate{border-color:#26bd2e}
+.form-check-input[type=checkbox]{margin-left:1px;margin-right:1px}
+.form-check-input.is-valid[type=checkbox]:checked:focus,.was-validated .form-check-input:valid[type=checkbox]:checked:focus{background-color:#26bd2e;border-color:#26bd2e}
+.form-check-input:checked[type=checkbox]{background-image:none}
+.form-check-input[type=checkbox]:focus {
+	border-color: #8FBC8F !important;
+	box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+  }

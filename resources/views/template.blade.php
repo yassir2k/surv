@@ -84,7 +84,10 @@
                 </div>
 
                 <div id="app" style="margin-top: 0px">
-                        @yield('content')
+                    <noscript><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                        <h1 valign="middle"><center>Please enable javaScript in order to be able to run this application</center></h1>
+                    </noscript>
+                    @yield('content')
                 </div>
                 
 

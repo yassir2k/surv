@@ -66,17 +66,21 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-sm-12 align-middle">
-                            <strong>Accreditation Number (Where applicable):</strong>
+                            <strong>Gender:</strong><b class="text-danger">*</b>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div class="input-group">
-                                        <div class="input-group-text"> 
-                                            <i class="fas fa-user-edit" style="color: #8FBC8F"></i>
-                                        </div>                    
-                                    <input type="text" class="form-control" placeholder="Accreditation Number e.g. NBA/IND/1234" v-model="accreditation" >
+                                    <div class="input-group-text"> 
+                                        <i class="fas fa-user-edit" style="color: #8FBC8F"></i>
+                                    </div>    
+                                    <select v-model="gender" placeholder="Gender" data-show-content="true" class="form-control border" required>
+                                        <option value="">Choose your gender...</option>  
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>      
+                                    </select>        
                                 </div>
                             </div>
                         </div>
@@ -189,7 +193,7 @@
             </div>
 
             <br />
-            <h4 style="border-bottom: 1px solid #DDDDDD">Timeliness</h4>
+            <h4 style="border-bottom: 1px solid #DDDDDD">Timelines</h4>
             <br />
             
             <!-- Timeless Row -->
@@ -225,114 +229,87 @@
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">5.</dt>
-                    <dd class="col-sm-11">Did you have cause to complain on anything? Which was your preferred channel of communicating the complaints?
-                        <ul class="list-unstyled">
-                            <li class="list-inline-item">
-                                <br />
+                    <dd class="col-sm-11">Which was your preferred channel of communication?
+                        <div class="form-group">
+                        <br />
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t2" @change="toggleOff"  id="t2_1" type="radio" required v-model="t2" value="Email">
                                     <label class="form-check-label" for="t2_1">Email</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t2" @change="toggleOff"  id="t2_2" type="radio" required v-model="t2" value="Telephone">
                                     <label class="form-check-label" for="t2_2">Telephone</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t2" @change="toggleOff"  id="t2_3" type="radio" required v-model="t2" value="Face to Face">
                                     <label class="form-check-label" for="t2_3">Face to Face</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t2" @change="toggleOff"  id="t2_4" type="radio" required v-model="t2" value="Online Support Ticket System">
                                     <label class="form-check-label" for="t2_4">Online Support Ticket System</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t2" @change="toggleOn" id="t2_5" type="radio" required v-model="t2" value="Others">
-                                    <label class="form-check-label" for="t2_5">Others</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <div class="form-group">
+                                    <label class="form-check-label" for="t2_5">Others (Please specify)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <div class="input-group">
                                         <input v-show="showOthers" type="text" class="form-control" placeholder="Others here..."  v-model="others" required :disabled="!(showOthers)">
-                                    </div>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">6.</dt>
-                    <dd class="col-sm-11">Were you satisfied with the way the complaint was handled?
-                        <ul class="list-unstyled">
-                            <li class="list-inline-item">
-                                <br />
+                    <dd class="col-sm-11">How satisfied are you with our complaint management?
+                        <div class="form-group">
+                        <br />
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t3" id="t3_1" type="radio" required v-model="t3" value="Very Satisfied">
                                     <label class="form-check-label" for="t3_1">Very Satisfied</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t3" id="t3_2" type="radio" required v-model="t3" value="Satisfied">
                                     <label class="form-check-label" for="t3_2">Satisfied</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t3" id="t3_3" type="radio" required v-model="t3" value="Dissatisfied">
                                     <label class="form-check-label" for="t3_3">Dissatisfied</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t3" id="t3_4" type="radio" required v-model="t3" value="Very Dissatisfied">
                                     <label class="form-check-label" for="t3_4">Very Dissatisfied</label>
-                                    
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">7.</dt>
                     <dd class="col-sm-11">How helpful did you find our Staff?
-                        <ul class="list-unstyled">
-                            <li class="list-inline-item">
-                                <br />
+                        <div class="form-group">
+                        <br />
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t4" id="t4_1" type="radio" required v-model="t4" value="Excellent">
                                     <label class="form-check-label" for="t4_1">Excellent</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t4" id="t4_2" type="radio" required v-model="t4" value="Very Good">
                                     <label class="form-check-label" for="t4_2">Very Good</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t4" id="t4_3" type="radio" required v-model="t4" value="Good">
                                     <label class="form-check-label" for="t4_3">Good</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t4" id="t4_4" type="radio" required v-model="t4" value="Fair">
                                     <label class="form-check-label" for="t4_4">Fair</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="t4" id="t4_5" type="radio" required v-model="t4" value="Poor">
                                     <label class="form-check-label" for="t4_5">Poor</label>
-                                    
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </dd>
                 </dl>
             </div>
@@ -345,141 +322,123 @@
             <div class="row">
                 <dl class="row">
                     <dt class="col-sm-1">8.</dt>
-                    <dd class="col-sm-11">How satisfied are you with the effectiveness of the process flow of the online registration system?
-                        <ul class="list-unstyled">
-                            <li class="list-inline-item">
-                                <br />
+                    <dd class="col-sm-11">How user-friendly did you find the online registration system?
+                        <div class="form-group">
+                        <br />
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe1" id="oe1_1" type="radio" required v-model="oe1" value="Excellent">
                                     <label class="form-check-label" for="oe1_1">Excellent</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe1" id="oe1_2" type="radio" required v-model="oe1" value="Very Good">
                                     <label class="form-check-label" for="oe1_2">Very Good</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe1" id="oe1_3" type="radio" required v-model="oe1" value="Good">
                                     <label class="form-check-label" for="oe1_3">Good</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe1" id="oe1_4" type="radio" required v-model="oe1" value="Fair">
                                     <label class="form-check-label" for="oe1_4">Fair</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe1" id="oe1_5" type="radio" required v-model="oe1" value="Poor">
                                     <label class="form-check-label" for="oe1_5">Poor</label>
-                                    
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">9.</dt>
                     <dd class="col-sm-11">How would you rate the e-stamping interface on the CRP?
-                        <ul class="list-unstyled">
-                            <li class="list-inline-item">
-                                <br />
+                        <div class="form-group">
+                        <br />
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe2" id="oe2_1" type="radio" required v-model="oe2" value="Excellent">
                                     <label class="form-check-label" for="oe2_1">Excellent</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe2" id="oe2_2" type="radio" required v-model="oe2" value="Very Good">
                                     <label class="form-check-label" for="oe2_2">Very Good</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe2" id="oe2_3" type="radio" required v-model="oe2" value="Good">
                                     <label class="form-check-label" for="oe2_3">Good</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe2" id="oe2_4" type="radio" required v-model="oe2" value="Fair">
-                                    <label class="form-check-label" for="oe2_4">Fair</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                                    <label class="form-check-label" for="oe2_4">Fair</label>  
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe2" id="oe2_5" type="radio" required v-model="oe2" value="Poor">
                                     <label class="form-check-label" for="oe2_5">Poor</label>
-                                    
-                            </li>
-                        </ul>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="oe2" id="oe2_6" type="radio" required v-model="oe2" value="Not Applicable">
+                                    <label class="form-check-label" for="oe2_6">Not Applicable</label>
+                            </div>
+                        </div>
                     </dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">10.</dt>
                     <dd class="col-sm-11">How satisfied are you with the Remita payment platform on the CRP?
-                        <ul class="list-unstyled">
-                            <li class="list-inline-item">
-                                <br />
+                        <div class="form-group">
+                        <br />
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe3" id="oe3_1" type="radio" required v-model="oe3" value="Very Satisfied">
                                     <label class="form-check-label" for="oe3_1">Very Satisfied</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe3" id="oe3_2" type="radio" required v-model="oe3" value="Satisfied">
                                     <label class="form-check-label" for="oe3_2">Satisfied</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe3" id="oe3_3" type="radio" required v-model="oe3" value="Dissatisfied">
                                     <label class="form-check-label" for="oe3_3">Dissatisfied</label>
-                                    
-                            </li>
-                            <li class="list-inline-item">
-                                <br />
+                            </div>
+                            <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="oe3" id="oe3_4" type="radio" required v-model="oe3" value="Very Dissatisfied">
                                     <label class="form-check-label" for="oe3_4">Very Dissatisfied</label>
-                                    
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">11.</dt>
-                    <dd class="col-sm-11">What are the most common challenges you usually encounter?
-                        <ul class="list-unstyled">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <textarea class="form-control _textarea" v-model="challenges" 
-                                                maxlength="1000" placeholder="Please comment here..." rows="5" required></textarea>
-                                        </div>
-                                    </div>
+                    <dd class="col-sm-11">What are the most common challenges you usually encounter (Select at least, one option)?
+                        <div class="form-group">
+                        <br />
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="c1"  type="checkbox" v-model="c1" value="Document Editing">
+                                    <label class="form-check-label" for="c1">Document Editing</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="c2" type="checkbox" v-model="c2" value="Password/Username Reset">
+                                    <label class="form-check-label" for="c2">Password/Username Reset</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="c3" type="checkbox" v-model="c3" value="Incomplete Report">
+                                    <label class="form-check-label" for="c3">Incomplete Report</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="c4" type="checkbox" v-model="c4" value="Entity Status Update">
+                                    <label class="form-check-label" for="c4">Entity Status Update</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="c5" type="checkbox" v-model="c5" value="Stamp Duty Deleted">
+                                    <label class="form-check-label" for="c5">Stamp Duty Deleted</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="c6" @change="toggleOn1()" type="checkbox" v-model="c6" value="Others_">
+                                    <label class="form-check-label" for="c6">Others (Please specify)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                    <div class="input-group">
+                                        <input v-show="showOthers_" type="text" class="form-control" placeholder="Others here..."  v-model="others_" required :disabled="!(showOthers_)">
                                 </div>
                             </div>
-                        </ul>
-                    </dd>
-                </dl>
-                <dl class="row">
-                    <dt class="col-sm-1">12.</dt>
-                    <dd class="col-sm-11">What changes would you like us to make in our services to you?
-                        <ul class="list-unstyled">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <textarea class="form-control _textarea" v-model="changes"
-                                                maxlength="1000" placeholder='Please comment here...' rows="5" required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
+                        </div>
                     </dd>
                 </dl>
             </div>
@@ -539,10 +498,9 @@ export default {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             respondent: "",
             profession: "",
-            accreditation: "",
-            challenges: "",
-            changes: "",
+            gender: "",
             others: "",
+            others_: "",
             sd1: null,
             sd2: null,
             q: null,
@@ -553,9 +511,16 @@ export default {
             oe1: null,
             oe2: null,
             oe3: null,
+            c1: null,
+            c2: null,
+            c3: null,
+            c4: null,
+            c5: null,
+            c6: null,
             loader: null,
             counter: null,
-            showOthers: false
+            showOthers: false,
+            showOthers_: false
         }
     },
     components:{
@@ -571,13 +536,18 @@ export default {
         SaveFeedback(){
             //Here, preparing for data to be posted via Axios Post
             this.loader = '<center><img src="images/cac_spinner.gif" width="100" height="100"/></center>';
+            if ($('input[type=checkbox]:checked').length <= 0)
+            {
+                alert("Please, select at least one option for challenges");
+                return false;
+            }
             this.counter = null;
             let element = this.$refs.Modal;
             $(element).modal('show');
             var postData = {
                 "respondent": this.respondent,
                 "profession": this.profession,
-                "accreditation": this.accreditation,
+                "gender": this.gender,
                 "service_delivery1": this.sd1,
                 "service_delivery2": this.sd2,
                 "quality": this.q,
@@ -588,16 +558,14 @@ export default {
                 "timeliness4": this.t4,
                 "online_environment1": this.oe1,
                 "online_environment2": this.oe2,
-                "online_environment3": this.oe3,
-                "challenges": this.challenges,
-                "changes": this.changes,
+                "online_environment3": this.oe3
             };
             console.log(postData);
             //setTimeout(() => { 
                 try{
                     axios({
                         method: 'post',
-                        url: 'http://127.0.0.1:8000/api/savefeedback',
+                        url: 'http://127.0.0.1:8000/api/savefeedbackb',
                         data: postData,
                         headers: { 
                             'Content-type': 'application/json; charset=utf-8', 
@@ -630,6 +598,9 @@ export default {
         },
         toggleOff(){
             this.showOthers = false;
+        },
+        toggleOn1(){
+            this.showOthers_ = !this.showOthers_;
         }
     },
     mounted(){

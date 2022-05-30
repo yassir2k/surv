@@ -199,57 +199,9 @@ export default {
                 this.$session.destroy();
                 this.$router.push('/');
             }
-            else{
-                //Get Realtime Units
-                const postData = {
-                    "username": this.$session.get("username"),
-                }
-                try{
-                    axios.post("http://127.0.0.1:8000/api/get_realtime_units", postData) 
-                    .then(response =>{
-                        this.units = response.data["units"];
-                    })
-                }
-                catch{
-                    if (err.response) {
-                    // client received an error response (5xx, 4xx)
-                    console.log("Server Error:", err)
-                    } else if (err.request) {
-                    // client never received a response, or request never left
-                    console.log("Network Error:", err)
-                    } else {
-                    console.log("Client Error:", err)
-                    }
-                }
-            }
         }
     },
-    created(){
-        this.list()
-    },
     methods:{
-        list(page=0){
-            var dat = {
-                "username": "firs"
-                };
-            try{
-                axios.post(`http://127.0.0.1:8000/api/transaction_history?page=${page}`, dat)
-                .then(({data}) =>{
-                    this.users = data;
-                });
-            }
-            catch(err){    
-                if (err.response) {
-                // client received an error response (5xx, 4xx)
-                console.log("Server Error:", err)
-                } else if (err.request) {
-                // client never received a response, or request never left
-                console.log("Network Error:", err)
-                } else {
-                console.log("Client Error:", err)
-                }
-            }
-        },
         UpdatePassword(){
             this.AlertMsg = '';
             const user = this.$session.get('username');
