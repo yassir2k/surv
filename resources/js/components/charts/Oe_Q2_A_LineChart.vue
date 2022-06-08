@@ -5,7 +5,7 @@
     data() {
       return {
         chartData: {
-          labels: ["Total", "Excellent", "Very Good", "Good", "Fair", "Poor"],
+          labels: ["Total", "Excellent", "Very Good", "Good", "Fair", "Poor", "Not Applicable"],
           datasets: [{
             label: 'Bar Chart',
             borderWidth: 1,
@@ -15,7 +15,8 @@
               'rgba(64, 181, 173, 0.2)',
               'rgba(218, 224, 33, 0.2)',
               'rgba(255, 191, 0, 0.2)',
-              'rgba(255, 0, 0, 0.2)'
+              'rgba(255, 0, 0, 0.2)',
+              'rgba(25, 25, 112, 0.2)'
             ],
             borderColor: [
               'rgba(137, 148, 153,1)',
@@ -23,7 +24,8 @@
               'rgba(64, 181, 173, 1)',
               'rgba(218, 224, 33, 1)',
               'rgba(255, 191, 0, 1)',
-              'rgba(255, 0, 0, 1)'
+              'rgba(255, 0, 0, 1)',
+              'rgba(25, 25, 112, 1)'
             ],
             pointBorderColor: '#2554FF',
             data: this._chartData

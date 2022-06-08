@@ -1451,6 +1451,9 @@
                                                         <li class="list-group-item" style="border:none">
                                                             Poor:
                                                         </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Not Applicable:
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -1472,6 +1475,9 @@
                                                         </li>
                                                         <li class="list-group-item" style="border:none">
                                                             <span v-html="oe_q2_e"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="oe_q2_f"></span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1495,6 +1501,9 @@
                                                         <li class="list-group-item" style="border:none">
                                                             <span v-html="agent_oe_q2_e"></span>
                                                         </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_oe_q2_f"></span>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-3">
@@ -1516,6 +1525,9 @@
                                                         </li>
                                                         <li class="list-group-item" style="border:none">
                                                             <span v-html="public_oe_q2_e"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_oe_q2_f"></span>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -1895,18 +1907,21 @@ export default {
             oe_q2_c: '',
             oe_q2_d: '',
             oe_q2_e: '',
+            oe_q2_f: '',
             agent_oe_q2_total: '',
             agent_oe_q2_a: '',
             agent_oe_q2_b: '',
             agent_oe_q2_c: '',
             agent_oe_q2_d: '',
             agent_oe_q2_e: '',
+            agent_oe_q2_f: '',
             public_oe_q2_total: '',
             public_oe_q2_a: '',
             public_oe_q2_b: '',
             public_oe_q2_c: '',
             public_oe_q2_d: '',
             public_oe_q2_e: '',
+            public_oe_q2_f: '',
             oe_q3_total: '',
             oe_q3_a: '',
             oe_q3_b: '',
@@ -2690,22 +2705,25 @@ export default {
                         var c = response.data["oe_q2_c"];
                         var d = response.data["oe_q2_d"];
                         var e = response.data["oe_q2_e"];
+                        var q = response.data["oe_q2_f"];
                         var x = response.data["oe_q2_total"]
-                        this.Oe_Q2_C_chartData = [x, a, b, c, d, e];
+                        this.Oe_Q2_C_chartData = [x, a, b, c, d, e, q];
                         var f = response.data["agent_oe_q2_a"];
                         var g = response.data["agent_oe_q2_b"];
                         var h = response.data["agent_oe_q2_c"];
                         var i = response.data["agent_oe_q2_d"];
                         var j = response.data["agent_oe_q2_e"];
+                        var r = response.data["agent_oe_q2_f"];
                         var y = response.data["agent_oe_q2_total"];
-                        this.Oe_Q2_A_chartData = [y, f, g, h, i, j];
+                        this.Oe_Q2_A_chartData = [y, f, g, h, i, j, r];
                         var k = response.data["public_oe_q2_a"];
                         var l = response.data["public_oe_q2_b"];
                         var m = response.data["public_oe_q2_c"];
                         var n = response.data["public_oe_q2_d"];
                         var o = response.data["public_oe_q2_e"];
+                        var s = response.data["public_oe_q2_f"];
                         var z = response.data["public_oe_q2_total"];
-                        this.Oe_Q2_P_chartData = [z, k, l, m, n, o];
+                        this.Oe_Q2_P_chartData = [z, k, l, m, n, o, s];
                         this.oe_q2_total = '<b style="color: #899499">' + x + "</b>";
                         this.agent_oe_q2_total = '<b style="color: #899499">' + y + "</b>";
                         this.public_oe_q2_total = '<b style="color: #899499">' + z + "</b>";
@@ -2716,6 +2734,7 @@ export default {
                             this.oe_q2_c = '<b style="color: #DAE021">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
                             this.oe_q2_d = '<b style="color: #FFBF00">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
                             this.oe_q2_e = '<b style="color: red">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                            this.oe_q2_f = '<b style="color: #191970">' + q + ' (' + ((q/x)*100).toFixed(2) +' %)</b>';
                         }
                         else{
                             this.oe_q2_a = '<b style="color: #72cc66">' + a + '</b>';
@@ -2723,6 +2742,7 @@ export default {
                             this.oe_q2_c = '<b style="color: #DAE021">' + c + '</b>';
                             this.oe_q2_d = '<b style="color: #FFBF00">' + d + '</b>';
                             this.oe_q2_e = '<b style="color: red">' + e + '</b>';
+                            this.oe_q2_f = '<b style="color: #191970">' + q + '</b>';
                         }
                         if(y != 0)
                         {
@@ -2731,6 +2751,7 @@ export default {
                             this.agent_oe_q2_c = '<b style="color: #DAE021">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
                             this.agent_oe_q2_d = '<b style="color: #FFBF00">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
                             this.agent_oe_q2_e = '<b style="color: red">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_oe_q2_f = '<b style="color: #191970">' + r + ' (' + ((r/y)*100).toFixed(2) +' %)</b>';
                         }
                         else{
                             this.agent_oe_q2_a = '<b style="color: #72cc66">' + f + '</b>';
@@ -2738,6 +2759,7 @@ export default {
                             this.agent_oe_q2_c = '<b style="color: #DAE021">' + h + '</b>';
                             this.agent_oe_q2_d = '<b style="color: #FFBF00">' + i + '</b>';
                             this.agent_oe_q2_e = '<b style="color: red">' + j + '</b>';
+                            this.agent_oe_q2_f = '<b style="color: #191970">' + r + '</b>';
                         }
                         if(z != 0)
                         {
@@ -2746,6 +2768,7 @@ export default {
                             this.public_oe_q2_c = '<b style="color: #DAE021">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
                             this.public_oe_q2_d = '<b style="color: #FFBF00">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
                             this.public_oe_q2_e = '<b style="color: red">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                            this.public_oe_q2_f = '<b style="color: #191970">' + s + ' (' + ((s/z)*100).toFixed(2) +' %)</b>';
                         }
                         else{
                             this.public_oe_q2_a = '<b style="color: #72cc66">' + k + '</b>';
@@ -2753,6 +2776,7 @@ export default {
                             this.public_oe_q2_c = '<b style="color: #DAE021">' + m + '</b>';
                             this.public_oe_q2_d = '<b style="color: #FFBF00">' + n + '</b>';
                             this.public_oe_q2_e = '<b style="color: red">' + o + '</b>';
+                            this.public_oe_q2_f = '<b style="color: #191970">' + s + '</b>';
                         }
                         this.Oe_Q2_loaded = true;
                     })
