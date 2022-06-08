@@ -4,17 +4,24 @@
 <br />
 <br />
 <fieldset class="scheduler-border" style="font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif">
-		<legend class="scheduler-border" >Feedback From {{ $_feedback->name_ }}</legend>
+		<legend class="scheduler-border" >
+			@if( $_feedback->accreditation_ == "Accredited User") 
+				Feedback From an Accredited User 
+			@endif
+			@if( $_feedback->accreditation_ == "Public User") 
+				Feedback From a Public User 
+			@endif
+			</legend>
         <br />
 
-        <div class="row"><!-- Main Data -->
+        <div class="row">
 			<div class="col-sm-1 ">
 			</div>
-			<div class="col-sm-5 d-flex p-2 ">
-				Respondent:
+			<div class="col-sm-5 d-flex p-2">
+				Accreditation Type:
 			</div>
 			<div class="col-sm-6 d-flex p-2">
-				<strong>{{ $_feedback->name_ }}</strong>
+				<strong>{{ $_feedback->accreditation_ }}</strong>
 			</div>
 		</div>
         <br />
@@ -29,17 +36,17 @@
 			</div>
 		</div>
         <br />
-        <div class="row">
+		<div class="row"><!-- Main Data -->
 			<div class="col-sm-1 ">
 			</div>
-			<div class="col-sm-5 d-flex p-2">
-				Accreditation:
+			<div class="col-sm-5 d-flex p-2 ">
+				Gender:
 			</div>
 			<div class="col-sm-6 d-flex p-2">
-				<strong>{{ $_feedback->accreditation_ }}</strong>
+				<strong>{{ $_feedback->gender_ }}</strong>
 			</div>
 		</div>
-        <br />
+		<br />
         <div class="row">
 			<div class="col-sm-1 ">
 			</div>
@@ -124,7 +131,7 @@
             How fast did we deliver the services you asked for?
 			</div>
 			<div class="col-sm-6 d-flex p-2">
-				<strong>{{ $_feedback->timeliness1 }}</strong>
+				<strong>{{ $_feedback->timelines1 }}</strong>
 			</div>
 		</div>
         <br />
@@ -135,7 +142,7 @@
             Did you have cause to complain on anything? Which was your preferred channel of communicating the complaints?
 			</div>
 			<div class="col-sm-6 d-flex p-2">
-				<strong>{{ $_feedback->timeliness2 }}</strong>@if(!(is_null($_feedback->others)))
+				<strong>{{ $_feedback->timelines2 }}</strong>@if(!(is_null($_feedback->others)))
 					<strong>&nbsp; ({{ $_feedback->others }})</strong>
 				@endif
 			</div>
@@ -148,7 +155,7 @@
             Were you satisfied with the way the complaint was handled?
 			</div>
 			<div class="col-sm-6 d-flex p-2">
-				<strong>{{ $_feedback->timeliness3 }}</strong>
+				<strong>{{ $_feedback->timelines3 }}</strong>
 			</div>
 		</div>
         <br />
@@ -159,7 +166,7 @@
             How helpful did you find our Staff?
 			</div>
 			<div class="col-sm-6 d-flex p-2">
-				<strong>{{ $_feedback->timeliness4 }}</strong>
+				<strong>{{ $_feedback->timelines4 }}</strong>
 			</div>
 		</div>
 
@@ -225,31 +232,6 @@
 			</div>
 			<div class="col-sm-5 d-flex p-2" align="justify">
 				<strong>{{ $_feedback->challenges_ }}</strong>
-			</div>
-            <div class="col-sm-1 ">
-			</div>
-		</div>
-
-
-        <br />
-        <div class="row"><!-- Challenges -->
-            <div class="col-sm-1">
-			</div>
-            <div class="col-sm-6 d-flex p-2" align="left">
-                <h4 style="border-bottom: 2px solid #8FBC8F">Changes</h4>
-            </div>
-            <div class="col-sm-5">
-			</div>
-        </div>
-        <br />
-        <div class="row">
-			<div class="col-sm-1 ">
-			</div>
-			<div class="col-sm-5 d-flex p-2">
-            What changes would you like us to make in our services to you?
-			</div>
-			<div class="col-sm-5 d-flex p-2" align="justify">
-				<strong>{{ $_feedback->changes_ }}</strong>
 			</div>
             <div class="col-sm-1 ">
 			</div>

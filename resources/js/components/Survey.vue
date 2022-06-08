@@ -26,7 +26,7 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-sm-12 align-middle">
-                            <strong  class="form-label">Name of Respondent:</strong><b class="text-danger">*</b>
+                            <strong  class="form-label">Your accreditation type with the CAC:</strong><b class="text-danger">*</b>
                         </div>
                     </div>
                     <div class="row">
@@ -36,7 +36,11 @@
                                         <div class="input-group-text">
                                             <i class="fas fa-user" style="color: #8FBC8F"></i>
                                         </div>                    
-                                    <input type="text" class="form-control" placeholder="Your full name..." v-model="respondent" required >
+                                    <select v-model="accredited" placeholder="Are you a CAC registered agent?" data-show-content="true" class="form-control border" required>
+                                        <option value="">Please select what applies to you...</option>  
+                                        <option value="Accredited User">Accredited User</option>
+                                        <option value="Public User">Public User</option>      
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -410,28 +414,28 @@
                         <div class="form-group">
                         <br />
                             <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="c1"  type="checkbox" v-model="c1" value="Document Editing">
-                                    <label class="form-check-label" for="c1">Document Editing</label>
+                                    <input class="form-check-input" name="c"  type="checkbox" v-model="c1" value="Document Editing">
+                                    <label class="form-check-label" >Document Editing</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="c2" type="checkbox" v-model="c2" value="Password/Username Reset">
-                                    <label class="form-check-label" for="c2">Password/Username Reset</label>
+                                    <input class="form-check-input" name="c" type="checkbox" v-model="c2" value="Password/Username Reset">
+                                    <label class="form-check-label" >Password/Username Reset</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="c3" type="checkbox" v-model="c3" value="Incomplete Report">
-                                    <label class="form-check-label" for="c3">Incomplete Report</label>
+                                    <input class="form-check-input" name="c" type="checkbox" v-model="c3" value="Incomplete Report">
+                                    <label class="form-check-label" >Incomplete Report</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="c4" type="checkbox" v-model="c4" value="Entity Status Update">
-                                    <label class="form-check-label" for="c4">Entity Status Update</label>
+                                    <input class="form-check-input" name="c" type="checkbox" v-model="c4" value="Entity Status Update">
+                                    <label class="form-check-label" >Entity Status Update</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="c5" type="checkbox" v-model="c5" value="Stamp Duty Deleted">
-                                    <label class="form-check-label" for="c5">Stamp Duty Deleted</label>
+                                    <input class="form-check-input" name="c" type="checkbox" v-model="c5" value="Stamp Duty Deleted">
+                                    <label class="form-check-label" >Stamp Duty Deleted</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="c6" @change="toggleOn1()" type="checkbox" v-model="c6" value="Others_">
-                                    <label class="form-check-label" for="c6">Others (Please specify)</label>
+                                    <input class="form-check-input" name="c" @change="toggleOn1()" type="checkbox" v-model="c6" value="Others_">
+                                    <label class="form-check-label" >Others (Please specify)</label>
                             </div>
                             <div class="form-check form-check-inline">
                                     <div class="input-group">
@@ -496,7 +500,7 @@ export default {
         return{
             header: "CUSTOMER SATISFACTION SURVEY FORM",
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            respondent: "",
+            accredited: "",
             profession: "",
             gender: "",
             others: "",
@@ -520,7 +524,8 @@ export default {
             loader: null,
             counter: null,
             showOthers: false,
-            showOthers_: false
+            showOthers_: false,
+            challenges:[]
         }
     },
     components:{
@@ -536,36 +541,48 @@ export default {
         SaveFeedback(){
             //Here, preparing for data to be posted via Axios Post
             this.loader = '<center><img src="images/cac_spinner.gif" width="100" height="100"/></center>';
+            const self = this;
             if ($('input[type=checkbox]:checked').length <= 0)
             {
                 alert("Please, select at least one option for challenges");
                 return false;
             }
+            else
+            {
+                $("input:checkbox[name=c]:checked").each(function(){
+                    if( ($(this).val()) != "Others_"){
+                        self.challenges.push($(this).val());
+                    }
+                });
+            }
             this.counter = null;
             let element = this.$refs.Modal;
             $(element).modal('show');
+            var challenges_tmp = this.challenges.toString();
             var postData = {
-                "respondent": this.respondent,
+                "accreditation": this.accredited,
                 "profession": this.profession,
                 "gender": this.gender,
                 "service_delivery1": this.sd1,
                 "service_delivery2": this.sd2,
                 "quality": this.q,
-                "timeliness1": this.t1,
-                "timeliness2": this.t2,
+                "timelines1": this.t1,
+                "timelines2": this.t2,
                 "others": this.others,
-                "timeliness3": this.t3,
-                "timeliness4": this.t4,
+                "timelines3": this.t3,
+                "timelines4": this.t4,
                 "online_environment1": this.oe1,
                 "online_environment2": this.oe2,
-                "online_environment3": this.oe3
+                "online_environment3": this.oe3,
+                "challenges": challenges_tmp.replaceAll( ",",", "),
+                "others_": this.others_
             };
             console.log(postData);
             //setTimeout(() => { 
                 try{
                     axios({
                         method: 'post',
-                        url: 'http://127.0.0.1:8000/api/savefeedbackb',
+                        url: 'http://127.0.0.1:8000/api/savefeedback',
                         data: postData,
                         headers: { 
                             'Content-type': 'application/json; charset=utf-8', 
@@ -575,15 +592,15 @@ export default {
                         })
                     .then(response =>{
                         if(response.data[1] == "Successful"){
-                            this.loader='<div class="alert alert-success" align="justify">	<strong>Dear ' + 
-                            this.respondent + ', </strong><i> Thank you for completing and submitting this form.' + 
+                            this.loader='<div class="alert alert-success" align="justify"> '+ 
+                            '<i> Thank you for completing and submitting this form.' + 
                             ' Please take note that your feedback is of utmost importance to the CAC in making decision with' + 
                             ' respect to improving service delivery to our Clients.</i></div>';
                             this.counter='<label align="left" class="text-secondary">Your feedback index is <b class="text-warning">' +response.data[0]+ '</b></label>';
                         }
                         else{
-                            this.loader='<div class="alert alert-danger" align="justify">	<strong>Dear ' + 
-                            this.respondent + ', </strong><i> We seem to be experiencing some snag, ' + 
+                            this.loader='<div class="alert alert-danger" align="justify">' +
+                            '</strong><i> We seem to be experiencing some snag, ' + 
                             ' as your feeback has not been captured on our Database due to server or network issue.' + 
                             ' Please bear with us and try again. Many thanks.</i></div>';
                         }

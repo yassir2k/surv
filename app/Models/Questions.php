@@ -12,26 +12,27 @@ class Questions extends Model
     protected $primaryKey = 'id';
     public $timestamps  = false;
     protected $fillable = [
-        'name_',
-        'profession_',
         'accreditation_',
+        'profession_',
+        'gender_',
         'date_',
         'service_delivery1',
         'service_delivery2',
         'quality_',
-        'timeliness1',
-        'timeliness2',
+        'timelines1',
+        'timelines2',
         'others',
-        'timeliness3',
-        'timeliness4',
+        'timelines3',
+        'timelines4',
         'online_environment1',
         'online_environment2',
         'online_environment3',
         'online_environment4',
         'challenges_',
-        'control_hash',
+        'others_',
         'is_read',
         'read_by',
-        'date_read'
+        'date_read',
+        'control_hash'
     ];
 }

@@ -22,11 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/questions', [ApiController::class, 'GetQuestions']);
 Route::get('/total-today', [ApiController::class, 'GetTotalToday']); 
 //----------------------------------------------------//
-Route::get('/total-accredited-today', [ApiController::class, 'GetTotalAcceditedToday']);
+Route::get('/total-accredited-today', [ApiController::class, 'GetTotalAccreditedToday']);
 Route::get('/total-public-today', [ApiController::class, 'GetTotalPublicToday']);
 Route::get('/total', [ApiController::class, 'GetTotal']);
 //----------------------------------------------------//
-Route::get('/total-accredited', [ApiController::class, 'GetTotalAccedited']);
+Route::get('/total-accredited', [ApiController::class, 'GetTotalAccredited']);
 Route::get('/total-public', [ApiController::class, 'GetTotalPublic']);
 Route::get('/absolute', [ApiController::class, 'GetAbsolute']);
 //----------------------------------------------------//

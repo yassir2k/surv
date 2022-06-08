@@ -76,25 +76,27 @@ class ApiController extends Controller
         $origin = $request->header("origin"); 
         $authorization = $request->header("authorization");
         $referer = $request->header("referer");
-        $control_hash = substr(bin2hex(random_bytes(100)), 0, 100);//Generate Control Hash
-        $FeedBackData = ['name_' => $request->input('respondent'), 
+        $control_hash = substr(bin2hex(random_bytes(50)), 0, 50);//Generate Control Hash
+        $FeedBackData = ['accreditation_' => $request->input('accreditation'), 
             'profession_' => $request->input('profession'),
-            'accreditation_' => $request->input('accreditation'),
+            'gender_' => $request->input('gender'),
             'date_' => date("Y-m-d H:i:s"),
             'service_delivery1' => $request->input('service_delivery1'),
             'service_delivery2' => $request->input('service_delivery2'), 
             'quality_' => $request->input('quality'),
-            'timeliness1' => $request->input('timeliness1'),
-            'timeliness2' => $request->input('timeliness2'),
+            'timelines1' => $request->input('timelines1'),
+            'timelines2' => $request->input('timelines2'),
             'others' => $request->input('others'),
-            'timeliness3' => $request->input('timeliness3'),
-            'timeliness4' => $request->input('timeliness4'),
+            'timelines3' => $request->input('timelines3'),
+            'timelines4' => $request->input('timelines4'),
             'online_environment1' => $request->input('online_environment1'),
             'online_environment2' => $request->input('online_environment2'),
             'online_environment3' => $request->input('online_environment3'),
             'challenges_' => $request->input('challenges'),
-            'control_hash' => $control_hash,
+            'others_' => $request->input('others_'),
+            'control_hash' => $control_hash
         ];
+
         //Now we commit new entry to the database using eloquence
         Questions::create($FeedBackData);
 
@@ -115,15 +117,17 @@ class ApiController extends Controller
         return $total_today;
     }
 
-    public function GetTotalAcceditedToday(Request $request){
-        $temp = Questions::select('id')->whereNotNull('accreditation_')
+    public function GetTotalAccreditedToday(Request $request){
+        $temp = Questions::select('id')
+        ->where(['accreditation_' => "Accredited User"])
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))->get();
         $total_today = count($temp);
         return $total_today;
     }
 
     public function GetTotalPublicToday(Request $request){
-        $temp = Questions::select('id')->whereNull('accreditation_')
+        $temp = Questions::select('id')
+        ->where(['accreditation_' => "Public User"])
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))->get();
         $total_today = count($temp);
         return $total_today;
@@ -135,24 +139,17 @@ class ApiController extends Controller
         return $total_today;
     }
 
-    public function GetTotalAccedited(Request $request){
-        $temp = Questions::select('id')->WhereRaw('accreditation_ LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+    public function GetTotalAccredited(Request $request){
+        $temp = Questions::select('id')
+        ->where(['accreditation_' => "Accredited User"])
         ->get();
         $total_today = count($temp);
         return $total_today;
     }
 
     public function GetTotalPublic(Request $request){
-        $temp = Questions::select('id')->whereNull('accreditation_')
-        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        $temp = Questions::select('id')
+        ->where(['accreditation_' => "Public User"])
         ->get();
         $total_today = count($temp);
         return $total_today;
@@ -165,23 +162,14 @@ class ApiController extends Controller
 
     public function GetAbsoluteAccredited(Request $request){
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
-        ->WhereRaw('accreditation_ LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Accredited User"])
         ->paginate(10);
         return response()->json($temp);
     }
 
     public function GetAbsolutePublic(Request $request){
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
-        ->whereNull('accreditation_')
-        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Public User"])
         ->paginate(10);
         return response()->json($temp);
     }
@@ -195,11 +183,7 @@ class ApiController extends Controller
     public function GetTodayAccredited(Request $request){
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))
-        ->WhereRaw('accreditation_ LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Accredited User"])
         ->paginate(10);
         return response()->json($temp);
     }
@@ -207,12 +191,7 @@ class ApiController extends Controller
     public function GetTodayPublic(Request $request){
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date('Y-m-d'))
-        ->whereNull('accreditation_')
-        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Public User"])
         ->paginate(10);
         return response()->json($temp);
     }
@@ -233,11 +212,7 @@ class ApiController extends Controller
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
-        ->WhereRaw('accreditation_ LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Accredited User"])
         ->paginate(10);
         return response()->json($temp);
     }
@@ -248,12 +223,7 @@ class ApiController extends Controller
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
-        ->whereNull('accreditation_')
-        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Public User"])
         ->paginate(10);
         return response()->json($temp);
     }
@@ -271,11 +241,7 @@ class ApiController extends Controller
         $date = $request->input('date_');
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date($date))
-        ->WhereRaw('accreditation_ LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Accredited User"])
         ->paginate(10);
         return response()->json($temp);
     }
@@ -284,12 +250,7 @@ class ApiController extends Controller
         $date = $request->input('date_');
         $temp = Questions::select('*',\DB::raw("DATE_FORMAT(date_, '%W, %M %e %Y %r') as date_"))
         ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '=', date($date))
-        ->whereNull('accreditation_')
-        ->orWhereRaw('accreditation_ NOT LIKE "NBA/%"')
-        ->orWhereRaw('accreditation_ LIKE "ANAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "ISCAN/%"')
-        ->orWhereRaw('accreditation_ LIKE "NYSC/%"')
-        ->WhereRaw('accreditation_ LIKE "ICAN/%"')
+        ->where(['accreditation_' => "Public User"])
         ->paginate(10);
         return response()->json($temp);
     }

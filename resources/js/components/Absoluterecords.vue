@@ -20,18 +20,18 @@
             <table class="table table-bordered table-striped table-condensed">
                 <thead style="background-color: #5F8575; color: #FFFFFF; font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; border: 2px solid #5F8575">
                     <tr>
-                        <th>Name</th>
-                        <th>Profession</th>
-                        <th>Accreditation Number (if any)</th> 
+                        <th>Accreditation</th>
+                        <th>Profession</th> 
+                        <th>Gender</th> 
                         <th>Feedback Date</th>
                         <th>Action</th>
                     </tr>  
                 </thead> 
                 <tbody v-if="(users) && (users.data.length > 0)">
                     <tr v-for="(user,index) in users.data" :key="index" style="font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif; color: #34495E">
-                        <td>{{ user.name_ }}</td>
-                        <td>{{ user.profession_ }}</td>
                         <td>{{ user.accreditation_ }}</td>
+                        <td>{{ user.profession_ }}</td>
+                        <td>{{ user.gender_ }}</td>
                         <td>{{ user.date_ }}</td>
                         <td><a href="#" @click="ShowFeedback(user.id)" data-bs-toggle="tooltip" data-bs-placement="right" title="View"><i class="fas fa-eye text-secondary"></i></a></td>
                     </tr>
