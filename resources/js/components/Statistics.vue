@@ -171,7 +171,7 @@
                                                                         Service Delivery
                              ****************************************************************************************************************-->
                         <div v-show="revealAll">
-                                                    <center><h2 class="text-uppercase" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; color: #8FBC8F"><b>{{header_2}}</b></h2></center>
+                            <center><h2 class="text-uppercase" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; color: #8FBC8F"><b>{{header_2}}</b></h2></center>
                             <div class="row" v-show="this.serviceDeliverySelected"> <!-- Service Delivery -->
                                 <div class="col-sm-12">
                                     <div class="row">
