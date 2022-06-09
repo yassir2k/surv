@@ -103,26 +103,26 @@
                     <dt class="col-sm-1">1.</dt>
                     <dd class="col-sm-11">Are you satisfied with the conduct of the Name Availability for your registration?
                         <div class="form-group">
-                                <br />
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd1_1" name="sd1" type="radio" v-model="sd1" value="Very Satisfied" required>
-                                    <label class="form-check-label" for="sd1_1">Very Satisfied</label>
-                                </div>
+                            <br />
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd1_1" name="sd1" type="radio" v-model="sd1" value="Very Satisfied" required>
+                                <label class="form-check-label" for="sd1_1">Very Satisfied</label>
+                            </div>
 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd1_2" name="sd1" type="radio" v-model="sd1" value="Satisfied" required>
-                                    <label class="form-check-label" for="sd1_2">Satisfied</label>
-                                </div>
-                                    
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd1_3" type="radio" name="sd1" v-model="sd1" value="Dissatisfied" required>
-                                    <label class="form-check-label" for="sd1_3">Dissatisfied</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd1_2" name="sd1" type="radio" v-model="sd1" value="Satisfied" required>
+                                <label class="form-check-label" for="sd1_2">Satisfied</label>
+                            </div>
+                                
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd1_3" type="radio" name="sd1" v-model="sd1" value="Dissatisfied" required>
+                                <label class="form-check-label" for="sd1_3">Dissatisfied</label>
+                            </div>
 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd1_4" type="radio" name="sd1" v-model="sd1" value="Very Dissatisfied" required>
-                                    <label class="form-check-label" for="sd1_4">Very Dissatisfied</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd1_4" type="radio" name="sd1" v-model="sd1" value="Very Dissatisfied" required>
+                                <label class="form-check-label" for="sd1_4">Very Dissatisfied</label>
+                            </div>
                                     
                         </div>
                     </dd>
@@ -132,30 +132,30 @@
                     <dd class="col-sm-11">Which registration service have you done online?
                         <div class="form-group">
                             <br />
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd2_1" type="radio" name="sd2" v-model="sd2" value="Company (LLC)" required>
-                                    <label class="form-check-label" for="sd2_1">Company (LLC)</label>
-                                </div>
-                                
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd2_2" type="radio" name="sd2" v-model="sd2" value="Business Names" required>
-                                    <label class="form-check-label" for="sd2_2">Business Names</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd2_1" type="radio" name="sd2" v-model="sd2" value="Company (LLC)" required>
+                                <label class="form-check-label" for="sd2_1">Company (LLC)</label>
+                            </div>
+                            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd2_2" type="radio" name="sd2" v-model="sd2" value="Business Names" required>
+                                <label class="form-check-label" for="sd2_2">Business Names</label>
+                            </div>
 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd2_3" type="radio" name="sd2" v-model="sd2" value="Incorporated Trustees" required>
-                                    <label class="form-check-label" for="sd2_3">Incorporated Trustees</label>
-                                </div>
-                                    
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd2_4" type="radio" name="sd2" v-model="sd2" value="Limited Liability Partnership (LLP)" required>
-                                    <label class="form-check-label" for="sd2_4">Limited Liability Partnership (LLP)</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd2_3" type="radio" name="sd2" v-model="sd2" value="Incorporated Trustees" required>
+                                <label class="form-check-label" for="sd2_3">Incorporated Trustees</label>
+                            </div>
                                 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="sd2_5" type="radio" name="sd2" v-model="sd2" value="Limited Partnership (LP)" required>
-                                    <label class="form-check-label" for="sd2_5">Limited Partnership (LP)</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd2_4" type="radio" name="sd2" v-model="sd2" value="Limited Liability Partnership (LLP)" required>
+                                <label class="form-check-label" for="sd2_4">Limited Liability Partnership (LLP)</label>
+                            </div>
+                            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="sd2_5" type="radio" name="sd2" v-model="sd2" value="Limited Partnership (LP)" required>
+                                <label class="form-check-label" for="sd2_5">Limited Partnership (LP)</label>
+                            </div>
                         </div>
                     </dd>
                 </dl>
@@ -171,26 +171,26 @@
                     <dt class="col-sm-1">3.</dt>
                     <dd class="col-sm-11">How satisfied are you with the services we provide?
                         <div class="form-group">
-                                <br />
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="q1" name="q" type="radio" required v-model="q" value="Very Satisfied">
-                                    <label class="form-check-label" for="q1">Very Satisfied</label>
-                                </div>
+                            <br />
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="q1" name="q" type="radio" required v-model="q" value="Very Satisfied">
+                                <label class="form-check-label" for="q1">Very Satisfied</label>
+                            </div>
 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="q2" name="q" type="radio" required v-model="q" value="Satisfied">
-                                    <label class="form-check-label" for="q2">Satisfied</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="q2" name="q" type="radio" required v-model="q" value="Satisfied">
+                                <label class="form-check-label" for="q2">Satisfied</label>
+                            </div>
 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="q3" name="q" type="radio" required v-model="q" value="Dissatisfied">
-                                    <label class="form-check-label" for="q3">Dissatisfied</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="q3" name="q" type="radio" required v-model="q" value="Dissatisfied">
+                                <label class="form-check-label" for="q3">Dissatisfied</label>
+                            </div>
 
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" id="q4" name="q" type="radio" required v-model="q" value="Very Dissatisfied">
-                                    <label class="form-check-label" for="q4">Very Dissatisfied</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="q4" name="q" type="radio" required v-model="q" value="Very Dissatisfied">
+                                <label class="form-check-label" for="q4">Very Dissatisfied</label>
+                            </div>
                         </div>        
                     </dd>
                 </dl>
@@ -434,7 +434,7 @@
                                     <label class="form-check-label" >Stamp Duty Deleted</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                    <input class="form-check-input" name="c" @change="toggleOn1()" type="checkbox" v-model="c6" value="Others_">
+                                    <input class="form-check-input" name="c" @change="toggleOn1()" type="checkbox" v-model="c6" value="Others">
                                     <label class="form-check-label" >Others (Please specify)</label>
                             </div>
                             <div class="form-check form-check-inline">
@@ -550,9 +550,9 @@ export default {
             else
             {
                 $("input:checkbox[name=c]:checked").each(function(){
-                    if( ($(this).val()) != "Others_"){
+                    //if( ($(this).val()) != "Others_"){
                         self.challenges.push($(this).val());
-                    }
+                    //}
                 });
             }
             this.counter = null;

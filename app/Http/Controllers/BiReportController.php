@@ -1488,4 +1488,182 @@ class BiReportController extends Controller
 
         return response()->json($Feedback);
     }
+
+
+    /*--------------------------------------------------------------------------
+                    Challenges Q1
+    ---------------------------------------------------------------------------*/
+    public function ChallengesQ1(Request $request){
+        $from = $request->input('beginDate');
+        $to = $request->input('endDate');
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Document Editing%"')
+        ->get();
+        $Feedback["c_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Password/Username Reset%"')
+        ->get();
+        $Feedback["c_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Incomplete Report%"')
+        ->get();
+        $Feedback["c_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Entity Status Update%"')
+        ->get();
+        $Feedback["c_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Stamp Duty Deleted%"')
+        ->get();
+        $Feedback["c_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Others%"')
+        ->get();
+        $Feedback["c_q1_f"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->whereNotNull('challenges_')
+        ->get();
+        $Feedback["c_q1_total"] = count($temp);
+
+        /****************************************************************************
+                    For Agents 
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Document Editing%"')
+        ->where(['accreditation_' => "Accredited User"])
+        ->get();
+        $Feedback["agent_c_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Password/Username Reset%"')
+        ->where(['accreditation_' => "Accredited User"])
+        ->get();
+        $Feedback["agent_c_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Incomplete Report%"')
+        ->where(['accreditation_' => "Accredited User"])
+        ->get();
+        $Feedback["agent_c_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Entity Status Update%"')
+        ->where(['accreditation_' => "Accredited User"])
+        ->get();
+        $Feedback["agent_c_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Stamp Duty Deleted%"')
+        ->where(['accreditation_' => "Accredited User"])
+        ->get();
+        $Feedback["agent_c_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Others%"')
+        ->where(['accreditation_' => "Accredited User"])
+        ->get();
+        $Feedback["agent_c_q1_f"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['accreditation_' => "Accredited User"])
+        ->whereNotNull('challenges_')
+        ->get();
+        $Feedback["agent_c_q1_total"] = count($temp);
+
+        /****************************************************************************
+                    For Public
+         ***************************************************************************/
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Document Editing%"')
+        ->where(['accreditation_' => "Public User"])
+        ->get();
+        $Feedback["public_c_q1_a"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Password/Username Reset%"')
+        ->where(['accreditation_' => "Public User"])
+        ->get();
+        $Feedback["public_c_q1_b"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Incomplete Report%"')
+        ->where(['accreditation_' => "Public User"])
+        ->get();
+        $Feedback["public_c_q1_c"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Entity Status Update%"')
+        ->where(['accreditation_' => "Public User"])
+        ->get();
+        $Feedback["public_c_q1_d"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Stamp Duty Deleted%"')
+        ->where(['accreditation_' => "Public User"])
+        ->get();
+        $Feedback["public_c_q1_e"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->WhereRaw('challenges_ LIKE "%Others%"')
+        ->where(['accreditation_' => "Public User"])
+        ->get();
+        $Feedback["public_c_q1_f"] = count($temp);
+
+        $temp = Questions::select('*')
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '>=', date($from))
+        ->where(\DB::raw("DATE_FORMAT(date_, '%Y-%m-%d')"), '<=', date($to))
+        ->where(['accreditation_' => "Public User"])
+        ->whereNotNull('challenges_')
+        ->get();
+        $Feedback["public_c_q1_total"] = count($temp);
+
+        return response()->json($Feedback);
+    }
 }

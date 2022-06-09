@@ -104,39 +104,35 @@
                                     <dl class="row">
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-11">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item" style="border:none">
-                                                    <div class="chiller_cb form-check-inline align-items-center"><br />
-                                                        <input id="sd" type="checkbox" v-model="serviceDeliveryBox" value="Service Delivery" aria-label="..." @change="check($event)">
-                                                        <label for="sd">Service Delivery</label>
-                                                        <span></span>
-                                                    </div>
-                                                </li>
-                                            
-                                                <li class="list-group-item" style="border:none">
-                                                    <div class="chiller_cb form-check-inline align-items-center"><br />
-                                                        <input id="q" type="checkbox" v-model="qualityBox" value="Quality" @change="check($event)">
-                                                        <label for="q">Quality</label>
-                                                        <span></span>
-                                                    </div>
-                                                </li>
-                                                
-                                                <li class="list-group-item" style="border:none">
-                                                    <div class="chiller_cb form-check-inline align-items-center"><br />
-                                                        <input id="t" type="checkbox" v-model="timelinessBox" value="Timeliness" @change="check($event)">
-                                                        <label for="t">Timeliness</label>
-                                                        <span></span>
-                                                    </div>
-                                                </li>
-                                                
-                                                <li class="list-group-item" style="border:none">
-                                                    <div class="chiller_cb form-check-inline align-items-center"><br />
-                                                        <input id="oe" type="checkbox" v-model="onlineEnvBox" value="Online Environment" @change="check($event)">
-                                                        <label for="oe">Online Environment</label>
-                                                        <span></span>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            <div class="form-check "><br />
+                                                <input class="form-check-input" id="sd" type="checkbox" v-model="serviceDeliveryBox" value="Service Delivery" aria-label="..." @change="check($event)">
+                                                <label for="sd"> Service Delivery</label>
+                                                <span></span>
+                                            </div>
+
+                                            <div class="form-check "><br />
+                                                <input class="form-check-input" id="q" type="checkbox" v-model="qualityBox" value="Quality" @change="check($event)">
+                                                <label for="q"> Quality</label>
+                                                <span></span>
+                                            </div>
+
+                                            <div class="form-check "><br />
+                                                <input class="form-check-input" id="t" type="checkbox" v-model="timelinessBox" value="Timeliness" @change="check($event)">
+                                                <label for="t"> Timeliness</label>
+                                                <span></span>
+                                            </div>
+
+                                            <div class="form-check "><br />
+                                                <input class="form-check-input" id="oe" type="checkbox" v-model="onlineEnvBox" value="Online Environment" @change="check($event)">
+                                                <label for="oe"> Online Environment</label>
+                                                <span></span>
+                                            </div>
+
+                                            <div class="form-check "><br />
+                                                <input class="form-check-input" id="c" type="checkbox" v-model="challengesBox" value="Challenges" @change="check($event)">
+                                                <label for="c"> Challenges</label>
+                                                <span></span>
+                                            </div>
                                         </div>
                                     </dl>
                                 </div>
@@ -158,7 +154,6 @@
                             </div><!--End Button-->
                         </form>
                         <hr class="separator">
-                        <center><h2 class="text-uppercase" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; color: #9ACD32"><b>{{header_2}}</b></h2></center>
                         <br />
                         <br />
                         <div class="row">
@@ -176,6 +171,7 @@
                                                                         Service Delivery
                              ****************************************************************************************************************-->
                         <div v-show="revealAll">
+                                                    <center><h2 class="text-uppercase" style="font-family:'Trebuchet MS', Arial, Helvetica, sans-serif; color: #8FBC8F"><b>{{header_2}}</b></h2></center>
                             <div class="row" v-show="this.serviceDeliverySelected"> <!-- Service Delivery -->
                                 <div class="col-sm-12">
                                     <div class="row">
@@ -1686,6 +1682,180 @@
                                     <br />
                                 </div> <!-- End of Column 12 -->
                             </div><!-- End of Online Environment-->
+                            <br />
+                            <br />
+                            <!-- *******************************************************************************************************************
+                                                                            Challenges
+                                ****************************************************************************************************************-->
+                            <div class="row" v-show="challengesSelected"> <!--  Challenges -->
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-11 d-flex p-2">
+                                            <h3 style="border-bottom: 2px solid #8FBC8F">Challenges</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row"> <!-- Challenges  -->
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-10"><!-- Begin Numbers -->
+                                            <div class="row">
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i><b> What are the most common challenges you usually encounter ?</b></div>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Participants</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Combined</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Agents</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <b>Public</b>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            Total:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Document Editing:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Password/Username Reset:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Incomplete Report:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Entity Status Update:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Stamp Duty Deleted:
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            Others:
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="c_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="c_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="c_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="c_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="c_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="c_q1_e"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="c_q1_f"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_c_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_c_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_c_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_c_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_c_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_c_q1_e"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="agent_c_q1_f"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_c_q1_total"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_c_q1_a"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_c_q1_b"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_c_q1_c"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_c_q1_d"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_c_q1_e"></span>
+                                                        </li>
+                                                        <li class="list-group-item" style="border:none">
+                                                            <span v-html="public_c_q1_f"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <CQ1cChart v-if="C_Q1_loaded"  :_chartData="this.C_Q1_C_chartData" :height="350" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <CQ1aChart v-if="C_Q1_loaded"  :_chartData="this.C_Q1_A_chartData" :height="350" />
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <CQ1pChart v-if="C_Q1_loaded"  :_chartData="this.C_Q1_P_chartData" :height="350" />
+                                                </div>
+                                            </div>
+                                        </div><!-- End Numbers -->
+                                        <div class="col-sm-5"><!-- Begin Chart -->
+                                            
+                                        </div><!-- End Chart -->
+                                    </div>
+                                </div>
+                            </div> <!-- End of Challenges -->
                         </div> <!-- Reveal or Not -->
                     </div>
                 </div>
@@ -1742,6 +1912,10 @@ import OeQ3cChart from './charts/Oe_Q3_C_LineChart.vue';
 import OeQ3aChart from './charts/Oe_Q3_A_LineChart.vue';
 import OeQ3pChart from './charts/Oe_Q3_P_LineChart.vue';
 
+import CQ1cChart from './charts/C_Q1_C_LineChart.vue';
+import CQ1aChart from './charts/C_Q1_A_LineChart.vue';
+import CQ1pChart from './charts/C_Q1_P_LineChart.vue';
+
 export default {
     data() {
         return {
@@ -1758,10 +1932,12 @@ export default {
             qualitySelected: false,
             timelinessSelected: false,
             onlineEnvironmentSelected: false,
+            challengesSelected: false,
             serviceDeliveryBox: null,
             qualityBox: null,
             timelinessBox: null,
             onlineEnvBox: null,
+            challengesBox: null,
             showReport: false,
             endDate: null,
             beginDate: null,
@@ -1937,6 +2113,27 @@ export default {
             public_oe_q3_b: '',
             public_oe_q3_c: '',
             public_oe_q3_d: '',
+            c_q1_total: '',
+            c_q1_a: '',
+            c_q1_b: '',
+            c_q1_c: '',
+            c_q1_d: '',
+            c_q1_e: '',
+            c_q1_f: '',
+            agent_c_q1_total: '',
+            agent_c_q1_a: '',
+            agent_c_q1_b: '',
+            agent_c_q1_c: '',
+            agent_c_q1_d: '',
+            agent_c_q1_e: '',
+            agent_c_q1_f: '',
+            public_c_q1_total: '',
+            public_c_q1_a: '',
+            public_c_q1_b: '',
+            public_c_q1_c: '',
+            public_c_q1_d: '',
+            public_c_q1_e: '',
+            public_c_q1_f: '',
             Sd_Q1_C_chartData: [],
             Sd_Q1_A_chartData: [],
             Sd_Q1_P_chartData: [],
@@ -1977,6 +2174,10 @@ export default {
             Oe_Q3_A_chartData: [],
             Oe_Q3_P_chartData: [],
             Oe_Q3_loaded: false,
+            C_Q1_C_chartData: [],
+            C_Q1_A_chartData: [],
+            C_Q1_P_chartData: [],
+            C_Q1_loaded: false,
             days: ['Sun','Mon','Tue','Wed','Thur','Fri','Sat'],
             months: ['January','February','March','April','May','June','July','August','September','October','November','December']
         }
@@ -1984,7 +2185,7 @@ export default {
     components:{
          NavBar, SdQ1cChart, SdQ1aChart, SdQ1pChart, SdQ2cChart, SdQ2aChart, SdQ2pChart, QQ1cChart, QQ1aChart, QQ1pChart, TQ1cChart, TQ1aChart, TQ1pChart,
          TQ2cChart, TQ2aChart, TQ2pChart, TQ3cChart, TQ3aChart, TQ3pChart, TQ4cChart, TQ4aChart, TQ4pChart, OeQ1cChart, OeQ1aChart, OeQ1pChart, OeQ2cChart,
-         OeQ2aChart, OeQ2pChart, OeQ3cChart, OeQ3aChart, OeQ3pChart
+         OeQ2aChart, OeQ2pChart, OeQ3cChart, OeQ3aChart, OeQ3pChart, CQ1cChart, CQ1aChart, CQ1pChart
     },
     beforeCreate: function () {
         if (!this.$session.exists()) {
@@ -2035,6 +2236,7 @@ export default {
             this.Oe_Q1_loaded = false;
             this.Oe_Q2_loaded = false;
             this.Oe_Q3_loaded = false;
+            this.C_Q1_loaded = false;
             this.enableSubmit = false;
             var d1 = new Date(this.beginDate);
             var d2 = new Date(this.endDate);
@@ -2052,6 +2254,7 @@ export default {
             this.qualitySelected = false;
             this.timelinessSelected = false;
             this.onlineEnvironmentSelected = false;
+            this.challengesSelected = false;
             var postData = {
                 "beginDate": this.beginDate,
                 "endDate": this.endDate,
@@ -2859,6 +3062,99 @@ export default {
                 }
                 catch(err){    
                         console.log("OEQ3: " + err);
+                }
+            }
+            if(this.challengesBox)
+            {
+                this.challengesSelected = true;
+
+                //Start Challenges
+                try{
+                    axios.post("http://127.0.0.1:8000/api/challenges_Q1", postData) 
+                    .then(response =>{
+                        var a = response.data["c_q1_a"];
+                        var b = response.data["c_q1_b"];
+                        var c = response.data["c_q1_c"];
+                        var d = response.data["c_q1_d"];
+                        var e = response.data["c_q1_e"];
+                        var q = response.data["c_q1_f"];
+                        var x = response.data["c_q1_total"];
+                        this.C_Q1_C_chartData = [a, b, c, d, e, q];
+                        var f = response.data["agent_c_q1_a"];
+                        var g = response.data["agent_c_q1_b"];
+                        var h = response.data["agent_c_q1_c"];
+                        var i = response.data["agent_c_q1_d"];
+                        var j = response.data["agent_c_q1_e"];
+                        var r = response.data["agent_c_q1_f"];
+                        var y = response.data["agent_c_q1_total"]
+                        this.C_Q1_A_chartData = [f, g, h, i, j, r];
+                        var k = response.data["public_c_q1_a"];
+                        var l = response.data["public_c_q1_b"];
+                        var m = response.data["public_c_q1_c"];
+                        var n = response.data["public_c_q1_d"];
+                        var o = response.data["public_c_q1_e"];
+                        var s = response.data["public_c_q1_f"];
+                        var z = response.data["public_c_q1_total"];
+                        this.C_Q1_P_chartData = [k, l, m, n, o, s];
+                        this.c_q1_total = '<b style="color: #899499">' + x + "</b>";
+                        this.agent_c_q1_total = '<b style="color: #899499">' + y + "</b>";
+                        this.public_c_q1_total = '<b style="color: #899499">' + z + "</b>";
+                        if(x != 0)
+                        {
+                            this.c_q1_a = '<b style="color: #72cc66">' + a + ' (' + ((a/x)*100).toFixed(2) +' %)</b>';
+                            this.c_q1_b = '<b style="color: #40B5AD">' + b + ' (' + ((b/x)*100).toFixed(2) +' %)</b>';
+                            this.c_q1_c = '<b style="color: #DAE021">' + c + ' (' + ((c/x)*100).toFixed(2) +' %)</b>';
+                            this.c_q1_d = '<b style="color: #FFBF00">' + d + ' (' + ((d/x)*100).toFixed(2) +' %)</b>';
+                            this.c_q1_e = '<b style="color: red">' + e + ' (' + ((e/x)*100).toFixed(2) +' %)</b>';
+                            this.c_q1_f = '<b style="color: #FFBF00">' + q + ' (' + ((q/x)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.c_q1_a = '<b style="color: #72cc66">' + a + '</b>';
+                            this.c_q1_b = '<b style="color: #40B5AD">' + b + '</b>';
+                            this.c_q1_c = '<b style="color: #DAE021">' + c + '</b>';
+                            this.c_q1_d = '<b style="color: #FFBF00">' + d + '</b>';
+                            this.c_q1_e = '<b style="color: red">' + e + '</b>';
+                            this.c_q1_f = '<b style="color: #FFBF00">' + q + '</b>';
+                        }
+                        if(y != 0)
+                        {
+                            this.agent_c_q1_a = '<b style="color: #72cc66">' + f + ' (' + ((f/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_c_q1_b = '<b style="color: #40B5AD">' + g + ' (' + ((g/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_c_q1_c = '<b style="color: #DAE021">' + h + ' (' + ((h/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_c_q1_d = '<b style="color: #FFBF00">' + i + ' (' + ((i/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_c_q1_e = '<b style="color: red">' + j + ' (' + ((j/y)*100).toFixed(2) +' %)</b>';
+                            this.agent_c_q1_f = '<b style="color: #FFBF00">' + r + ' (' + ((r/y)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.agent_c_q1_a = '<b style="color: #72cc66">' + f + '</b>';
+                            this.agent_c_q1_b = '<b style="color: #40B5AD">' + g + '</b>';
+                            this.agent_c_q1_c = '<b style="color: #DAE021">' + h + '</b>';
+                            this.agent_c_q1_d = '<b style="color: #FFBF00">' + i + '</b>';
+                            this.agent_c_q1_e = '<b style="color: red">' + j + '</b>';
+                            this.agent_c_q1_r = '<b style="color: #FFBF00">' + r + '</b>';
+                        }
+                        if(z != 0)
+                        {
+                            this.public_c_q1_a = '<b style="color: #72cc66">' + k + ' (' + ((k/z)*100).toFixed(2) +' %)</b>';
+                            this.public_c_q1_b = '<b style="color: #40B5AD">' + l + ' (' + ((l/z)*100).toFixed(2) +' %)</b>';
+                            this.public_c_q1_c = '<b style="color: #DAE021">' + m + ' (' + ((m/z)*100).toFixed(2) +' %)</b>';
+                            this.public_c_q1_d = '<b style="color: #FFBF00">' + n + ' (' + ((n/z)*100).toFixed(2) +' %)</b>';
+                            this.public_c_q1_e = '<b style="color: red">' + o + ' (' + ((o/z)*100).toFixed(2) +' %)</b>';
+                            this.public_c_q1_f = '<b style="color: #FFBF00">' + s + ' (' + ((s/z)*100).toFixed(2) +' %)</b>';
+                        }
+                        else{
+                            this.public_c_q1_a = '<b style="color: #72cc66">' + k + '</b>';
+                            this.public_c_q1_b = '<b style="color: #40B5AD">' + l + '</b>';
+                            this.public_c_q1_c = '<b style="color: #DAE021">' + m + '</b>';
+                            this.public_c_q1_d = '<b style="color: #FFBF00">' + n + '</b>';
+                            this.public_c_q1_e = '<b style="color: red">' + o + '</b>';
+                            this.public_c_q1_f = '<b style="color: #FFBF00">' + s + '</b>';
+                        }
+                        this.C_Q1_loaded = true;
+                    })
+                }
+                catch(err){    
+                        console.log("CQ1: " + err);
                 }
             }
         }

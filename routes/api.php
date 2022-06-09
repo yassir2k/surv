@@ -70,3 +70,4 @@ Route::post('/timeliness_Q4', [BiReportController::class, 'TimelinessQ4']);
 Route::post('/online_environment_Q1', [BiReportController::class, 'OnlineEnvironmentQ1']);
 Route::post('/online_environment_Q2', [BiReportController::class, 'OnlineEnvironmentQ2']);
 Route::post('/online_environment_Q3', [BiReportController::class, 'OnlineEnvironmentQ3']);
+Route::post('/challenges_Q1', [BiReportController::class, 'ChallengesQ1']);
