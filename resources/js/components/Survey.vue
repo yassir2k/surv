@@ -464,7 +464,7 @@
                                                         <div class="input-group-text">
                                                             <i class="fas fa-user" style="color: #8FBC8F"></i>
                                                         </div>                    
-                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                    <input v-model="name" type="text" class="form-control"  required :disabled="DisableConsentForm">
                                                 </div>
                                             </div>
                                         </div>
@@ -485,7 +485,7 @@
                                                         <div class="input-group-text">
                                                             <i class="fas fa-building" style="color: #8FBC8F"></i>
                                                         </div>                    
-                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                    <input v-model="company" type="text" class="form-control"  required :disabled="DisableConsentForm">
                                                 </div>
                                             </div>
                                         </div>
@@ -509,7 +509,7 @@
                                                         <div class="input-group-text">
                                                             <i class="fas fa-envelope-open-text" style="color: #8FBC8F"></i>
                                                         </div>                    
-                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                    <input v-model="email" type="text" class="form-control"  required :disabled="DisableConsentForm">
                                                 </div>
                                             </div>
                                         </div>
@@ -530,7 +530,7 @@
                                                         <div class="input-group-text">
                                                             <i class="fas fa-phone-square-alt" style="color: #8FBC8F"></i>
                                                         </div>                    
-                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                    <input v-model="phone" type="text" class="form-control"  required :disabled="DisableConsentForm">
                                                 </div>
                                             </div>
                                         </div>
@@ -625,7 +625,11 @@ export default {
             consent: false,
             ConsentLabelStyleRed: "color: red",
             ConsentLabelStyleGreen: "",
-            DisableConsentForm: true
+            DisableConsentForm: true,
+            name: null,
+            company: null,
+            email: null,
+            phone: null
         }
     },
     components:{
@@ -646,7 +650,8 @@ export default {
             if(this.ConsentLabelStyleGreen == "color: #009900" && this.consent == false)
             {
                 this.ConsentLabelStyleGreen = "";
-                this.ConsentLabelStyleRed = "color: red"
+                this.ConsentLabelStyleRed = "color: red";
+                this.name = this.company = this.email = this.phone = null;
             }
         },
         fortmatResponse(res) {
