@@ -47,25 +47,8 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-sm-12 align-middle">
-                            <strong>Profession:</strong><b class="text-danger">*</b>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <div class="input-group">
-                                        <div class="input-group-text"> 
-                                            <i class="fas fa-user-tie" style="color: #8FBC8F"></i>
-                                        </div>                    
-                                    <input type="text" class="form-control" placeholder="Profession" v-model="profession" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
 
                 <div class="col-sm-4">
                     <div class="row">
@@ -447,6 +430,119 @@
                 </dl>
             </div>
 
+
+            <br />
+            <h4 style="border-bottom: 1px solid #DDDDDD">Consent to be Contacted</h4>
+            <br />
+
+            <!-- Permission for Details Collection Row -->
+            <div class="row">
+                <dl class="row">
+                    <dt class="col-sm-1">12.</dt>
+                    <dd class="col-sm-11">Would you be happy to grant consent to the CAC to contact you regarding your feedback, or to take part in future research on other CAC services?
+                        <div class="form-group">
+                            <br />
+                            <div class="switch">
+                                <label>
+                                    <label :style="ConsentLabelStyleRed">No</label><input type="checkbox" :value="consent" :checked="consent" @click="OnToggle()"><span class="lever"></span>
+                                    <label :style="ConsentLabelStyleGreen">Yes</label>
+                                </label>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <!-- Name -->
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 align-middle">
+                                            <strong  class="form-label">Name:</strong><b class="text-danger">*</b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12"> 
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-user" style="color: #8FBC8F"></i>
+                                                        </div>                    
+                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Name -->
+                                <!-- Company Name -->
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 align-middle">
+                                            <strong  class="form-label">Company Name:</strong><b class="text-danger">*</b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12"> 
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-building" style="color: #8FBC8F"></i>
+                                                        </div>                    
+                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Company Name -->
+                            </div>
+                            <br />
+                            <div class="row">
+                                <!-- Email -->
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 align-middle">
+                                            <strong  class="form-label">Email Address:</strong><b class="text-danger">*</b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12"> 
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-envelope-open-text" style="color: #8FBC8F"></i>
+                                                        </div>                    
+                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Email -->
+                                <!-- Phone Number -->
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-12 align-middle">
+                                            <strong  class="form-label">Phone Number:</strong><b class="text-danger">*</b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12"> 
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-phone-square-alt" style="color: #8FBC8F"></i>
+                                                        </div>                    
+                                                    <input v-model="username" type="text" class="form-control"  required :disabled="DisableConsentForm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Phone Number -->
+                            </div>
+                        </div>        
+                    </dd>
+                </dl>
+            </div>
+
             <div class="row">
                 <div class="col-4">
                 </div>
@@ -525,7 +621,11 @@ export default {
             counter: null,
             showOthers: false,
             showOthers_: false,
-            challenges:[]
+            challenges:[],
+            consent: false,
+            ConsentLabelStyleRed: "color: red",
+            ConsentLabelStyleGreen: "",
+            DisableConsentForm: true
         }
     },
     components:{
@@ -534,6 +634,20 @@ export default {
     methods:{
         OnModalHide(){
             location.reload();
+        },
+        OnToggle(){
+            this.consent = !this.consent;
+            this.DisableConsentForm = !this.DisableConsentForm
+            if(this.ConsentLabelStyleRed == "color: red" && this.consent == true)
+            {
+                this.ConsentLabelStyleGreen = "color: #009900";
+                this.ConsentLabelStyleRed = "";
+            }
+            if(this.ConsentLabelStyleGreen == "color: #009900" && this.consent == false)
+            {
+                this.ConsentLabelStyleGreen = "";
+                this.ConsentLabelStyleRed = "color: red"
+            }
         },
         fortmatResponse(res) {
             return JSON.stringify(res, null, 2);
