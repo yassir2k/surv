@@ -77,26 +77,56 @@ class ApiController extends Controller
         $authorization = $request->header("authorization");
         $referer = $request->header("referer");
         $control_hash = substr(bin2hex(random_bytes(50)), 0, 50);//Generate Control Hash
-        $FeedBackData = ['accreditation_' => $request->input('accreditation'), 
-            'profession_' => $request->input('profession'),
-            'gender_' => $request->input('gender'),
-            'date_' => date("Y-m-d H:i:s"),
-            'service_delivery1' => $request->input('service_delivery1'),
-            'service_delivery2' => $request->input('service_delivery2'), 
-            'quality_' => $request->input('quality'),
-            'timelines1' => $request->input('timelines1'),
-            'timelines2' => $request->input('timelines2'),
-            'others' => $request->input('others'),
-            'timelines3' => $request->input('timelines3'),
-            'timelines4' => $request->input('timelines4'),
-            'online_environment1' => $request->input('online_environment1'),
-            'online_environment2' => $request->input('online_environment2'),
-            'online_environment3' => $request->input('online_environment3'),
-            'challenges_' => $request->input('challenges'),
-            'others_' => $request->input('others_'),
-            'control_hash' => $control_hash
-        ];
-
+        //This stores the value of incoming data
+        $FeedBackData = null;
+        if($request->input('consent') == true)
+        {
+            $FeedBackData = ['accreditation_' => $request->input('accreditation'), 
+                'profession_' => $request->input('profession'),
+                'gender_' => $request->input('gender'),
+                'date_' => date("Y-m-d H:i:s"),
+                'service_delivery1' => $request->input('service_delivery1'),
+                'service_delivery2' => $request->input('service_delivery2'), 
+                'quality_' => $request->input('quality'),
+                'timelines1' => $request->input('timelines1'),
+                'timelines2' => $request->input('timelines2'),
+                'others' => $request->input('others'),
+                'timelines3' => $request->input('timelines3'),
+                'timelines4' => $request->input('timelines4'),
+                'online_environment1' => $request->input('online_environment1'),
+                'online_environment2' => $request->input('online_environment2'),
+                'online_environment3' => $request->input('online_environment3'),
+                'challenges_' => $request->input('challenges'),
+                'others_' => $request->input('others_'),
+                'control_hash' => $control_hash,
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'company_name' => $request->input('company'),
+                'phone' => $request->input('phone')
+            ];
+        }
+        else
+        {
+            $FeedBackData = ['accreditation_' => $request->input('accreditation'), 
+                'profession_' => $request->input('profession'),
+                'gender_' => $request->input('gender'),
+                'date_' => date("Y-m-d H:i:s"),
+                'service_delivery1' => $request->input('service_delivery1'),
+                'service_delivery2' => $request->input('service_delivery2'), 
+                'quality_' => $request->input('quality'),
+                'timelines1' => $request->input('timelines1'),
+                'timelines2' => $request->input('timelines2'),
+                'others' => $request->input('others'),
+                'timelines3' => $request->input('timelines3'),
+                'timelines4' => $request->input('timelines4'),
+                'online_environment1' => $request->input('online_environment1'),
+                'online_environment2' => $request->input('online_environment2'),
+                'online_environment3' => $request->input('online_environment3'),
+                'challenges_' => $request->input('challenges'),
+                'others_' => $request->input('others_'),
+                'control_hash' => $control_hash
+            ];
+        }
         //Now we commit new entry to the database using eloquence
         Questions::create($FeedBackData);
 

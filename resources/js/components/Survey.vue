@@ -47,9 +47,6 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-sm-12 align-middle">
@@ -61,7 +58,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-text"> 
-                                        <i class="fas fa-user-edit" style="color: #8FBC8F"></i>
+                                        <i class="fas fa-venus-mars" style="color: #8FBC8F"></i>
                                     </div>    
                                     <select v-model="gender" placeholder="Gender" data-show-content="true" class="form-control border" required>
                                         <option value="">Choose your gender...</option>  
@@ -74,6 +71,28 @@
                     </div>
                 </div>
 
+                <!-- Phone Number -->
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-12 align-middle">
+                            <strong  class="form-label">Profession:</strong><b class="text-danger">*</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12"> 
+                            <div class="form-group">
+                                <div class="input-group">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-chalkboard-teacher" style="color: #8FBC8F"></i>
+                                        </div>                    
+                                    <input v-model="profession" type="text" class="form-control" placeholder="Your Profession" required >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phone Number -->
+
             </div>
 
             <br />
@@ -84,7 +103,7 @@
             <div class="row">
                 <dl class="row">
                     <dt class="col-sm-1">1.</dt>
-                    <dd class="col-sm-11">Are you satisfied with the conduct of the Name Availability for your registration?
+                    <dd class="col-sm-11">Are you satisfied with your Name Reservation experience?
                         <div class="form-group">
                             <br />
                             <div class="form-check form-check-inline">
@@ -112,7 +131,7 @@
                 </dl>
                 <dl class="row">
                     <dt class="col-sm-1">2.</dt>
-                    <dd class="col-sm-11">Which registration service have you done online?
+                    <dd class="col-sm-11">Which registration service have you recently done online?
                         <div class="form-group">
                             <br />
                             <div class="form-check form-check-inline">
@@ -449,7 +468,7 @@
                                 </label>
                             </div>
                             <br />
-                            <div class="row">
+                            <div class="row" v-show="consent">
                                 <!-- Name -->
                                 <div class="col-sm-6">
                                     <div class="row">
@@ -494,7 +513,7 @@
                                 <!-- Company Name -->
                             </div>
                             <br />
-                            <div class="row">
+                            <div class="row" v-show="consent">
                                 <!-- Email -->
                                 <div class="col-sm-6">
                                     <div class="row">
@@ -629,7 +648,8 @@ export default {
             name: null,
             company: null,
             email: null,
-            phone: null
+            phone: null,
+            postData: {}
         }
     },
     components:{
@@ -678,7 +698,9 @@ export default {
             let element = this.$refs.Modal;
             $(element).modal('show');
             var challenges_tmp = this.challenges.toString();
-            var postData = {
+            if(this.consent)
+            {
+                this.postData = {
                 "accreditation": this.accredited,
                 "profession": this.profession,
                 "gender": this.gender,
@@ -694,15 +716,42 @@ export default {
                 "online_environment2": this.oe2,
                 "online_environment3": this.oe3,
                 "challenges": challenges_tmp.replaceAll( ",",", "),
-                "others_": this.others_
+                "others_": this.others_,
+                "consent": this.consent,
+                "name": this.name,
+                "company": this.company,
+                "email": this.email,
+                "phone": this.phone
             };
-            console.log(postData);
+            }
+            else
+            {
+                this.postData = {
+                "accreditation": this.accredited,
+                "profession": this.profession,
+                "gender": this.gender,
+                "service_delivery1": this.sd1,
+                "service_delivery2": this.sd2,
+                "quality": this.q,
+                "timelines1": this.t1,
+                "timelines2": this.t2,
+                "others": this.others,
+                "timelines3": this.t3,
+                "timelines4": this.t4,
+                "online_environment1": this.oe1,
+                "online_environment2": this.oe2,
+                "online_environment3": this.oe3,
+                "challenges": challenges_tmp.replaceAll( ",",", "),
+                "others_": this.others_,
+                "consent": this.consent
+            };
+            }
             //setTimeout(() => { 
                 try{
                     axios({
                         method: 'post',
                         url: 'http://127.0.0.1:8000/api/savefeedback',
-                        data: postData,
+                        data: this.postData,
                         headers: { 
                             'Content-type': 'application/json; charset=utf-8', 
                             'Authorization': 'remitaConsumerKey=232323,remitaConsumerToken=121212'
@@ -711,11 +760,22 @@ export default {
                         })
                     .then(response =>{
                         if(response.data[1] == "Successful"){
-                            this.loader='<div class="alert alert-success" align="justify"> '+ 
-                            '<i> Thank you for completing and submitting this form.' + 
-                            ' Please take note that your feedback is of utmost importance to the CAC in making decision with' + 
-                            ' respect to improving service delivery to our Clients.</i></div>';
-                            this.counter='<label align="left" class="text-secondary">Your feedback index is <b class="text-warning">' +response.data[0]+ '</b></label>';
+                            if(this.consent)
+                            {
+                                this.loader='<div class="alert alert-success" align="justify"> '+ '<b> Dear ' + this.name + ',</b> <br />' +
+                                '<i> Thank you for completing and submitting this form.' + 
+                                ' Please take note that your feedback is of utmost importance to the CAC in making decision with' + 
+                                ' respect to improving service delivery to our Clients.</i></div>';
+                                this.counter='<label align="left" class="text-secondary">Your feedback index is <b class="text-warning">' +response.data[0]+ '</b></label>';
+                            }
+                            else
+                            {
+                                this.loader='<div class="alert alert-success" align="justify"> '+ 
+                                '<i> Thank you for completing and submitting this form.' + 
+                                ' Please take note that your feedback is of utmost importance to the CAC in making decision with' + 
+                                ' respect to improving service delivery to our Clients.</i></div>';
+                                this.counter='<label align="left" class="text-secondary">Your feedback index is <b class="text-warning">' +response.data[0]+ '</b></label>';
+                            }
                         }
                         else{
                             this.loader='<div class="alert alert-danger" align="justify">' +

@@ -55,7 +55,7 @@ Route::post('/change_user_password', [ApiController::class, 'ChangeUserPassword'
 
 /*
 |--------------------------------------------------------------------------
-| API Routes FOr Business Intelligence Reports online_environment_Q1
+| API Routes FOr Business Intelligence Reports online_environment_Q1 
 |--------------------------------------------------------------------------
 |
 */

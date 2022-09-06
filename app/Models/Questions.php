@@ -33,6 +33,10 @@ class Questions extends Model
         'is_read',
         'read_by',
         'date_read',
-        'control_hash'
+        'control_hash',
+        'name',
+        'company_name',
+        'email',
+        'phone'
     ];
 }

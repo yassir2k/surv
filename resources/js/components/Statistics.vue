@@ -186,7 +186,7 @@
                                         </div>
                                         <div class="col-sm-10"><!-- Begin Numbers -->
                                             <div class="row">
-                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Are you satisfied with the conduct of the Name Availability for your registration?</b></div>
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Are you satisfied with your Name Reservation experience?</b></div>
                                             </div>
                                             <br />
                                             <div class="row">
@@ -335,7 +335,7 @@
                                         </div>
                                         <div class="col-sm-10"><!-- Begin Numbers -->
                                             <div class="row">
-                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Which registration service have you done online?</b></div>
+                                                <div class="col-sm-10"><i class="fas fa-question-circle"></i>  <b>Which registration service have you recently done online?</b></div>
                                             </div>
                                             <br />
                                             <div class="row">

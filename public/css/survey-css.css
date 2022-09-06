@@ -613,7 +613,7 @@ margin-right:.625rem;
 vertical-align:middle;
 content:"";
 /*background-color:#818181;*/
-background-color:#FF0000;
+background-color:#FFDDDD;
 border-radius:.9375rem;
 width:2.5rem;
 height:.9375rem;
@@ -626,7 +626,7 @@ top:-.1875rem;
 left:-.3125rem;
 display:inline-block;
 content:"";
-background-color:#FFDDDD;
+background-color:#FF0000;
 border-radius:1.3125rem;
 -webkit-box-shadow:0 .0625rem .1875rem .0625rem rgba(0,0,0,0.4);
 box-shadow:0 .0625rem .1875rem .0625rem rgba(0,0,0,0.4);

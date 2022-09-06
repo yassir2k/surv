@@ -57,9 +57,63 @@
 				<strong>{{ $_feedback->date_ }}</strong>
 			</div>
 		</div>
-        
-
-        <br />
+		@if( $_feedback->name != null) 
+			<br />
+			<div class="row"><!-- Contact Details -->
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-6 d-flex p-2">
+					<h4 style="border-bottom: 2px solid #8FBC8F">Contact Details</h4>
+				</div>
+				<div class="col-sm-5">
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-sm-1 ">
+				</div>
+				<div class="col-sm-5 d-flex p-2">
+				Name:
+				</div>
+				<div class="col-sm-6 d-flex p-2">
+					<strong>{{ $_feedback->name }}</strong>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-sm-1 ">
+				</div>
+				<div class="col-sm-5 d-flex p-2">
+				Company:
+				</div>
+				<div class="col-sm-6 d-flex p-2">
+					<strong>{{ $_feedback->company_name }}</strong>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-sm-1 ">
+				</div>
+				<div class="col-sm-5 d-flex p-2">
+				Email Address:
+				</div>
+				<div class="col-sm-6 d-flex p-2">
+					<strong>{{ $_feedback->email }}</strong>
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<div class="col-sm-1 ">
+				</div>
+				<div class="col-sm-5 d-flex p-2">
+				Phone Number:
+				</div>
+				<div class="col-sm-6 d-flex p-2">
+					<strong>{{ $_feedback->phone }}</strong>
+				</div>
+			</div>
+		@endif
+		<br />
         <div class="row"><!-- Service Delivery -->
             <div class="col-sm-1">
 			</div>
@@ -74,7 +128,7 @@
 			<div class="col-sm-1 ">
 			</div>
 			<div class="col-sm-5 d-flex p-2" align="left">
-            Are you satisfied with the conduct of the Name Availability for your registration?
+            Are you satisfied with your Name Reservation experience?
 			</div>
 			<div class="col-sm-6 d-flex p-2">
 				<strong>{{ $_feedback->service_delivery1 }}</strong>
@@ -85,7 +139,7 @@
 			<div class="col-sm-1 ">
 			</div>
 			<div class="col-sm-5 d-flex p-2">
-            Which Registration service have you done online?
+            Which registration service have you recently done online?
 			</div>
 			<div class="col-sm-6 d-flex p-2">
 				<strong>{{ $_feedback->service_delivery2 }}</strong>
